@@ -1,0 +1,330 @@
+{
+  "algorithm": "graph_guided_investigation_scaffold_v1",
+  "settings": {
+    "top_k": 3,
+    "threshold": 0.75,
+    "batch_size": 2,
+    "random_seed": 42,
+    "max_investigations": 10,
+    "branch_execution": "sequential prototype; paper algorithm describes parallel branches"
+  },
+  "final_ranking": [
+    {
+      "service": "productcatalogservice",
+      "confidence": 0.9107,
+      "evidence_confidence": 0.9107,
+      "causal_confidence": 0.9107,
+      "supporting_facts": [
+        "The service 'recommendationservice' has the highest score of 91.06640951, indicating it is the most likely service causing the observed anomalies in the system's performance.",
+        "The service 'checkoutservice' has the second-highest score of 63.16891932, suggesting it is a significant contributor to the anomalies.",
+        "The service 'emailservice' has a score of 60.32587743, indicating it is also a notable contributor to the anomalies.",
+        "The service 'productcatalogservice' has a score of 54.62521176, suggesting it is a contributing service but to a lesser extent.",
+        "The service 'currencyservice' has a score of 51.1249119, indicating it is a contributing service but less so than the previous service.",
+        "The service 'paymentservice' has a score of 48.78015495, suggesting it is a contributing service but to a lesser extent.",
+        "The service 'frontend' has a score of 46.90234539, indicating it is a contributing service but to a lesser extent.",
+        "The services 'adservice', 'shippingservice', and 'cartservice' have scores of 11.6102399, 11.59760627, and 11.41121157 respectively, indicating they are not significant contributors to the anomalies.",
+        "The evidence note states that feature values are descriptive evidence, not proof of causality, which means that while the scores indicate which services are more likely to be causing the anomalies, they do not definitively prove causality."
+      ],
+      "contradicting_facts": [
+        "The service 'redis' has a score of 0.0, indicating it is not a contributing service to the anomalies.",
+        "The service 'adservice', 'shippingservice', and 'cartservice' have scores of 11.6102399, 11.59760627, and 11.41121157 respectively, which are not high enough to be considered significant contributors to the anomalies."
+      ],
+      "conclusion": "Based on the scores and evidence provided, the 'recommendationservice' is the most likely service causing the observed anomalies in the system's performance. However, it is important to note that while the scores indicate a high likelihood, they do not definitively prove causality. Further investigation and possibly additional data analysis may be needed to confirm this conclusion.",
+      "reasoning": "The scores for each service were calculated based on the anomaly scores and other relevant metrics. The service with the highest score is considered the most likely cause of the anomalies. The scores for 'recommendationservice' are significantly higher than those for other services, indicating a strong correlation. The scores for other services are lower, suggesting they are less likely to be the cause of the anomalies. The evidence note emphasizes that these scores are descriptive and not definitive proof, which is important to keep in mind when interpreting the results.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "checkoutservice",
+      "confidence": 0.9107,
+      "evidence_confidence": 0.9107,
+      "causal_confidence": 0.9107,
+      "supporting_facts": [
+        "The service 'recommendationservice' has the highest score of 91.06640951, indicating it is the most likely service causing the observed anomalies in the system's performance.",
+        "The service 'checkoutservice' has the second-highest score of 63.16891932, suggesting it is a significant contributor to the anomalies.",
+        "The service 'emailservice' has a score of 60.32587743, indicating it is also a notable contributor to the anomalies.",
+        "The service 'productcatalogservice' has a score of 54.62521176, suggesting it is a contributing service but to a lesser extent.",
+        "The service 'currencyservice' has a score of 51.1249119, indicating it is a contributing service but with a lower score.",
+        "The service 'paymentservice' has a score of 48.78015495, suggesting it is a contributing service but with a lower score.",
+        "The service 'frontend' has a score of 46.90234539, indicating it is a contributing service but with a lower score.",
+        "The services 'adservice', 'shippingservice', 'cartservice', and 'redis' have scores of 11.6102399, 11.59760627, 11.41121157, and 0.0 respectively, indicating they are not significant contributors to the anomalies.",
+        "The evidence note states that feature values are descriptive evidence, not proof of causality, which means the scores are indicative of potential impact rather than definitive proof of causality."
+      ],
+      "contradicting_facts": [
+        "The service 'redis' has a score of 0.0, indicating it is not a contributing service to the anomalies.",
+        "The service 'adservice', 'shippingservice', 'cartservice', and 'redis' have scores of 11.6102399, 11.59760627, 11.41121157, and 0.0 respectively, indicating they are not significant contributors to the anomalies."
+      ],
+      "conclusion": "Based on the scores and evidence provided, the 'recommendationservice' is the most likely service causing the observed anomalies in the system's performance. Other services such as 'checkoutservice', 'emailservice', 'productcatalogservice', 'currencyservice', and 'paymentservice' are also contributing to the anomalies, but to a lesser extent. The services 'adservice', 'shippingservice', 'cartservice', and 'redis' are not significant contributors to the anomalies.",
+      "reasoning": "The scores for each service are calculated based on various metrics such as log and trace counts, median and p95 latencies, and anomaly scores. These scores are indicative of the service's impact on the system's performance. The evidence note clarifies that these scores are descriptive evidence and not definitive proof of causality. The scores for the services 'adservice', 'shippingservice', 'cartservice', and 'redis' are very low, indicating they are not significant contributors to the anomalies. The highest score, 91.06640951, is for the 'recommendationservice', which is the most likely service causing the anomalies.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "paymentservice",
+      "confidence": 0.9107,
+      "evidence_confidence": 0.9107,
+      "causal_confidence": 0.9107,
+      "supporting_facts": [
+        "The service 'recommendationservice' has the highest score of 91.06640951, indicating it is the most likely service causing the observed anomalies in the system's performance.",
+        "The service 'checkoutservice' has the second-highest score of 63.16891932, suggesting it is a significant contributor to the anomalies.",
+        "The service 'emailservice' has a score of 60.32587743, indicating it is also a notable contributor to the anomalies.",
+        "The service 'productcatalogservice' has a score of 54.62521176, suggesting it is a contributing service but to a lesser extent.",
+        "The service 'currencyservice' has a score of 51.1249119, indicating it is a contributing service but to a lesser extent.",
+        "The service 'paymentservice' has a score of 48.78015495, suggesting it is a contributing service but to a lesser extent.",
+        "The service 'frontend' has a score of 46.90234539, indicating it is a contributing service but to a lesser extent.",
+        "The services 'adservice', 'shippingservice', 'cartservice', and 'redis' have scores of 11.6102399, 11.59760627, 11.41121157, and 0.0 respectively, indicating they are not significant contributors to the anomalies.",
+        "The evidence note states that feature values are descriptive evidence, not proof of causality, which means the scores are indicative of potential impact rather than definitive proof of causality, as stated in the evidence note."
+      ],
+      "contradicting_facts": [
+        "The service 'redis' has a score of 0.0, indicating it is not a contributing service to the anomalies.",
+        "The service 'adservice', 'shippingservice', and 'cartservice' have scores of 11.6102399, 11.59760627, and 11.41121157 respectively, which are not high enough to be considered significant contributors."
+      ],
+      "conclusion": "Based on the scores and evidence provided, the 'recommendationservice' is the most likely service causing the observed anomalies in the system's performance. Other services such as 'checkoutservice', 'emailservice', 'productcatalogservice', 'currencyservice', and 'paymentservice' are also contributing to the anomalies, but to a lesser extent. The services 'adservice', 'shippingservice', and 'cartservice' are not significant contributors to the anomalies.",
+      "reasoning": "The scores for each service are calculated based on the observed anomalies and are used to rank the services from most likely to least likely to be the cause of the anomalies. The scores are indicative of potential impact rather than definitive proof of causality, as stated in the evidence note. The scores for 'redis' and the other services are used to determine their contribution to the anomalies.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "emailservice",
+      "confidence": 0.9107,
+      "evidence_confidence": 0.9107,
+      "causal_confidence": 0.9107,
+      "supporting_facts": [
+        "The service 'recommendationservice' has the highest score of 91.06640951, indicating it is the most likely service causing the observed anomalies in the system's performance.",
+        "The service 'checkoutservice' has the second-highest score of 63.16891932, suggesting it is a significant contributor to the anomalies.",
+        "The service 'emailservice' has a score of 60.32587743, indicating it is also a contributing service.",
+        "The service 'productcatalogservice' has a score of 54.62521176, suggesting it is a contributing service but to a lesser extent.",
+        "The service 'currencyservice' has a score of 51.1249119, indicating it is a contributing service but to a lesser extent.",
+        "The service 'paymentservice' has a score of 48.78015495, suggesting it is a contributing service but to a lesser extent.",
+        "The service 'frontend' has a score of 46.90234539, indicating it is a contributing service but to a lesser extent.",
+        "The services 'adservice', 'shippingservice', and 'cartservice' have scores of 11.6102399, 11.59760627, and 11.41121157 respectively, indicating they are not significant contributors to the anomalies.",
+        "The evidence note states that feature values are descriptive evidence, not proof of causality, which means that while the scores indicate which services are more likely to be causing the anomalies, they do not definitively prove causality."
+      ],
+      "contradicting_facts": [
+        "The service 'redis' has a score of 0.0, indicating it is not a contributing service to the anomalies.",
+        "The service 'adservice', 'shippingservice', and 'cartservice' have scores of 11.6102399, 11.59760627, and 11.41121157 respectively, which are not high enough to be considered significant contributors to the anomalies."
+      ],
+      "conclusion": "Based on the scores and evidence provided, the 'recommendationservice' is the most likely service causing the observed anomalies in the system's performance. However, it is important to note that while the scores indicate which services are more likely to be causing the anomalies, they do not definitively prove causality. Further investigation and analysis are recommended to confirm the findings.",
+      "reasoning": "The scores for each service were calculated based on the observed anomalies and are used to rank the services from most likely to least likely to be causing the anomalies. The scores are derived from the median and p95 latency values, log counts, and trace counts, which are considered descriptive evidence. The evidence note clarifies that these scores are not proof of causality, and thus, further investigation is necessary to confirm the findings.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "recommendationservice",
+      "confidence": 0.9106640951,
+      "evidence_confidence": 0.9106640951,
+      "causal_confidence": 0.9106640951,
+      "supporting_facts": [
+        "The service 'recommendationservice' has the highest score of 0.9106640951, indicating it is the most likely service causing the observed anomalies in the system's performance.",
+        "The service 'checkoutservice' has the second-highest score of 0.6316891932, suggesting it is a significant contributor to the anomalies.",
+        "The service 'emailservice' has a score of 0.6032587743, indicating it is also a contributing service.",
+        "The service 'productcatalogservice' has a score of 0.5462521176, suggesting it is a contributing service but to a lesser extent.",
+        "The service 'currencyservice' has a score of 0.511249119, indicating it is a contributing service but less so than the previous service.",
+        "The service 'paymentservice' has a score of 0.4878015495, suggesting it is a contributing service but to a lesser extent.",
+        "The service 'frontend' has a score of 0.4690234539, indicating it is a contributing service but to a lesser extent.",
+        "The services 'adservice', 'shippingservice', and 'cartservice' have scores of 0.116102399, 0.1159760627, and 0.0 respectively, indicating they are not significant contributors to the anomalies.",
+        "The evidence note states that feature values are descriptive evidence, not proof of causality, which means that while the scores indicate which services are more likely to be causing the anomalies, they do not definitively prove causality."
+      ],
+      "contradicting_facts": [
+        "The service 'redis' has a score of 0.0, indicating it is not a contributing service to the anomalies."
+      ],
+      "conclusion": "Based on the scores and evidence provided, the 'recommendationservice' is the most likely service causing the observed anomalies in the system's performance. The 'checkoutservice', 'emailservice', and 'productcatalogservice' are also significant contributors, while the 'currencyservice', 'paymentservice', and 'frontend' are contributing to a lesser extent. The services 'adservice', 'shippingservice', and 'cartservice' are not significant contributors to the anomalies. The evidence note emphasizes that these scores are descriptive and not definitive proof of causality. The service 'redis' is not a contributing service to the anomalies.",
+      "reasoning": "The scores for each service were calculated based on the observed anomalies and the system's performance data. The service with the highest score is considered the most likely cause of the anomalies. The scores for the other services indicate their relative contribution to the anomalies. The evidence note clarifies that these scores are descriptive and do not definitively prove causality.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "frontend",
+      "confidence": 0.9106640951,
+      "evidence_confidence": 0.9106640951,
+      "causal_confidence": 0.9106640951,
+      "supporting_facts": [
+        "The service 'recommendationservice' has the highest score of 0.9106640951, indicating it is the most likely service causing the observed anomalies in the system's performance.",
+        "The service 'checkoutservice' has the second-highest score of 0.6316891932, suggesting it is a significant contributor to the anomalies.",
+        "The service 'emailservice' has a score of 0.6032587743, indicating it is also a contributing service.",
+        "The service 'productcatalogservice' has a score of 0.5462521176, suggesting it is a contributing service but to a lesser extent.",
+        "The service 'currencyservice' has a score of 0.511249119, indicating it is a contributing service but less so than the previous service.",
+        "The service 'paymentservice' has a score of 0.4878015495, suggesting it is a contributing service but even less so than the previous service.",
+        "The service 'frontend' has a score of 0.4690234539, indicating it is a contributing service but to a lesser extent.",
+        "The services 'adservice', 'shippingservice', and 'cartservice' have scores of 0.116102399, 0.1159760627, and 0.0 respectively, indicating they are not significant contributors to the anomalies."
+      ],
+      "contradicting_facts": [
+        "The service 'redis' has a score of 0.0, indicating it is not a contributing service to the anomalies."
+      ],
+      "conclusion": "Based on the scores and evidence provided, the 'recommendationservice' is the most likely service causing the observed anomalies in the system's performance. The 'checkoutservice', 'emailservice', and 'productcatalogservice' are also significant contributors, while the 'currencyservice', 'paymentservice', and 'frontend' are contributing to a lesser extent. The services 'adservice', 'shippingservice', and 'cartservice' are not significant contributors to the anomalies. The evidence note emphasizes that these scores are descriptive and not definitive proof of causality. The service 'redis' is not a contributing service to the anomalies.",
+      "reasoning": "The scores for each service were calculated based on the observed anomalies and the system's performance data. The service with the highest score is considered the most likely cause of the anomalies. The scores for the other services indicate their relative contribution to the anomalies. The evidence note clarifies that these scores are descriptive and do not prove causality, but they provide a strong indication of which services are more likely to be causing the anomalies.",
+      "source": "ollama:qwen2.5:3b"
+    }
+  ],
+  "global_memory": [
+    {
+      "service": "recommendationservice",
+      "confidence": 0.9106640951,
+      "evidence_confidence": 0.9106640951,
+      "causal_confidence": 0.9106640951,
+      "supporting_facts": [
+        "The service 'recommendationservice' has the highest score of 0.9106640951, indicating it is the most likely service causing the observed anomalies in the system's performance.",
+        "The service 'checkoutservice' has the second-highest score of 0.6316891932, suggesting it is a significant contributor to the anomalies.",
+        "The service 'emailservice' has a score of 0.6032587743, indicating it is also a contributing service.",
+        "The service 'productcatalogservice' has a score of 0.5462521176, suggesting it is a contributing service but to a lesser extent.",
+        "The service 'currencyservice' has a score of 0.511249119, indicating it is a contributing service but less so than the previous service.",
+        "The service 'paymentservice' has a score of 0.4878015495, suggesting it is a contributing service but to a lesser extent.",
+        "The service 'frontend' has a score of 0.4690234539, indicating it is a contributing service but to a lesser extent.",
+        "The services 'adservice', 'shippingservice', and 'cartservice' have scores of 0.116102399, 0.1159760627, and 0.0 respectively, indicating they are not significant contributors to the anomalies.",
+        "The evidence note states that feature values are descriptive evidence, not proof of causality, which means that while the scores indicate which services are more likely to be causing the anomalies, they do not definitively prove causality."
+      ],
+      "contradicting_facts": [
+        "The service 'redis' has a score of 0.0, indicating it is not a contributing service to the anomalies."
+      ],
+      "conclusion": "Based on the scores and evidence provided, the 'recommendationservice' is the most likely service causing the observed anomalies in the system's performance. The 'checkoutservice', 'emailservice', and 'productcatalogservice' are also significant contributors, while the 'currencyservice', 'paymentservice', and 'frontend' are contributing to a lesser extent. The services 'adservice', 'shippingservice', and 'cartservice' are not significant contributors to the anomalies. The evidence note emphasizes that these scores are descriptive and not definitive proof of causality. The service 'redis' is not a contributing service to the anomalies.",
+      "reasoning": "The scores for each service were calculated based on the observed anomalies and the system's performance data. The service with the highest score is considered the most likely cause of the anomalies. The scores for the other services indicate their relative contribution to the anomalies. The evidence note clarifies that these scores are descriptive and do not definitively prove causality.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "frontend",
+      "confidence": 0.9106640951,
+      "evidence_confidence": 0.9106640951,
+      "causal_confidence": 0.9106640951,
+      "supporting_facts": [
+        "The service 'recommendationservice' has the highest score of 0.9106640951, indicating it is the most likely service causing the observed anomalies in the system's performance.",
+        "The service 'checkoutservice' has the second-highest score of 0.6316891932, suggesting it is a significant contributor to the anomalies.",
+        "The service 'emailservice' has a score of 0.6032587743, indicating it is also a contributing service.",
+        "The service 'productcatalogservice' has a score of 0.5462521176, suggesting it is a contributing service but to a lesser extent.",
+        "The service 'currencyservice' has a score of 0.511249119, indicating it is a contributing service but less so than the previous service.",
+        "The service 'paymentservice' has a score of 0.4878015495, suggesting it is a contributing service but even less so than the previous service.",
+        "The service 'frontend' has a score of 0.4690234539, indicating it is a contributing service but to a lesser extent.",
+        "The services 'adservice', 'shippingservice', and 'cartservice' have scores of 0.116102399, 0.1159760627, and 0.0 respectively, indicating they are not significant contributors to the anomalies."
+      ],
+      "contradicting_facts": [
+        "The service 'redis' has a score of 0.0, indicating it is not a contributing service to the anomalies."
+      ],
+      "conclusion": "Based on the scores and evidence provided, the 'recommendationservice' is the most likely service causing the observed anomalies in the system's performance. The 'checkoutservice', 'emailservice', and 'productcatalogservice' are also significant contributors, while the 'currencyservice', 'paymentservice', and 'frontend' are contributing to a lesser extent. The services 'adservice', 'shippingservice', and 'cartservice' are not significant contributors to the anomalies. The evidence note emphasizes that these scores are descriptive and not definitive proof of causality. The service 'redis' is not a contributing service to the anomalies.",
+      "reasoning": "The scores for each service were calculated based on the observed anomalies and the system's performance data. The service with the highest score is considered the most likely cause of the anomalies. The scores for the other services indicate their relative contribution to the anomalies. The evidence note clarifies that these scores are descriptive and do not prove causality, but they provide a strong indication of which services are more likely to be causing the anomalies.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "productcatalogservice",
+      "confidence": 0.9107,
+      "evidence_confidence": 0.9107,
+      "causal_confidence": 0.9107,
+      "supporting_facts": [
+        "The service 'recommendationservice' has the highest score of 91.06640951, indicating it is the most likely service causing the observed anomalies in the system's performance.",
+        "The service 'checkoutservice' has the second-highest score of 63.16891932, suggesting it is a significant contributor to the anomalies.",
+        "The service 'emailservice' has a score of 60.32587743, indicating it is also a notable contributor to the anomalies.",
+        "The service 'productcatalogservice' has a score of 54.62521176, suggesting it is a contributing service but to a lesser extent.",
+        "The service 'currencyservice' has a score of 51.1249119, indicating it is a contributing service but less so than the previous service.",
+        "The service 'paymentservice' has a score of 48.78015495, suggesting it is a contributing service but to a lesser extent.",
+        "The service 'frontend' has a score of 46.90234539, indicating it is a contributing service but to a lesser extent.",
+        "The services 'adservice', 'shippingservice', and 'cartservice' have scores of 11.6102399, 11.59760627, and 11.41121157 respectively, indicating they are not significant contributors to the anomalies.",
+        "The evidence note states that feature values are descriptive evidence, not proof of causality, which means that while the scores indicate which services are more likely to be causing the anomalies, they do not definitively prove causality."
+      ],
+      "contradicting_facts": [
+        "The service 'redis' has a score of 0.0, indicating it is not a contributing service to the anomalies.",
+        "The service 'adservice', 'shippingservice', and 'cartservice' have scores of 11.6102399, 11.59760627, and 11.41121157 respectively, which are not high enough to be considered significant contributors to the anomalies."
+      ],
+      "conclusion": "Based on the scores and evidence provided, the 'recommendationservice' is the most likely service causing the observed anomalies in the system's performance. However, it is important to note that while the scores indicate a high likelihood, they do not definitively prove causality. Further investigation and possibly additional data analysis may be needed to confirm this conclusion.",
+      "reasoning": "The scores for each service were calculated based on the anomaly scores and other relevant metrics. The service with the highest score is considered the most likely cause of the anomalies. The scores for 'recommendationservice' are significantly higher than those for other services, indicating a strong correlation. The scores for other services are lower, suggesting they are less likely to be the cause of the anomalies. The evidence note emphasizes that these scores are descriptive and not definitive proof, which is important to keep in mind when interpreting the results.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "checkoutservice",
+      "confidence": 0.9107,
+      "evidence_confidence": 0.9107,
+      "causal_confidence": 0.9107,
+      "supporting_facts": [
+        "The service 'recommendationservice' has the highest score of 91.06640951, indicating it is the most likely service causing the observed anomalies in the system's performance.",
+        "The service 'checkoutservice' has the second-highest score of 63.16891932, suggesting it is a significant contributor to the anomalies.",
+        "The service 'emailservice' has a score of 60.32587743, indicating it is also a notable contributor to the anomalies.",
+        "The service 'productcatalogservice' has a score of 54.62521176, suggesting it is a contributing service but to a lesser extent.",
+        "The service 'currencyservice' has a score of 51.1249119, indicating it is a contributing service but with a lower score.",
+        "The service 'paymentservice' has a score of 48.78015495, suggesting it is a contributing service but with a lower score.",
+        "The service 'frontend' has a score of 46.90234539, indicating it is a contributing service but with a lower score.",
+        "The services 'adservice', 'shippingservice', 'cartservice', and 'redis' have scores of 11.6102399, 11.59760627, 11.41121157, and 0.0 respectively, indicating they are not significant contributors to the anomalies.",
+        "The evidence note states that feature values are descriptive evidence, not proof of causality, which means the scores are indicative of potential impact rather than definitive proof of causality."
+      ],
+      "contradicting_facts": [
+        "The service 'redis' has a score of 0.0, indicating it is not a contributing service to the anomalies.",
+        "The service 'adservice', 'shippingservice', 'cartservice', and 'redis' have scores of 11.6102399, 11.59760627, 11.41121157, and 0.0 respectively, indicating they are not significant contributors to the anomalies."
+      ],
+      "conclusion": "Based on the scores and evidence provided, the 'recommendationservice' is the most likely service causing the observed anomalies in the system's performance. Other services such as 'checkoutservice', 'emailservice', 'productcatalogservice', 'currencyservice', and 'paymentservice' are also contributing to the anomalies, but to a lesser extent. The services 'adservice', 'shippingservice', 'cartservice', and 'redis' are not significant contributors to the anomalies.",
+      "reasoning": "The scores for each service are calculated based on various metrics such as log and trace counts, median and p95 latencies, and anomaly scores. These scores are indicative of the service's impact on the system's performance. The evidence note clarifies that these scores are descriptive evidence and not definitive proof of causality. The scores for the services 'adservice', 'shippingservice', 'cartservice', and 'redis' are very low, indicating they are not significant contributors to the anomalies. The highest score, 91.06640951, is for the 'recommendationservice', which is the most likely service causing the anomalies.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "paymentservice",
+      "confidence": 0.9107,
+      "evidence_confidence": 0.9107,
+      "causal_confidence": 0.9107,
+      "supporting_facts": [
+        "The service 'recommendationservice' has the highest score of 91.06640951, indicating it is the most likely service causing the observed anomalies in the system's performance.",
+        "The service 'checkoutservice' has the second-highest score of 63.16891932, suggesting it is a significant contributor to the anomalies.",
+        "The service 'emailservice' has a score of 60.32587743, indicating it is also a notable contributor to the anomalies.",
+        "The service 'productcatalogservice' has a score of 54.62521176, suggesting it is a contributing service but to a lesser extent.",
+        "The service 'currencyservice' has a score of 51.1249119, indicating it is a contributing service but to a lesser extent.",
+        "The service 'paymentservice' has a score of 48.78015495, suggesting it is a contributing service but to a lesser extent.",
+        "The service 'frontend' has a score of 46.90234539, indicating it is a contributing service but to a lesser extent.",
+        "The services 'adservice', 'shippingservice', 'cartservice', and 'redis' have scores of 11.6102399, 11.59760627, 11.41121157, and 0.0 respectively, indicating they are not significant contributors to the anomalies.",
+        "The evidence note states that feature values are descriptive evidence, not proof of causality, which means the scores are indicative of potential impact rather than definitive proof of causality, as stated in the evidence note."
+      ],
+      "contradicting_facts": [
+        "The service 'redis' has a score of 0.0, indicating it is not a contributing service to the anomalies.",
+        "The service 'adservice', 'shippingservice', and 'cartservice' have scores of 11.6102399, 11.59760627, and 11.41121157 respectively, which are not high enough to be considered significant contributors."
+      ],
+      "conclusion": "Based on the scores and evidence provided, the 'recommendationservice' is the most likely service causing the observed anomalies in the system's performance. Other services such as 'checkoutservice', 'emailservice', 'productcatalogservice', 'currencyservice', and 'paymentservice' are also contributing to the anomalies, but to a lesser extent. The services 'adservice', 'shippingservice', and 'cartservice' are not significant contributors to the anomalies.",
+      "reasoning": "The scores for each service are calculated based on the observed anomalies and are used to rank the services from most likely to least likely to be the cause of the anomalies. The scores are indicative of potential impact rather than definitive proof of causality, as stated in the evidence note. The scores for 'redis' and the other services are used to determine their contribution to the anomalies.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "emailservice",
+      "confidence": 0.9107,
+      "evidence_confidence": 0.9107,
+      "causal_confidence": 0.9107,
+      "supporting_facts": [
+        "The service 'recommendationservice' has the highest score of 91.06640951, indicating it is the most likely service causing the observed anomalies in the system's performance.",
+        "The service 'checkoutservice' has the second-highest score of 63.16891932, suggesting it is a significant contributor to the anomalies.",
+        "The service 'emailservice' has a score of 60.32587743, indicating it is also a contributing service.",
+        "The service 'productcatalogservice' has a score of 54.62521176, suggesting it is a contributing service but to a lesser extent.",
+        "The service 'currencyservice' has a score of 51.1249119, indicating it is a contributing service but to a lesser extent.",
+        "The service 'paymentservice' has a score of 48.78015495, suggesting it is a contributing service but to a lesser extent.",
+        "The service 'frontend' has a score of 46.90234539, indicating it is a contributing service but to a lesser extent.",
+        "The services 'adservice', 'shippingservice', and 'cartservice' have scores of 11.6102399, 11.59760627, and 11.41121157 respectively, indicating they are not significant contributors to the anomalies.",
+        "The evidence note states that feature values are descriptive evidence, not proof of causality, which means that while the scores indicate which services are more likely to be causing the anomalies, they do not definitively prove causality."
+      ],
+      "contradicting_facts": [
+        "The service 'redis' has a score of 0.0, indicating it is not a contributing service to the anomalies.",
+        "The service 'adservice', 'shippingservice', and 'cartservice' have scores of 11.6102399, 11.59760627, and 11.41121157 respectively, which are not high enough to be considered significant contributors to the anomalies."
+      ],
+      "conclusion": "Based on the scores and evidence provided, the 'recommendationservice' is the most likely service causing the observed anomalies in the system's performance. However, it is important to note that while the scores indicate which services are more likely to be causing the anomalies, they do not definitively prove causality. Further investigation and analysis are recommended to confirm the findings.",
+      "reasoning": "The scores for each service were calculated based on the observed anomalies and are used to rank the services from most likely to least likely to be causing the anomalies. The scores are derived from the median and p95 latency values, log counts, and trace counts, which are considered descriptive evidence. The evidence note clarifies that these scores are not proof of causality, and thus, further investigation is necessary to confirm the findings.",
+      "source": "ollama:qwen2.5:3b"
+    }
+  ],
+  "branches": [
+    {
+      "initial_candidate": "recommendationservice",
+      "investigated_services": [
+        "recommendationservice",
+        "frontend",
+        "productcatalogservice"
+      ],
+      "stop_reason": "neighbor batch met confidence threshold"
+    },
+    {
+      "initial_candidate": "checkoutservice",
+      "investigated_services": [
+        "checkoutservice",
+        "paymentservice",
+        "emailservice"
+      ],
+      "stop_reason": "neighbor batch met confidence threshold"
+    },
+    {
+      "initial_candidate": "emailservice",
+      "investigated_services": [
+        "emailservice"
+      ],
+      "stop_reason": "no remaining uninvestigated neighbors"
+    }
+  ],
+  "counts": {
+    "investigated_services": 6,
+    "memory_records": 6
+  },
+  "warning": "LLM-reported confidence is a heuristic, not a calibrated probability or proof of causality.",
+  "case_id": "incident_971eb4d98edd"
+}

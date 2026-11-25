@@ -1,0 +1,4790 @@
+{
+  "case_id": "incident_8392887765ce",
+  "observation_level": 100,
+  "ranking_method": "successor_anomaly",
+  "initial_ranking": [
+    {
+      "service": "recommendationservice",
+      "score": 90.85811415
+    },
+    {
+      "service": "checkoutservice",
+      "score": 64.53825707
+    },
+    {
+      "service": "emailservice",
+      "score": 62.2769381
+    },
+    {
+      "service": "productcatalogservice",
+      "score": 54.59050159
+    },
+    {
+      "service": "paymentservice",
+      "score": 53.09655226
+    },
+    {
+      "service": "currencyservice",
+      "score": 51.09631515
+    },
+    {
+      "service": "frontend",
+      "score": 46.32909046
+    },
+    {
+      "service": "redis",
+      "score": 17.4
+    },
+    {
+      "service": "shippingservice",
+      "score": 13.65519386
+    },
+    {
+      "service": "cartservice",
+      "score": 11.69111782
+    },
+    {
+      "service": "adservice",
+      "score": 10.52739726
+    }
+  ],
+  "graph": {
+    "nodes": [
+      "adservice",
+      "cartservice",
+      "checkoutservice",
+      "currencyservice",
+      "emailservice",
+      "frontend",
+      "paymentservice",
+      "productcatalogservice",
+      "recommendationservice",
+      "redis",
+      "shippingservice"
+    ],
+    "edges": [
+      [
+        "checkoutservice",
+        "currencyservice"
+      ],
+      [
+        "checkoutservice",
+        "emailservice"
+      ],
+      [
+        "checkoutservice",
+        "paymentservice"
+      ],
+      [
+        "checkoutservice",
+        "productcatalogservice"
+      ],
+      [
+        "frontend",
+        "checkoutservice"
+      ],
+      [
+        "frontend",
+        "currencyservice"
+      ],
+      [
+        "frontend",
+        "productcatalogservice"
+      ],
+      [
+        "frontend",
+        "recommendationservice"
+      ],
+      [
+        "recommendationservice",
+        "productcatalogservice"
+      ]
+    ],
+    "metadata": {
+      "source": "saved_partial_graph",
+      "observation_level": 100
+    }
+  },
+  "diagnostic_bundles": {
+    "adservice": {
+      "service": "adservice",
+      "observed_in_partial_graph": true,
+      "service_features": {
+        "log_before": 5401,
+        "log_after": 4235,
+        "trace_before": 0,
+        "trace_after": 0,
+        "median_before_ms": 0,
+        "median_after_ms": 0,
+        "p95_before_ms": 0,
+        "p95_after_ms": 0,
+        "log_change_pct": -21.58859470468432,
+        "trace_change_pct": 0,
+        "median_change_pct": 0,
+        "p95_change_pct": 0,
+        "in_degree": 0,
+        "out_degree": 0
+      },
+      "temporal_summary": {
+        "window_count": 48,
+        "mean_anomaly_score": 3.119293133240076,
+        "max_anomaly_score": 6.942209591422269,
+        "windows": [
+          {
+            "window_start_sec": -720,
+            "period": "before",
+            "log_count": 229,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 0.4429213641270095
+          },
+          {
+            "window_start_sec": -690,
+            "period": "before",
+            "log_count": 213,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 1.3474134129758455
+          },
+          {
+            "window_start_sec": -660,
+            "period": "before",
+            "log_count": 234,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 1.0024009819716515
+          },
+          {
+            "window_start_sec": -630,
+            "period": "before",
+            "log_count": 230,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 0.554817287695938
+          },
+          {
+            "window_start_sec": -600,
+            "period": "before",
+            "log_count": 218,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 0.7879337951312035
+          },
+          {
+            "window_start_sec": -570,
+            "period": "before",
+            "log_count": 226,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 0.1072335934202241
+          },
+          {
+            "window_start_sec": -540,
+            "period": "before",
+            "log_count": 235,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 1.1142969055405805
+          },
+          {
+            "window_start_sec": -510,
+            "period": "before",
+            "log_count": 226,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 0.1072335934202241
+          },
+          {
+            "window_start_sec": -480,
+            "period": "before",
+            "log_count": 217,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 0.899829718700132
+          },
+          {
+            "window_start_sec": -450,
+            "period": "before",
+            "log_count": 211,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 1.5712052601137028
+          },
+          {
+            "window_start_sec": -420,
+            "period": "before",
+            "log_count": 208,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 1.906893030820488
+          },
+          {
+            "window_start_sec": -390,
+            "period": "before",
+            "log_count": 222,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 0.3403501008554896
+          },
+          {
+            "window_start_sec": -360,
+            "period": "before",
+            "log_count": 238,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 1.4499846762473656
+          },
+          {
+            "window_start_sec": -330,
+            "period": "before",
+            "log_count": 224,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 0.1165582537176327
+          },
+          {
+            "window_start_sec": -300,
+            "period": "before",
+            "log_count": 224,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 0.1165582537176327
+          },
+          {
+            "window_start_sec": -270,
+            "period": "before",
+            "log_count": 225,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 0.0046623301487042
+          },
+          {
+            "window_start_sec": -240,
+            "period": "before",
+            "log_count": 221,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 0.4522460244244181
+          },
+          {
+            "window_start_sec": -210,
+            "period": "before",
+            "log_count": 236,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 1.2261928291095088
+          },
+          {
+            "window_start_sec": -180,
+            "period": "before",
+            "log_count": 223,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 0.2284541772865612
+          },
+          {
+            "window_start_sec": -150,
+            "period": "before",
+            "log_count": 228,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 0.3310254405580811
+          },
+          {
+            "window_start_sec": -120,
+            "period": "before",
+            "log_count": 243,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 2.009464294092008
+          },
+          {
+            "window_start_sec": -90,
+            "period": "before",
+            "log_count": 219,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 0.676037871562275
+          },
+          {
+            "window_start_sec": -60,
+            "period": "before",
+            "log_count": 216,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 1.0117256422690604
+          },
+          {
+            "window_start_sec": -30,
+            "period": "before",
+            "log_count": 235,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 1.1142969055405805
+          },
+          {
+            "window_start_sec": 0,
+            "period": "after",
+            "log_count": 171,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 6.047042202870841
+          },
+          {
+            "window_start_sec": 30,
+            "period": "after",
+            "log_count": 166,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 6.606521820715483
+          },
+          {
+            "window_start_sec": 60,
+            "period": "after",
+            "log_count": 183,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 4.7042911200437
+          },
+          {
+            "window_start_sec": 90,
+            "period": "after",
+            "log_count": 184,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 4.592395196474771
+          },
+          {
+            "window_start_sec": 120,
+            "period": "after",
+            "log_count": 175,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 5.599458508595127
+          },
+          {
+            "window_start_sec": 150,
+            "period": "after",
+            "log_count": 168,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 6.382729973577626
+          },
+          {
+            "window_start_sec": 180,
+            "period": "after",
+            "log_count": 172,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 5.935146279301913
+          },
+          {
+            "window_start_sec": 210,
+            "period": "after",
+            "log_count": 169,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 6.270834050008697
+          },
+          {
+            "window_start_sec": 240,
+            "period": "after",
+            "log_count": 176,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 5.487562585026199
+          },
+          {
+            "window_start_sec": 270,
+            "period": "after",
+            "log_count": 179,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 5.151874814319413
+          },
+          {
+            "window_start_sec": 300,
+            "period": "after",
+            "log_count": 170,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 6.15893812643977
+          },
+          {
+            "window_start_sec": 330,
+            "period": "after",
+            "log_count": 173,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 5.823250355732984
+          },
+          {
+            "window_start_sec": 360,
+            "period": "after",
+            "log_count": 169,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 6.270834050008697
+          },
+          {
+            "window_start_sec": 390,
+            "period": "after",
+            "log_count": 180,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 5.0399788907504846
+          },
+          {
+            "window_start_sec": 420,
+            "period": "after",
+            "log_count": 172,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 5.935146279301913
+          },
+          {
+            "window_start_sec": 450,
+            "period": "after",
+            "log_count": 193,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 3.585331884354415
+          },
+          {
+            "window_start_sec": 480,
+            "period": "after",
+            "log_count": 174,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 5.711354432164056
+          },
+          {
+            "window_start_sec": 510,
+            "period": "after",
+            "log_count": 170,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 6.15893812643977
+          },
+          {
+            "window_start_sec": 540,
+            "period": "after",
+            "log_count": 179,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 5.151874814319413
+          },
+          {
+            "window_start_sec": 570,
+            "period": "after",
+            "log_count": 186,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 4.368603349336914
+          },
+          {
+            "window_start_sec": 600,
+            "period": "after",
+            "log_count": 163,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 6.942209591422269
+          },
+          {
+            "window_start_sec": 630,
+            "period": "after",
+            "log_count": 186,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 4.368603349336914
+          },
+          {
+            "window_start_sec": 660,
+            "period": "after",
+            "log_count": 181,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 4.928082967181556
+          },
+          {
+            "window_start_sec": 690,
+            "period": "after",
+            "log_count": 193,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 3.585331884354415
+          }
+        ]
+      },
+      "evidence_note": "Feature values are descriptive evidence, not proof of causality."
+    },
+    "cartservice": {
+      "service": "cartservice",
+      "observed_in_partial_graph": true,
+      "service_features": {
+        "log_before": 9387,
+        "log_after": 7163,
+        "trace_before": 0,
+        "trace_after": 0,
+        "median_before_ms": 0,
+        "median_after_ms": 0,
+        "p95_before_ms": 0,
+        "p95_after_ms": 0,
+        "log_change_pct": -23.69234047086396,
+        "trace_change_pct": 0,
+        "median_change_pct": 0,
+        "p95_change_pct": 0,
+        "in_degree": 0,
+        "out_degree": 0
+      },
+      "temporal_summary": {
+        "window_count": 48,
+        "mean_anomaly_score": 3.1641820066891957,
+        "max_anomaly_score": 6.919109778921298,
+        "windows": [
+          {
+            "window_start_sec": -720,
+            "period": "before",
+            "log_count": 389,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 0.1255334751778677
+          },
+          {
+            "window_start_sec": -690,
+            "period": "before",
+            "log_count": 373,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 1.0707267000465188
+          },
+          {
+            "window_start_sec": -660,
+            "period": "before",
+            "log_count": 377,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 0.8344283938293562
+          },
+          {
+            "window_start_sec": -630,
+            "period": "before",
+            "log_count": 401,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 0.5833614434736206
+          },
+          {
+            "window_start_sec": -600,
+            "period": "before",
+            "log_count": 377,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 0.8344283938293562
+          },
+          {
+            "window_start_sec": -570,
+            "period": "before",
+            "log_count": 409,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 1.0559580559079462
+          },
+          {
+            "window_start_sec": -540,
+            "period": "before",
+            "log_count": 389,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 0.1255334751778677
+          },
+          {
+            "window_start_sec": -510,
+            "period": "before",
+            "log_count": 403,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 0.701510596582202
+          },
+          {
+            "window_start_sec": -480,
+            "period": "before",
+            "log_count": 369,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 1.3070250062636817
+          },
+          {
+            "window_start_sec": -450,
+            "period": "before",
+            "log_count": 393,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 0.110764831039295
+          },
+          {
+            "window_start_sec": -420,
+            "period": "before",
+            "log_count": 360,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 1.838696195252298
+          },
+          {
+            "window_start_sec": -390,
+            "period": "before",
+            "log_count": 416,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 1.4694800917879811
+          },
+          {
+            "window_start_sec": -360,
+            "period": "before",
+            "log_count": 405,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 0.8196597496907835
+          },
+          {
+            "window_start_sec": -330,
+            "period": "before",
+            "log_count": 403,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 0.701510596582202
+          },
+          {
+            "window_start_sec": -300,
+            "period": "before",
+            "log_count": 370,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 1.247950429709391
+          },
+          {
+            "window_start_sec": -270,
+            "period": "before",
+            "log_count": 411,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 1.1741072090165277
+          },
+          {
+            "window_start_sec": -240,
+            "period": "before",
+            "log_count": 392,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 0.0516902544850043
+          },
+          {
+            "window_start_sec": -210,
+            "period": "before",
+            "log_count": 402,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 0.6424360200279113
+          },
+          {
+            "window_start_sec": -180,
+            "period": "before",
+            "log_count": 379,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 0.7162792407207748
+          },
+          {
+            "window_start_sec": -150,
+            "period": "before",
+            "log_count": 385,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 0.3618317813950305
+          },
+          {
+            "window_start_sec": -120,
+            "period": "before",
+            "log_count": 427,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 2.119300433885179
+          },
+          {
+            "window_start_sec": -90,
+            "period": "before",
+            "log_count": 380,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 0.657204664166484
+          },
+          {
+            "window_start_sec": -60,
+            "period": "before",
+            "log_count": 401,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 0.5833614434736206
+          },
+          {
+            "window_start_sec": -30,
+            "period": "before",
+            "log_count": 376,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 0.8935029703836468
+          },
+          {
+            "window_start_sec": 0,
+            "period": "after",
+            "log_count": 305,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 5.087797905738286
+          },
+          {
+            "window_start_sec": 30,
+            "period": "after",
+            "log_count": 306,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 5.028723329183996
+          },
+          {
+            "window_start_sec": 60,
+            "period": "after",
+            "log_count": 316,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 4.4379775636410885
+          },
+          {
+            "window_start_sec": 90,
+            "period": "after",
+            "log_count": 328,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 3.7290826449896
+          },
+          {
+            "window_start_sec": 120,
+            "period": "after",
+            "log_count": 289,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 6.032991130606938
+          },
+          {
+            "window_start_sec": 150,
+            "period": "after",
+            "log_count": 293,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 5.796692824389775
+          },
+          {
+            "window_start_sec": 180,
+            "period": "after",
+            "log_count": 316,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 4.4379775636410885
+          },
+          {
+            "window_start_sec": 210,
+            "period": "after",
+            "log_count": 292,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 5.855767400944066
+          },
+          {
+            "window_start_sec": 240,
+            "period": "after",
+            "log_count": 292,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 5.855767400944066
+          },
+          {
+            "window_start_sec": 270,
+            "period": "after",
+            "log_count": 300,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 5.38317078850974
+          },
+          {
+            "window_start_sec": 300,
+            "period": "after",
+            "log_count": 307,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 4.9696487526297055
+          },
+          {
+            "window_start_sec": 330,
+            "period": "after",
+            "log_count": 291,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 5.914841977498356
+          },
+          {
+            "window_start_sec": 360,
+            "period": "after",
+            "log_count": 274,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 6.919109778921298
+          },
+          {
+            "window_start_sec": 390,
+            "period": "after",
+            "log_count": 325,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 3.906306374652472
+          },
+          {
+            "window_start_sec": 420,
+            "period": "after",
+            "log_count": 286,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 6.21021486026981
+          },
+          {
+            "window_start_sec": 450,
+            "period": "after",
+            "log_count": 300,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 5.38317078850974
+          },
+          {
+            "window_start_sec": 480,
+            "period": "after",
+            "log_count": 297,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 5.560394518172612
+          },
+          {
+            "window_start_sec": 510,
+            "period": "after",
+            "log_count": 277,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 6.741886049258426
+          },
+          {
+            "window_start_sec": 540,
+            "period": "after",
+            "log_count": 284,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 6.328364013378391
+          },
+          {
+            "window_start_sec": 570,
+            "period": "after",
+            "log_count": 312,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 4.674275869858252
+          },
+          {
+            "window_start_sec": 600,
+            "period": "after",
+            "log_count": 279,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 6.623736896149845
+          },
+          {
+            "window_start_sec": 630,
+            "period": "after",
+            "log_count": 294,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 5.737618247835484
+          },
+          {
+            "window_start_sec": 660,
+            "period": "after",
+            "log_count": 283,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 6.387438589932682
+          },
+          {
+            "window_start_sec": 690,
+            "period": "after",
+            "log_count": 309,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 4.851499599521124
+          }
+        ]
+      },
+      "evidence_note": "Feature values are descriptive evidence, not proof of causality."
+    },
+    "checkoutservice": {
+      "service": "checkoutservice",
+      "observed_in_partial_graph": true,
+      "service_features": {
+        "log_before": 1056,
+        "log_after": 714,
+        "trace_before": 4888,
+        "trace_after": 3402,
+        "median_before_ms": 3.866,
+        "median_after_ms": 4.612,
+        "p95_before_ms": 96.76819999999995,
+        "p95_after_ms": 295.65035,
+        "log_change_pct": -32.38636363636363,
+        "trace_change_pct": -30.400981996726678,
+        "median_change_pct": 19.296430419037762,
+        "p95_change_pct": 205.52428380397708,
+        "in_degree": 1,
+        "out_degree": 4
+      },
+      "temporal_summary": {
+        "window_count": 48,
+        "mean_anomaly_score": 2.7440768821069668,
+        "max_anomaly_score": 5.591354445681067,
+        "windows": [
+          {
+            "window_start_sec": -720,
+            "period": "before",
+            "log_count": 45,
+            "trace_count": 214,
+            "median_latency_ms": 3.977,
+            "p95_latency_ms": 108.73769999999998,
+            "anomaly_score": 0.7432783639677618
+          },
+          {
+            "window_start_sec": -690,
+            "period": "before",
+            "log_count": 36,
+            "trace_count": 202,
+            "median_latency_ms": 3.8355,
+            "p95_latency_ms": 95.92114999999995,
+            "anomaly_score": 0.3748322961472357
+          },
+          {
+            "window_start_sec": -660,
+            "period": "before",
+            "log_count": 48,
+            "trace_count": 220,
+            "median_latency_ms": 3.919,
+            "p95_latency_ms": 83.20894999999966,
+            "anomaly_score": 0.5357829803184438
+          },
+          {
+            "window_start_sec": -630,
+            "period": "before",
+            "log_count": 51,
+            "trace_count": 204,
+            "median_latency_ms": 4.135,
+            "p95_latency_ms": 94.54719999999996,
+            "anomaly_score": 0.774914613800807
+          },
+          {
+            "window_start_sec": -600,
+            "period": "before",
+            "log_count": 27,
+            "trace_count": 124,
+            "median_latency_ms": 3.995,
+            "p95_latency_ms": 82.62715,
+            "anomaly_score": 1.4611102240452782
+          },
+          {
+            "window_start_sec": -570,
+            "period": "before",
+            "log_count": 39,
+            "trace_count": 200,
+            "median_latency_ms": 3.681,
+            "p95_latency_ms": 79.67794999999997,
+            "anomaly_score": 0.7657175658560527
+          },
+          {
+            "window_start_sec": -540,
+            "period": "before",
+            "log_count": 39,
+            "trace_count": 176,
+            "median_latency_ms": 3.7835,
+            "p95_latency_ms": 106.50175,
+            "anomaly_score": 0.8212481824796065
+          },
+          {
+            "window_start_sec": -510,
+            "period": "before",
+            "log_count": 48,
+            "trace_count": 226,
+            "median_latency_ms": 3.84,
+            "p95_latency_ms": 93.156,
+            "anomaly_score": 0.3267982075193382
+          },
+          {
+            "window_start_sec": -480,
+            "period": "before",
+            "log_count": 30,
+            "trace_count": 166,
+            "median_latency_ms": 3.6155,
+            "p95_latency_ms": 86.21000000000001,
+            "anomaly_score": 1.1929228520615172
+          },
+          {
+            "window_start_sec": -450,
+            "period": "before",
+            "log_count": 57,
+            "trace_count": 264,
+            "median_latency_ms": 3.7945,
+            "p95_latency_ms": 80.29129999999999,
+            "anomaly_score": 1.1388894552966375
+          },
+          {
+            "window_start_sec": -420,
+            "period": "before",
+            "log_count": 48,
+            "trace_count": 224,
+            "median_latency_ms": 3.946,
+            "p95_latency_ms": 95.78489999999996,
+            "anomaly_score": 0.5150897775862628
+          },
+          {
+            "window_start_sec": -390,
+            "period": "before",
+            "log_count": 63,
+            "trace_count": 286,
+            "median_latency_ms": 3.7985,
+            "p95_latency_ms": 99.41825,
+            "anomaly_score": 1.3623713565278548
+          },
+          {
+            "window_start_sec": -360,
+            "period": "before",
+            "log_count": 51,
+            "trace_count": 222,
+            "median_latency_ms": 4.1114999999999995,
+            "p95_latency_ms": 104.37469999999998,
+            "anomaly_score": 1.0947182436921177
+          },
+          {
+            "window_start_sec": -330,
+            "period": "before",
+            "log_count": 55,
+            "trace_count": 258,
+            "median_latency_ms": 3.7325,
+            "p95_latency_ms": 82.00479999999999,
+            "anomaly_score": 1.1144321600911922
+          },
+          {
+            "window_start_sec": -300,
+            "period": "before",
+            "log_count": 41,
+            "trace_count": 196,
+            "median_latency_ms": 3.6875,
+            "p95_latency_ms": 85.012,
+            "anomaly_score": 0.5943540095257654
+          },
+          {
+            "window_start_sec": -270,
+            "period": "before",
+            "log_count": 51,
+            "trace_count": 188,
+            "median_latency_ms": 3.831,
+            "p95_latency_ms": 78.14675000000001,
+            "anomaly_score": 0.6664394063737582
+          },
+          {
+            "window_start_sec": -240,
+            "period": "before",
+            "log_count": 45,
+            "trace_count": 222,
+            "median_latency_ms": 3.852,
+            "p95_latency_ms": 103.72125,
+            "anomaly_score": 0.4580911376482132
+          },
+          {
+            "window_start_sec": -210,
+            "period": "before",
+            "log_count": 36,
+            "trace_count": 172,
+            "median_latency_ms": 3.6525,
+            "p95_latency_ms": 81.05174999999991,
+            "anomaly_score": 1.0506201757526443
+          },
+          {
+            "window_start_sec": -180,
+            "period": "before",
+            "log_count": 48,
+            "trace_count": 216,
+            "median_latency_ms": 4.0145,
+            "p95_latency_ms": 92.06775,
+            "anomaly_score": 0.4939574623037996
+          },
+          {
+            "window_start_sec": -150,
+            "period": "before",
+            "log_count": 30,
+            "trace_count": 152,
+            "median_latency_ms": 3.9275,
+            "p95_latency_ms": 104.35754999999988,
+            "anomaly_score": 1.1731902508223164
+          },
+          {
+            "window_start_sec": -120,
+            "period": "before",
+            "log_count": 48,
+            "trace_count": 202,
+            "median_latency_ms": 3.9565,
+            "p95_latency_ms": 95.49769999999984,
+            "anomaly_score": 0.4031019948078498
+          },
+          {
+            "window_start_sec": -90,
+            "period": "before",
+            "log_count": 45,
+            "trace_count": 208,
+            "median_latency_ms": 3.8215,
+            "p95_latency_ms": 86.91804999999992,
+            "anomaly_score": 0.2285961533774282
+          },
+          {
+            "window_start_sec": -60,
+            "period": "before",
+            "log_count": 45,
+            "trace_count": 210,
+            "median_latency_ms": 3.903,
+            "p95_latency_ms": 100.15429999999984,
+            "anomaly_score": 0.370901470358306
+          },
+          {
+            "window_start_sec": -30,
+            "period": "before",
+            "log_count": 30,
+            "trace_count": 136,
+            "median_latency_ms": 3.7145,
+            "p95_latency_ms": 75.176,
+            "anomaly_score": 1.4857139767476468
+          },
+          {
+            "window_start_sec": 0,
+            "period": "after",
+            "log_count": 30,
+            "trace_count": 140,
+            "median_latency_ms": 4.641500000000001,
+            "p95_latency_ms": 240.46869999999993,
+            "anomaly_score": 4.724079262749485
+          },
+          {
+            "window_start_sec": 30,
+            "period": "after",
+            "log_count": 30,
+            "trace_count": 147,
+            "median_latency_ms": 4.563,
+            "p95_latency_ms": 395.3044999999981,
+            "anomaly_score": 4.535752625594979
+          },
+          {
+            "window_start_sec": 60,
+            "period": "after",
+            "log_count": 42,
+            "trace_count": 179,
+            "median_latency_ms": 4.45,
+            "p95_latency_ms": 241.64509999999987,
+            "anomaly_score": 3.793030521836571
+          },
+          {
+            "window_start_sec": 90,
+            "period": "after",
+            "log_count": 36,
+            "trace_count": 180,
+            "median_latency_ms": 4.602,
+            "p95_latency_ms": 241.93319999999952,
+            "anomaly_score": 4.224183724688658
+          },
+          {
+            "window_start_sec": 120,
+            "period": "after",
+            "log_count": 33,
+            "trace_count": 166,
+            "median_latency_ms": 4.711,
+            "p95_latency_ms": 236.1965,
+            "anomaly_score": 4.595621596845221
+          },
+          {
+            "window_start_sec": 150,
+            "period": "after",
+            "log_count": 24,
+            "trace_count": 112,
+            "median_latency_ms": 4.664,
+            "p95_latency_ms": 330.37554999999765,
+            "anomaly_score": 5.113620440318032
+          },
+          {
+            "window_start_sec": 180,
+            "period": "after",
+            "log_count": 45,
+            "trace_count": 222,
+            "median_latency_ms": 4.823,
+            "p95_latency_ms": 438.03264999999857,
+            "anomaly_score": 4.3979618912967675
+          },
+          {
+            "window_start_sec": 210,
+            "period": "after",
+            "log_count": 30,
+            "trace_count": 156,
+            "median_latency_ms": 4.5235,
+            "p95_latency_ms": 427.6437499999999,
+            "anomaly_score": 4.404640565402666
+          },
+          {
+            "window_start_sec": 240,
+            "period": "after",
+            "log_count": 22,
+            "trace_count": 111,
+            "median_latency_ms": 4.55,
+            "p95_latency_ms": 443.048,
+            "anomaly_score": 4.9685775959866145
+          },
+          {
+            "window_start_sec": 270,
+            "period": "after",
+            "log_count": 39,
+            "trace_count": 197,
+            "median_latency_ms": 4.65,
+            "p95_latency_ms": 238.3534,
+            "anomaly_score": 4.116590504800653
+          },
+          {
+            "window_start_sec": 300,
+            "period": "after",
+            "log_count": 35,
+            "trace_count": 136,
+            "median_latency_ms": 4.441000000000001,
+            "p95_latency_ms": 441.703,
+            "anomaly_score": 4.252356513440088
+          },
+          {
+            "window_start_sec": 330,
+            "period": "after",
+            "log_count": 18,
+            "trace_count": 82,
+            "median_latency_ms": 4.2829999999999995,
+            "p95_latency_ms": 239.60585000000003,
+            "anomaly_score": 4.787172362774019
+          },
+          {
+            "window_start_sec": 360,
+            "period": "after",
+            "log_count": 26,
+            "trace_count": 149,
+            "median_latency_ms": 5.059,
+            "p95_latency_ms": 288.00719999999984,
+            "anomaly_score": 5.527636398360338
+          },
+          {
+            "window_start_sec": 390,
+            "period": "after",
+            "log_count": 41,
+            "trace_count": 160,
+            "median_latency_ms": 4.452500000000001,
+            "p95_latency_ms": 234.65945,
+            "anomaly_score": 3.9508080309261495
+          },
+          {
+            "window_start_sec": 420,
+            "period": "after",
+            "log_count": 32,
+            "trace_count": 135,
+            "median_latency_ms": 4.76,
+            "p95_latency_ms": 270.58539999999994,
+            "anomaly_score": 4.91706993557779
+          },
+          {
+            "window_start_sec": 450,
+            "period": "after",
+            "log_count": 21,
+            "trace_count": 102,
+            "median_latency_ms": 4.8465,
+            "p95_latency_ms": 294.7680999999998,
+            "anomaly_score": 5.591354445681067
+          },
+          {
+            "window_start_sec": 480,
+            "period": "after",
+            "log_count": 39,
+            "trace_count": 197,
+            "median_latency_ms": 4.833,
+            "p95_latency_ms": 341.7259999999986,
+            "anomaly_score": 4.447333347328823
+          },
+          {
+            "window_start_sec": 510,
+            "period": "after",
+            "log_count": 18,
+            "trace_count": 79,
+            "median_latency_ms": 4.208,
+            "p95_latency_ms": 227.65129999999863,
+            "anomaly_score": 4.671529421365081
+          },
+          {
+            "window_start_sec": 540,
+            "period": "after",
+            "log_count": 24,
+            "trace_count": 120,
+            "median_latency_ms": 4.8469999999999995,
+            "p95_latency_ms": 308.08254999999997,
+            "anomaly_score": 5.391276872474224
+          },
+          {
+            "window_start_sec": 570,
+            "period": "after",
+            "log_count": 30,
+            "trace_count": 136,
+            "median_latency_ms": 4.4345,
+            "p95_latency_ms": 253.84725,
+            "anomaly_score": 4.3765035149118034
+          },
+          {
+            "window_start_sec": 600,
+            "period": "after",
+            "log_count": 30,
+            "trace_count": 146,
+            "median_latency_ms": 4.6985,
+            "p95_latency_ms": 394.2755,
+            "anomaly_score": 4.787282717397308
+          },
+          {
+            "window_start_sec": 630,
+            "period": "after",
+            "log_count": 15,
+            "trace_count": 76,
+            "median_latency_ms": 4.4275,
+            "p95_latency_ms": 246.35675,
+            "anomaly_score": 5.169684321333195
+          },
+          {
+            "window_start_sec": 660,
+            "period": "after",
+            "log_count": 22,
+            "trace_count": 121,
+            "median_latency_ms": 4.897,
+            "p95_latency_ms": 442.582,
+            "anomaly_score": 5.529365847269048
+          },
+          {
+            "window_start_sec": 690,
+            "period": "after",
+            "log_count": 32,
+            "trace_count": 153,
+            "median_latency_ms": 4.482,
+            "p95_latency_ms": 262.4488000000004,
+            "anomaly_score": 4.2951855656679925
+          }
+        ]
+      },
+      "evidence_note": "Feature values are descriptive evidence, not proof of causality."
+    },
+    "currencyservice": {
+      "service": "currencyservice",
+      "observed_in_partial_graph": true,
+      "service_features": {
+        "log_before": 29150,
+        "log_after": 22262,
+        "trace_before": 29305,
+        "trace_after": 22394,
+        "median_before_ms": 0.125,
+        "median_after_ms": 0.139,
+        "p95_before_ms": 0.204,
+        "p95_after_ms": 0.216,
+        "log_change_pct": -23.6295025728988,
+        "trace_change_pct": -23.583006312915884,
+        "median_change_pct": 11.20000000000001,
+        "p95_change_pct": 5.882352941176476,
+        "in_degree": 2,
+        "out_degree": 0
+      },
+      "temporal_summary": {
+        "window_count": 48,
+        "mean_anomaly_score": 2.4529965480099922,
+        "max_anomaly_score": 5.1325371967712305,
+        "windows": [
+          {
+            "window_start_sec": -720,
+            "period": "before",
+            "log_count": 1296,
+            "trace_count": 1315,
+            "median_latency_ms": 0.128,
+            "p95_latency_ms": 0.203,
+            "anomaly_score": 1.140788945397133
+          },
+          {
+            "window_start_sec": -690,
+            "period": "before",
+            "log_count": 1219,
+            "trace_count": 1227,
+            "median_latency_ms": 0.128,
+            "p95_latency_ms": 0.2167,
+            "anomaly_score": 0.5930952849372766
+          },
+          {
+            "window_start_sec": -660,
+            "period": "before",
+            "log_count": 1119,
+            "trace_count": 1134,
+            "median_latency_ms": 0.132,
+            "p95_latency_ms": 0.205,
+            "anomaly_score": 1.434847590524624
+          },
+          {
+            "window_start_sec": -630,
+            "period": "before",
+            "log_count": 1232,
+            "trace_count": 1221,
+            "median_latency_ms": 0.125,
+            "p95_latency_ms": 0.209,
+            "anomaly_score": 0.1932631153934368
+          },
+          {
+            "window_start_sec": -600,
+            "period": "before",
+            "log_count": 1175,
+            "trace_count": 1191,
+            "median_latency_ms": 0.13,
+            "p95_latency_ms": 0.2045,
+            "anomaly_score": 0.7459218798645032
+          },
+          {
+            "window_start_sec": -570,
+            "period": "before",
+            "log_count": 1291,
+            "trace_count": 1310,
+            "median_latency_ms": 0.123,
+            "p95_latency_ms": 0.2065499999999999,
+            "anomaly_score": 0.9885023663945668
+          },
+          {
+            "window_start_sec": -540,
+            "period": "before",
+            "log_count": 1190,
+            "trace_count": 1177,
+            "median_latency_ms": 0.129,
+            "p95_latency_ms": 0.212,
+            "anomaly_score": 0.8245860626343007
+          },
+          {
+            "window_start_sec": -510,
+            "period": "before",
+            "log_count": 1235,
+            "trace_count": 1275,
+            "median_latency_ms": 0.123,
+            "p95_latency_ms": 0.206,
+            "anomaly_score": 0.5292667062087016
+          },
+          {
+            "window_start_sec": -480,
+            "period": "before",
+            "log_count": 1289,
+            "trace_count": 1282,
+            "median_latency_ms": 0.123,
+            "p95_latency_ms": 0.202,
+            "anomaly_score": 0.8939110837866913
+          },
+          {
+            "window_start_sec": -450,
+            "period": "before",
+            "log_count": 1264,
+            "trace_count": 1266,
+            "median_latency_ms": 0.122,
+            "p95_latency_ms": 0.2,
+            "anomaly_score": 0.8242841369763426
+          },
+          {
+            "window_start_sec": -420,
+            "period": "before",
+            "log_count": 1158,
+            "trace_count": 1148,
+            "median_latency_ms": 0.123,
+            "p95_latency_ms": 0.196,
+            "anomaly_score": 1.021411856904496
+          },
+          {
+            "window_start_sec": -390,
+            "period": "before",
+            "log_count": 1217,
+            "trace_count": 1234,
+            "median_latency_ms": 0.123,
+            "p95_latency_ms": 0.195,
+            "anomaly_score": 0.4950129499651962
+          },
+          {
+            "window_start_sec": -360,
+            "period": "before",
+            "log_count": 1196,
+            "trace_count": 1189,
+            "median_latency_ms": 0.127,
+            "p95_latency_ms": 0.2071999999999998,
+            "anomaly_score": 0.455705135566778
+          },
+          {
+            "window_start_sec": -330,
+            "period": "before",
+            "log_count": 1223,
+            "trace_count": 1246,
+            "median_latency_ms": 0.125,
+            "p95_latency_ms": 0.201,
+            "anomaly_score": 0.2732364550699973
+          },
+          {
+            "window_start_sec": -300,
+            "period": "before",
+            "log_count": 1138,
+            "trace_count": 1158,
+            "median_latency_ms": 0.125,
+            "p95_latency_ms": 0.198,
+            "anomaly_score": 0.8732113168078459
+          },
+          {
+            "window_start_sec": -270,
+            "period": "before",
+            "log_count": 1226,
+            "trace_count": 1200,
+            "median_latency_ms": 0.122,
+            "p95_latency_ms": 0.201,
+            "anomaly_score": 0.4951554718705933
+          },
+          {
+            "window_start_sec": -240,
+            "period": "before",
+            "log_count": 1241,
+            "trace_count": 1277,
+            "median_latency_ms": 0.118,
+            "p95_latency_ms": 0.1962,
+            "anomaly_score": 1.1710954056780334
+          },
+          {
+            "window_start_sec": -210,
+            "period": "before",
+            "log_count": 1267,
+            "trace_count": 1252,
+            "median_latency_ms": 0.123,
+            "p95_latency_ms": 0.2379,
+            "anomaly_score": 1.4326220045644726
+          },
+          {
+            "window_start_sec": -180,
+            "period": "before",
+            "log_count": 1166,
+            "trace_count": 1158,
+            "median_latency_ms": 0.125,
+            "p95_latency_ms": 0.1981499999999998,
+            "anomaly_score": 0.7290408577206233
+          },
+          {
+            "window_start_sec": -150,
+            "period": "before",
+            "log_count": 1171,
+            "trace_count": 1210,
+            "median_latency_ms": 0.125,
+            "p95_latency_ms": 0.2055499999999999,
+            "anomaly_score": 0.2838225311064903
+          },
+          {
+            "window_start_sec": -120,
+            "period": "before",
+            "log_count": 1232,
+            "trace_count": 1209,
+            "median_latency_ms": 0.13,
+            "p95_latency_ms": 0.209,
+            "anomaly_score": 0.6357604861807915
+          },
+          {
+            "window_start_sec": -90,
+            "period": "before",
+            "log_count": 1241,
+            "trace_count": 1252,
+            "median_latency_ms": 0.122,
+            "p95_latency_ms": 0.193,
+            "anomaly_score": 0.8302135732826768
+          },
+          {
+            "window_start_sec": -60,
+            "period": "before",
+            "log_count": 1229,
+            "trace_count": 1243,
+            "median_latency_ms": 0.123,
+            "p95_latency_ms": 0.2168999999999998,
+            "anomaly_score": 0.6398907342979022
+          },
+          {
+            "window_start_sec": -30,
+            "period": "before",
+            "log_count": 1135,
+            "trace_count": 1131,
+            "median_latency_ms": 0.125,
+            "p95_latency_ms": 0.204,
+            "anomaly_score": 0.8548389923688167
+          },
+          {
+            "window_start_sec": 0,
+            "period": "after",
+            "log_count": 940,
+            "trace_count": 942,
+            "median_latency_ms": 0.14,
+            "p95_latency_ms": 0.222,
+            "anomaly_score": 4.295161566608528
+          },
+          {
+            "window_start_sec": 30,
+            "period": "after",
+            "log_count": 917,
+            "trace_count": 923,
+            "median_latency_ms": 0.137,
+            "p95_latency_ms": 0.2107999999999999,
+            "anomaly_score": 3.968923119797296
+          },
+          {
+            "window_start_sec": 60,
+            "period": "after",
+            "log_count": 984,
+            "trace_count": 1000,
+            "median_latency_ms": 0.137,
+            "p95_latency_ms": 0.2120499999999999,
+            "anomaly_score": 3.3055749044548635
+          },
+          {
+            "window_start_sec": 90,
+            "period": "after",
+            "log_count": 995,
+            "trace_count": 986,
+            "median_latency_ms": 0.14,
+            "p95_latency_ms": 0.21275,
+            "anomaly_score": 3.566589442691199
+          },
+          {
+            "window_start_sec": 120,
+            "period": "after",
+            "log_count": 920,
+            "trace_count": 950,
+            "median_latency_ms": 0.138,
+            "p95_latency_ms": 0.215,
+            "anomaly_score": 4.016510358398645
+          },
+          {
+            "window_start_sec": 150,
+            "period": "after",
+            "log_count": 908,
+            "trace_count": 890,
+            "median_latency_ms": 0.141,
+            "p95_latency_ms": 0.2135499999999999,
+            "anomaly_score": 4.551140330874485
+          },
+          {
+            "window_start_sec": 180,
+            "period": "after",
+            "log_count": 934,
+            "trace_count": 951,
+            "median_latency_ms": 0.141,
+            "p95_latency_ms": 0.227,
+            "anomaly_score": 4.493605193961456
+          },
+          {
+            "window_start_sec": 210,
+            "period": "after",
+            "log_count": 915,
+            "trace_count": 909,
+            "median_latency_ms": 0.138,
+            "p95_latency_ms": 0.2165999999999999,
+            "anomaly_score": 4.276605589428904
+          },
+          {
+            "window_start_sec": 240,
+            "period": "after",
+            "log_count": 934,
+            "trace_count": 951,
+            "median_latency_ms": 0.135,
+            "p95_latency_ms": 0.207,
+            "anomaly_score": 3.496581472684804
+          },
+          {
+            "window_start_sec": 270,
+            "period": "after",
+            "log_count": 936,
+            "trace_count": 949,
+            "median_latency_ms": 0.14,
+            "p95_latency_ms": 0.229,
+            "anomaly_score": 4.4690984557108
+          },
+          {
+            "window_start_sec": 300,
+            "period": "after",
+            "log_count": 969,
+            "trace_count": 961,
+            "median_latency_ms": 0.137,
+            "p95_latency_ms": 0.206,
+            "anomaly_score": 3.402246466000619
+          },
+          {
+            "window_start_sec": 330,
+            "period": "after",
+            "log_count": 856,
+            "trace_count": 861,
+            "median_latency_ms": 0.14,
+            "p95_latency_ms": 0.208,
+            "anomaly_score": 4.722214682344075
+          },
+          {
+            "window_start_sec": 360,
+            "period": "after",
+            "log_count": 926,
+            "trace_count": 941,
+            "median_latency_ms": 0.137,
+            "p95_latency_ms": 0.212,
+            "anomaly_score": 3.8714260970394
+          },
+          {
+            "window_start_sec": 390,
+            "period": "after",
+            "log_count": 869,
+            "trace_count": 880,
+            "median_latency_ms": 0.141,
+            "p95_latency_ms": 0.209,
+            "anomaly_score": 4.671903856416279
+          },
+          {
+            "window_start_sec": 420,
+            "period": "after",
+            "log_count": 963,
+            "trace_count": 967,
+            "median_latency_ms": 0.139,
+            "p95_latency_ms": 0.212,
+            "anomaly_score": 3.718684533158071
+          },
+          {
+            "window_start_sec": 450,
+            "period": "after",
+            "log_count": 904,
+            "trace_count": 896,
+            "median_latency_ms": 0.141,
+            "p95_latency_ms": 0.221,
+            "anomaly_score": 4.741775215075685
+          },
+          {
+            "window_start_sec": 480,
+            "period": "after",
+            "log_count": 946,
+            "trace_count": 968,
+            "median_latency_ms": 0.139,
+            "p95_latency_ms": 0.2156499999999999,
+            "anomaly_score": 3.8964755459476574
+          },
+          {
+            "window_start_sec": 510,
+            "period": "after",
+            "log_count": 856,
+            "trace_count": 850,
+            "median_latency_ms": 0.141,
+            "p95_latency_ms": 0.2185499999999999,
+            "anomaly_score": 5.1325371967712305
+          },
+          {
+            "window_start_sec": 540,
+            "period": "after",
+            "log_count": 907,
+            "trace_count": 919,
+            "median_latency_ms": 0.141,
+            "p95_latency_ms": 0.2140999999999999,
+            "anomaly_score": 4.43474817985684
+          },
+          {
+            "window_start_sec": 570,
+            "period": "after",
+            "log_count": 890,
+            "trace_count": 896,
+            "median_latency_ms": 0.138,
+            "p95_latency_ms": 0.20625,
+            "anomaly_score": 4.186619113521209
+          },
+          {
+            "window_start_sec": 600,
+            "period": "after",
+            "log_count": 839,
+            "trace_count": 858,
+            "median_latency_ms": 0.141,
+            "p95_latency_ms": 0.211,
+            "anomaly_score": 4.978670795743741
+          },
+          {
+            "window_start_sec": 630,
+            "period": "after",
+            "log_count": 927,
+            "trace_count": 911,
+            "median_latency_ms": 0.139,
+            "p95_latency_ms": 0.223,
+            "anomaly_score": 4.455137411534192
+          },
+          {
+            "window_start_sec": 660,
+            "period": "after",
+            "log_count": 950,
+            "trace_count": 958,
+            "median_latency_ms": 0.1405,
+            "p95_latency_ms": 0.22215,
+            "anomaly_score": 4.212648305888758
+          },
+          {
+            "window_start_sec": 690,
+            "period": "after",
+            "log_count": 1059,
+            "trace_count": 1077,
+            "median_latency_ms": 0.137,
+            "p95_latency_ms": 0.2101999999999999,
+            "anomaly_score": 2.519471527068589
+          }
+        ]
+      },
+      "evidence_note": "Feature values are descriptive evidence, not proof of causality."
+    },
+    "emailservice": {
+      "service": "emailservice",
+      "observed_in_partial_graph": true,
+      "service_features": {
+        "log_before": 352,
+        "log_after": 238,
+        "trace_before": 640,
+        "trace_after": 526,
+        "median_before_ms": 0.187,
+        "median_after_ms": 0.06,
+        "p95_before_ms": 0.36849999999999955,
+        "p95_after_ms": 0.414,
+        "log_change_pct": -32.38636363636363,
+        "trace_change_pct": -17.8125,
+        "median_change_pct": -67.9144385026738,
+        "p95_change_pct": 12.347354138399046,
+        "in_degree": 1,
+        "out_degree": 0
+      },
+      "temporal_summary": {
+        "window_count": 48,
+        "mean_anomaly_score": 1.146273506141646,
+        "max_anomaly_score": 2.5094646913006775,
+        "windows": [
+          {
+            "window_start_sec": -720,
+            "period": "before",
+            "log_count": 15,
+            "trace_count": 27,
+            "median_latency_ms": 0.187,
+            "p95_latency_ms": 0.423,
+            "anomaly_score": 0.4097669360020414
+          },
+          {
+            "window_start_sec": -690,
+            "period": "before",
+            "log_count": 12,
+            "trace_count": 25,
+            "median_latency_ms": 0.182,
+            "p95_latency_ms": 0.3963999999999998,
+            "anomaly_score": 0.5944806210018311
+          },
+          {
+            "window_start_sec": -660,
+            "period": "before",
+            "log_count": 16,
+            "trace_count": 28,
+            "median_latency_ms": 0.185,
+            "p95_latency_ms": 0.2812,
+            "anomaly_score": 0.5339304160539255
+          },
+          {
+            "window_start_sec": -630,
+            "period": "before",
+            "log_count": 17,
+            "trace_count": 28,
+            "median_latency_ms": 0.1855,
+            "p95_latency_ms": 0.2758499999999999,
+            "anomaly_score": 0.6372761455277423
+          },
+          {
+            "window_start_sec": -600,
+            "period": "before",
+            "log_count": 9,
+            "trace_count": 21,
+            "median_latency_ms": 0.054,
+            "p95_latency_ms": 0.381,
+            "anomaly_score": 1.6960951100977877
+          },
+          {
+            "window_start_sec": -570,
+            "period": "before",
+            "log_count": 13,
+            "trace_count": 26,
+            "median_latency_ms": 0.1945,
+            "p95_latency_ms": 0.34175,
+            "anomaly_score": 0.3475053711045069
+          },
+          {
+            "window_start_sec": -540,
+            "period": "before",
+            "log_count": 13,
+            "trace_count": 24,
+            "median_latency_ms": 0.19,
+            "p95_latency_ms": 0.3649499999999998,
+            "anomaly_score": 0.5319231583453737
+          },
+          {
+            "window_start_sec": -510,
+            "period": "before",
+            "log_count": 16,
+            "trace_count": 28,
+            "median_latency_ms": 0.185,
+            "p95_latency_ms": 0.31155,
+            "anomaly_score": 0.4288897327258175
+          },
+          {
+            "window_start_sec": -480,
+            "period": "before",
+            "log_count": 10,
+            "trace_count": 22,
+            "median_latency_ms": 0.069,
+            "p95_latency_ms": 0.2418499999999999,
+            "anomaly_score": 1.697335196107859
+          },
+          {
+            "window_start_sec": -450,
+            "period": "before",
+            "log_count": 19,
+            "trace_count": 31,
+            "median_latency_ms": 0.198,
+            "p95_latency_ms": 0.3105,
+            "anomaly_score": 1.0035826842499056
+          },
+          {
+            "window_start_sec": -420,
+            "period": "before",
+            "log_count": 16,
+            "trace_count": 28,
+            "median_latency_ms": 0.188,
+            "p95_latency_ms": 0.4152999999999998,
+            "anomaly_score": 0.5551872974102976
+          },
+          {
+            "window_start_sec": -390,
+            "period": "before",
+            "log_count": 21,
+            "trace_count": 33,
+            "median_latency_ms": 0.188,
+            "p95_latency_ms": 0.3765999999999999,
+            "anomaly_score": 1.254172284954188
+          },
+          {
+            "window_start_sec": -360,
+            "period": "before",
+            "log_count": 17,
+            "trace_count": 29,
+            "median_latency_ms": 0.199,
+            "p95_latency_ms": 0.5446,
+            "anomaly_score": 1.2296108972406734
+          },
+          {
+            "window_start_sec": -330,
+            "period": "before",
+            "log_count": 18,
+            "trace_count": 31,
+            "median_latency_ms": 0.195,
+            "p95_latency_ms": 0.3835,
+            "anomaly_score": 0.901190537249326
+          },
+          {
+            "window_start_sec": -300,
+            "period": "before",
+            "log_count": 14,
+            "trace_count": 26,
+            "median_latency_ms": 0.1885,
+            "p95_latency_ms": 0.34625,
+            "anomaly_score": 0.2169343866798047
+          },
+          {
+            "window_start_sec": -270,
+            "period": "before",
+            "log_count": 17,
+            "trace_count": 28,
+            "median_latency_ms": 0.184,
+            "p95_latency_ms": 0.3436999999999999,
+            "anomaly_score": 0.394221398762134
+          },
+          {
+            "window_start_sec": -240,
+            "period": "before",
+            "log_count": 15,
+            "trace_count": 27,
+            "median_latency_ms": 0.194,
+            "p95_latency_ms": 0.4281999999999999,
+            "anomaly_score": 0.4661584952250566
+          },
+          {
+            "window_start_sec": -210,
+            "period": "before",
+            "log_count": 12,
+            "trace_count": 24,
+            "median_latency_ms": 0.1235,
+            "p95_latency_ms": 0.3056999999999999,
+            "anomaly_score": 0.8442534132552616
+          },
+          {
+            "window_start_sec": -180,
+            "period": "before",
+            "log_count": 16,
+            "trace_count": 28,
+            "median_latency_ms": 0.1895,
+            "p95_latency_ms": 0.3435499999999999,
+            "anomaly_score": 0.3428205971433717
+          },
+          {
+            "window_start_sec": -150,
+            "period": "before",
+            "log_count": 10,
+            "trace_count": 23,
+            "median_latency_ms": 0.181,
+            "p95_latency_ms": 0.2387999999999999,
+            "anomaly_score": 1.1295214776601896
+          },
+          {
+            "window_start_sec": -120,
+            "period": "before",
+            "log_count": 16,
+            "trace_count": 27,
+            "median_latency_ms": 0.191,
+            "p95_latency_ms": 0.3400999999999999,
+            "anomaly_score": 0.278490425639978
+          },
+          {
+            "window_start_sec": -90,
+            "period": "before",
+            "log_count": 15,
+            "trace_count": 27,
+            "median_latency_ms": 0.188,
+            "p95_latency_ms": 0.2694,
+            "anomaly_score": 0.4246397636970507
+          },
+          {
+            "window_start_sec": -60,
+            "period": "before",
+            "log_count": 15,
+            "trace_count": 27,
+            "median_latency_ms": 0.19,
+            "p95_latency_ms": 0.4256999999999999,
+            "anomaly_score": 0.4355663510278744
+          },
+          {
+            "window_start_sec": -30,
+            "period": "before",
+            "log_count": 10,
+            "trace_count": 22,
+            "median_latency_ms": 0.051,
+            "p95_latency_ms": 0.2519,
+            "anomaly_score": 1.761281012873639
+          },
+          {
+            "window_start_sec": 0,
+            "period": "after",
+            "log_count": 10,
+            "trace_count": 22,
+            "median_latency_ms": 0.059,
+            "p95_latency_ms": 0.3472999999999999,
+            "anomaly_score": 1.38722431021697
+          },
+          {
+            "window_start_sec": 30,
+            "period": "after",
+            "log_count": 10,
+            "trace_count": 22,
+            "median_latency_ms": 0.06,
+            "p95_latency_ms": 0.4684499999999999,
+            "anomaly_score": 1.7992631230004488
+          },
+          {
+            "window_start_sec": 60,
+            "period": "after",
+            "log_count": 14,
+            "trace_count": 26,
+            "median_latency_ms": 0.1815,
+            "p95_latency_ms": 0.307,
+            "anomaly_score": 0.314383301062536
+          },
+          {
+            "window_start_sec": 90,
+            "period": "after",
+            "log_count": 12,
+            "trace_count": 24,
+            "median_latency_ms": 0.1195,
+            "p95_latency_ms": 0.2991999999999999,
+            "anomaly_score": 0.8886894695879435
+          },
+          {
+            "window_start_sec": 120,
+            "period": "after",
+            "log_count": 11,
+            "trace_count": 23,
+            "median_latency_ms": 0.05,
+            "p95_latency_ms": 0.2959,
+            "anomaly_score": 1.4478979366702889
+          },
+          {
+            "window_start_sec": 150,
+            "period": "after",
+            "log_count": 8,
+            "trace_count": 20,
+            "median_latency_ms": 0.052,
+            "p95_latency_ms": 0.2761,
+            "anomaly_score": 2.0052103546576805
+          },
+          {
+            "window_start_sec": 180,
+            "period": "after",
+            "log_count": 15,
+            "trace_count": 27,
+            "median_latency_ms": 0.194,
+            "p95_latency_ms": 0.599,
+            "anomaly_score": 1.0572935434109167
+          },
+          {
+            "window_start_sec": 210,
+            "period": "after",
+            "log_count": 10,
+            "trace_count": 22,
+            "median_latency_ms": 0.0705,
+            "p95_latency_ms": 0.3521499999999999,
+            "anomaly_score": 1.3391596674904822
+          },
+          {
+            "window_start_sec": 240,
+            "period": "after",
+            "log_count": 7,
+            "trace_count": 19,
+            "median_latency_ms": 0.063,
+            "p95_latency_ms": 0.2384999999999999,
+            "anomaly_score": 2.2415939236629954
+          },
+          {
+            "window_start_sec": 270,
+            "period": "after",
+            "log_count": 13,
+            "trace_count": 27,
+            "median_latency_ms": 0.177,
+            "p95_latency_ms": 0.4436999999999999,
+            "anomaly_score": 0.5360093129933834
+          },
+          {
+            "window_start_sec": 300,
+            "period": "after",
+            "log_count": 12,
+            "trace_count": 22,
+            "median_latency_ms": 0.079,
+            "p95_latency_ms": 0.2463,
+            "anomaly_score": 1.4629105268688336
+          },
+          {
+            "window_start_sec": 330,
+            "period": "after",
+            "log_count": 6,
+            "trace_count": 18,
+            "median_latency_ms": 0.0525,
+            "p95_latency_ms": 0.2759,
+            "anomaly_score": 2.336330022857336
+          },
+          {
+            "window_start_sec": 360,
+            "period": "after",
+            "log_count": 8,
+            "trace_count": 22,
+            "median_latency_ms": 0.1025,
+            "p95_latency_ms": 0.3465999999999999,
+            "anomaly_score": 1.3152268361993542
+          },
+          {
+            "window_start_sec": 390,
+            "period": "after",
+            "log_count": 14,
+            "trace_count": 24,
+            "median_latency_ms": 0.126,
+            "p95_latency_ms": 0.2866999999999999,
+            "anomaly_score": 0.7321256147465327
+          },
+          {
+            "window_start_sec": 420,
+            "period": "after",
+            "log_count": 11,
+            "trace_count": 23,
+            "median_latency_ms": 0.057,
+            "p95_latency_ms": 0.3187,
+            "anomaly_score": 1.3305931640510726
+          },
+          {
+            "window_start_sec": 450,
+            "period": "after",
+            "log_count": 7,
+            "trace_count": 19,
+            "median_latency_ms": 0.052,
+            "p95_latency_ms": 0.3603999999999996,
+            "anomaly_score": 1.9689387471381488
+          },
+          {
+            "window_start_sec": 480,
+            "period": "after",
+            "log_count": 13,
+            "trace_count": 26,
+            "median_latency_ms": 0.1885,
+            "p95_latency_ms": 0.5445,
+            "anomaly_score": 0.9761185113855602
+          },
+          {
+            "window_start_sec": 510,
+            "period": "after",
+            "log_count": 6,
+            "trace_count": 17,
+            "median_latency_ms": 0.054,
+            "p95_latency_ms": 0.4472,
+            "anomaly_score": 2.5094646913006775
+          },
+          {
+            "window_start_sec": 540,
+            "period": "after",
+            "log_count": 8,
+            "trace_count": 20,
+            "median_latency_ms": 0.0559999999999999,
+            "p95_latency_ms": 0.3105000000000001,
+            "anomaly_score": 1.8642130111798845
+          },
+          {
+            "window_start_sec": 570,
+            "period": "after",
+            "log_count": 10,
+            "trace_count": 22,
+            "median_latency_ms": 0.049,
+            "p95_latency_ms": 0.32965,
+            "anomaly_score": 1.5031598202960998
+          },
+          {
+            "window_start_sec": 600,
+            "period": "after",
+            "log_count": 10,
+            "trace_count": 22,
+            "median_latency_ms": 0.11,
+            "p95_latency_ms": 0.4556499999999999,
+            "anomaly_score": 1.4807163652606707
+          },
+          {
+            "window_start_sec": 630,
+            "period": "after",
+            "log_count": 5,
+            "trace_count": 17,
+            "median_latency_ms": 0.039,
+            "p95_latency_ms": 0.3961999999999997,
+            "anomaly_score": 2.4973157178484247
+          },
+          {
+            "window_start_sec": 660,
+            "period": "after",
+            "log_count": 7,
+            "trace_count": 19,
+            "median_latency_ms": 0.045,
+            "p95_latency_ms": 0.2722999999999997,
+            "anomaly_score": 2.2233415121242426
+          },
+          {
+            "window_start_sec": 690,
+            "period": "after",
+            "log_count": 11,
+            "trace_count": 23,
+            "median_latency_ms": 0.044,
+            "p95_latency_ms": 0.4593999999999998,
+            "anomaly_score": 1.6891151007528848
+          }
+        ]
+      },
+      "evidence_note": "Feature values are descriptive evidence, not proof of causality."
+    },
+    "frontend": {
+      "service": "frontend",
+      "observed_in_partial_graph": true,
+      "service_features": {
+        "log_before": 0,
+        "log_after": 0,
+        "trace_before": 105397,
+        "trace_after": 80686,
+        "median_before_ms": 3.498,
+        "median_after_ms": 202.584,
+        "p95_before_ms": 77.43379999999996,
+        "p95_after_ms": 1442.99725,
+        "log_change_pct": 0,
+        "trace_change_pct": -23.445638870176573,
+        "median_change_pct": 5691.4236706689535,
+        "p95_change_pct": 1763.5237454444966,
+        "in_degree": 0,
+        "out_degree": 4
+      },
+      "temporal_summary": {
+        "window_count": 48,
+        "mean_anomaly_score": 4.508289521089593,
+        "max_anomaly_score": 8.933805066259108,
+        "windows": [
+          {
+            "window_start_sec": -720,
+            "period": "before",
+            "log_count": 1386,
+            "trace_count": 4481,
+            "median_latency_ms": 3.668,
+            "p95_latency_ms": 78.866,
+            "anomaly_score": 0.9428251514980128
+          },
+          {
+            "window_start_sec": -690,
+            "period": "before",
+            "log_count": 1306,
+            "trace_count": 4251,
+            "median_latency_ms": 3.628,
+            "p95_latency_ms": 79.9285,
+            "anomaly_score": 1.073861691272469
+          },
+          {
+            "window_start_sec": -660,
+            "period": "before",
+            "log_count": 1287,
+            "trace_count": 4247,
+            "median_latency_ms": 3.601,
+            "p95_latency_ms": 72.18909999999998,
+            "anomaly_score": 1.2222274876153794
+          },
+          {
+            "window_start_sec": -630,
+            "period": "before",
+            "log_count": 1395,
+            "trace_count": 4408,
+            "median_latency_ms": 3.5890000000000004,
+            "p95_latency_ms": 78.55454999999996,
+            "anomaly_score": 0.5910032627109529
+          },
+          {
+            "window_start_sec": -600,
+            "period": "before",
+            "log_count": 1303,
+            "trace_count": 4384,
+            "median_latency_ms": 3.4385000000000003,
+            "p95_latency_ms": 72.87019999999977,
+            "anomaly_score": 0.7699006774784612
+          },
+          {
+            "window_start_sec": -570,
+            "period": "before",
+            "log_count": 1426,
+            "trace_count": 4631,
+            "median_latency_ms": 3.453,
+            "p95_latency_ms": 75.783,
+            "anomaly_score": 0.9652537824888562
+          },
+          {
+            "window_start_sec": -540,
+            "period": "before",
+            "log_count": 1313,
+            "trace_count": 4394,
+            "median_latency_ms": 3.4025,
+            "p95_latency_ms": 71.3839999999999,
+            "anomaly_score": 0.9306771392767262
+          },
+          {
+            "window_start_sec": -510,
+            "period": "before",
+            "log_count": 1380,
+            "trace_count": 4568,
+            "median_latency_ms": 3.449,
+            "p95_latency_ms": 77.64239999999984,
+            "anomaly_score": 0.6038285972741209
+          },
+          {
+            "window_start_sec": -480,
+            "period": "before",
+            "log_count": 1331,
+            "trace_count": 4297,
+            "median_latency_ms": 3.465,
+            "p95_latency_ms": 78.38739999999997,
+            "anomaly_score": 0.4888423577563208
+          },
+          {
+            "window_start_sec": -450,
+            "period": "before",
+            "log_count": 1361,
+            "trace_count": 4359,
+            "median_latency_ms": 3.465,
+            "p95_latency_ms": 79.36299999999999,
+            "anomaly_score": 0.3457618604915858
+          },
+          {
+            "window_start_sec": -420,
+            "period": "before",
+            "log_count": 1249,
+            "trace_count": 4031,
+            "median_latency_ms": 3.59,
+            "p95_latency_ms": 84.8555,
+            "anomaly_score": 1.9058108127011033
+          },
+          {
+            "window_start_sec": -390,
+            "period": "before",
+            "log_count": 1398,
+            "trace_count": 4543,
+            "median_latency_ms": 3.496,
+            "p95_latency_ms": 84.48569999999991,
+            "anomaly_score": 0.9560097524033792
+          },
+          {
+            "window_start_sec": -360,
+            "period": "before",
+            "log_count": 1409,
+            "trace_count": 4359,
+            "median_latency_ms": 3.466,
+            "p95_latency_ms": 74.3122999999999,
+            "anomaly_score": 0.6101744789459906
+          },
+          {
+            "window_start_sec": -330,
+            "period": "before",
+            "log_count": 1393,
+            "trace_count": 4491,
+            "median_latency_ms": 3.543,
+            "p95_latency_ms": 81.94,
+            "anomaly_score": 0.7886252657254595
+          },
+          {
+            "window_start_sec": -300,
+            "period": "before",
+            "log_count": 1290,
+            "trace_count": 4166,
+            "median_latency_ms": 3.3994999999999997,
+            "p95_latency_ms": 72.62625,
+            "anomaly_score": 1.3231366952772143
+          },
+          {
+            "window_start_sec": -270,
+            "period": "before",
+            "log_count": 1407,
+            "trace_count": 4416,
+            "median_latency_ms": 3.4240000000000004,
+            "p95_latency_ms": 72.746,
+            "anomaly_score": 0.8302471946667518
+          },
+          {
+            "window_start_sec": -240,
+            "period": "before",
+            "log_count": 1379,
+            "trace_count": 4472,
+            "median_latency_ms": 3.5065,
+            "p95_latency_ms": 78.72464999999998,
+            "anomaly_score": 0.3552261442613844
+          },
+          {
+            "window_start_sec": -210,
+            "period": "before",
+            "log_count": 1435,
+            "trace_count": 4450,
+            "median_latency_ms": 3.441,
+            "p95_latency_ms": 76.64755000000002,
+            "anomaly_score": 0.7036766004232601
+          },
+          {
+            "window_start_sec": -180,
+            "period": "before",
+            "log_count": 1327,
+            "trace_count": 4180,
+            "median_latency_ms": 3.4530000000000003,
+            "p95_latency_ms": 75.89784999999975,
+            "anomaly_score": 0.7259873265104011
+          },
+          {
+            "window_start_sec": -150,
+            "period": "before",
+            "log_count": 1332,
+            "trace_count": 4488,
+            "median_latency_ms": 3.4684999999999997,
+            "p95_latency_ms": 75.51054999999998,
+            "anomaly_score": 0.4942596533178645
+          },
+          {
+            "window_start_sec": -120,
+            "period": "before",
+            "log_count": 1433,
+            "trace_count": 4681,
+            "median_latency_ms": 3.46,
+            "p95_latency_ms": 74.495,
+            "anomaly_score": 1.1419300486533068
+          },
+          {
+            "window_start_sec": -90,
+            "period": "before",
+            "log_count": 1355,
+            "trace_count": 4231,
+            "median_latency_ms": 3.597,
+            "p95_latency_ms": 80.2045,
+            "anomaly_score": 0.783439030881535
+          },
+          {
+            "window_start_sec": -60,
+            "period": "before",
+            "log_count": 1363,
+            "trace_count": 4561,
+            "median_latency_ms": 3.575,
+            "p95_latency_ms": 79.072,
+            "anomaly_score": 0.6662430048516108
+          },
+          {
+            "window_start_sec": -30,
+            "period": "before",
+            "log_count": 1317,
+            "trace_count": 4308,
+            "median_latency_ms": 3.4875,
+            "p95_latency_ms": 73.64709999999995,
+            "anomaly_score": 0.6093734537093196
+          },
+          {
+            "window_start_sec": 0,
+            "period": "after",
+            "log_count": 1042,
+            "trace_count": 3404,
+            "median_latency_ms": 202.493,
+            "p95_latency_ms": 1443.2186,
+            "anomaly_score": 8.102896172866279
+          },
+          {
+            "window_start_sec": 30,
+            "period": "after",
+            "log_count": 1048,
+            "trace_count": 3386,
+            "median_latency_ms": 202.5355,
+            "p95_latency_ms": 1442.37375,
+            "anomaly_score": 8.102174926656943
+          },
+          {
+            "window_start_sec": 60,
+            "period": "after",
+            "log_count": 1101,
+            "trace_count": 3510,
+            "median_latency_ms": 202.5645,
+            "p95_latency_ms": 1443.87635,
+            "anomaly_score": 7.647171301317329
+          },
+          {
+            "window_start_sec": 90,
+            "period": "after",
+            "log_count": 1096,
+            "trace_count": 3661,
+            "median_latency_ms": 202.62,
+            "p95_latency_ms": 1442.938,
+            "anomaly_score": 7.432175039707184
+          },
+          {
+            "window_start_sec": 120,
+            "period": "after",
+            "log_count": 1021,
+            "trace_count": 3302,
+            "median_latency_ms": 202.604,
+            "p95_latency_ms": 1442.93565,
+            "anomaly_score": 8.366990788418493
+          },
+          {
+            "window_start_sec": 150,
+            "period": "after",
+            "log_count": 1006,
+            "trace_count": 3282,
+            "median_latency_ms": 202.596,
+            "p95_latency_ms": 1442.9767000000002,
+            "anomaly_score": 8.471836731204075
+          },
+          {
+            "window_start_sec": 180,
+            "period": "after",
+            "log_count": 1045,
+            "trace_count": 3465,
+            "median_latency_ms": 202.583,
+            "p95_latency_ms": 1443.3493999999998,
+            "anomaly_score": 7.991566351171503
+          },
+          {
+            "window_start_sec": 210,
+            "period": "after",
+            "log_count": 1038,
+            "trace_count": 3237,
+            "median_latency_ms": 202.587,
+            "p95_latency_ms": 1442.4426,
+            "anomaly_score": 8.387141097210064
+          },
+          {
+            "window_start_sec": 240,
+            "period": "after",
+            "log_count": 1050,
+            "trace_count": 3341,
+            "median_latency_ms": 202.552,
+            "p95_latency_ms": 1442.647,
+            "anomaly_score": 8.163760207611176
+          },
+          {
+            "window_start_sec": 270,
+            "period": "after",
+            "log_count": 1044,
+            "trace_count": 3347,
+            "median_latency_ms": 202.588,
+            "p95_latency_ms": 1442.9494,
+            "anomaly_score": 8.183504745007388
+          },
+          {
+            "window_start_sec": 300,
+            "period": "after",
+            "log_count": 1107,
+            "trace_count": 3377,
+            "median_latency_ms": 202.55,
+            "p95_latency_ms": 1442.596,
+            "anomaly_score": 7.828756595648883
+          },
+          {
+            "window_start_sec": 330,
+            "period": "after",
+            "log_count": 985,
+            "trace_count": 3311,
+            "median_latency_ms": 202.574,
+            "p95_latency_ms": 1442.587,
+            "anomaly_score": 8.52826041796623
+          },
+          {
+            "window_start_sec": 360,
+            "period": "after",
+            "log_count": 993,
+            "trace_count": 3214,
+            "median_latency_ms": 202.5745,
+            "p95_latency_ms": 1444.2074,
+            "anomaly_score": 8.64302377774061
+          },
+          {
+            "window_start_sec": 390,
+            "period": "after",
+            "log_count": 1072,
+            "trace_count": 3522,
+            "median_latency_ms": 202.6555,
+            "p95_latency_ms": 1443.64205,
+            "anomaly_score": 7.769552894580423
+          },
+          {
+            "window_start_sec": 420,
+            "period": "after",
+            "log_count": 1042,
+            "trace_count": 3254,
+            "median_latency_ms": 202.571,
+            "p95_latency_ms": 1443.10235,
+            "anomaly_score": 8.340687312702224
+          },
+          {
+            "window_start_sec": 450,
+            "period": "after",
+            "log_count": 1035,
+            "trace_count": 3394,
+            "median_latency_ms": 202.674,
+            "p95_latency_ms": 1443.0839,
+            "anomaly_score": 8.152881129009932
+          },
+          {
+            "window_start_sec": 480,
+            "period": "after",
+            "log_count": 1026,
+            "trace_count": 3396,
+            "median_latency_ms": 202.6205,
+            "p95_latency_ms": 1443.9254999999998,
+            "anomaly_score": 8.19359485496326
+          },
+          {
+            "window_start_sec": 510,
+            "period": "after",
+            "log_count": 961,
+            "trace_count": 3129,
+            "median_latency_ms": 202.58,
+            "p95_latency_ms": 1442.2582,
+            "anomaly_score": 8.933805066259108
+          },
+          {
+            "window_start_sec": 540,
+            "period": "after",
+            "log_count": 1020,
+            "trace_count": 3265,
+            "median_latency_ms": 202.525,
+            "p95_latency_ms": 1442.694,
+            "anomaly_score": 8.430521966742969
+          },
+          {
+            "window_start_sec": 570,
+            "period": "after",
+            "log_count": 1037,
+            "trace_count": 3518,
+            "median_latency_ms": 202.6685,
+            "p95_latency_ms": 1443.3079,
+            "anomaly_score": 7.946555059082335
+          },
+          {
+            "window_start_sec": 600,
+            "period": "after",
+            "log_count": 957,
+            "trace_count": 3170,
+            "median_latency_ms": 202.635,
+            "p95_latency_ms": 1442.85675,
+            "anomaly_score": 8.888312943363715
+          },
+          {
+            "window_start_sec": 630,
+            "period": "after",
+            "log_count": 1021,
+            "trace_count": 3375,
+            "median_latency_ms": 202.617,
+            "p95_latency_ms": 1442.9516,
+            "anomaly_score": 8.251265767031667
+          },
+          {
+            "window_start_sec": 660,
+            "period": "after",
+            "log_count": 1025,
+            "trace_count": 3278,
+            "median_latency_ms": 202.55,
+            "p95_latency_ms": 1443.08585,
+            "anomaly_score": 8.385533248799145
+          },
+          {
+            "window_start_sec": 690,
+            "period": "after",
+            "log_count": 1134,
+            "trace_count": 3547,
+            "median_latency_ms": 202.496,
+            "p95_latency_ms": 1442.9072,
+            "anomaly_score": 7.427607147048058
+          }
+        ]
+      },
+      "evidence_note": "Feature values are descriptive evidence, not proof of causality."
+    },
+    "paymentservice": {
+      "service": "paymentservice",
+      "observed_in_partial_graph": true,
+      "service_features": {
+        "log_before": 704,
+        "log_after": 476,
+        "trace_before": 496,
+        "trace_after": 382,
+        "median_before_ms": 0.213,
+        "median_after_ms": 0.195,
+        "p95_before_ms": 0.40425,
+        "p95_after_ms": 0.46889999999999993,
+        "log_change_pct": -32.38636363636363,
+        "trace_change_pct": -22.983870967741936,
+        "median_change_pct": -8.450704225352107,
+        "p95_change_pct": 15.992578849721689,
+        "in_degree": 1,
+        "out_degree": 0
+      },
+      "temporal_summary": {
+        "window_count": 48,
+        "mean_anomaly_score": 1.128172399567808,
+        "max_anomaly_score": 4.558974239819221,
+        "windows": [
+          {
+            "window_start_sec": -720,
+            "period": "before",
+            "log_count": 30,
+            "trace_count": 21,
+            "median_latency_ms": 0.235,
+            "p95_latency_ms": 0.346,
+            "anomaly_score": 0.4350076899434877
+          },
+          {
+            "window_start_sec": -690,
+            "period": "before",
+            "log_count": 24,
+            "trace_count": 19,
+            "median_latency_ms": 0.252,
+            "p95_latency_ms": 0.5304999999999984,
+            "anomaly_score": 1.144969044239408
+          },
+          {
+            "window_start_sec": -660,
+            "period": "before",
+            "log_count": 32,
+            "trace_count": 22,
+            "median_latency_ms": 0.211,
+            "p95_latency_ms": 0.5325499999999999,
+            "anomaly_score": 0.5220865096980414
+          },
+          {
+            "window_start_sec": -630,
+            "period": "before",
+            "log_count": 34,
+            "trace_count": 22,
+            "median_latency_ms": 0.2245,
+            "p95_latency_ms": 1.0101499999999997,
+            "anomaly_score": 1.3779765650940246
+          },
+          {
+            "window_start_sec": -600,
+            "period": "before",
+            "log_count": 18,
+            "trace_count": 15,
+            "median_latency_ms": 0.216,
+            "p95_latency_ms": 0.2678,
+            "anomaly_score": 1.1515664519360276
+          },
+          {
+            "window_start_sec": -570,
+            "period": "before",
+            "log_count": 26,
+            "trace_count": 20,
+            "median_latency_ms": 0.2165,
+            "p95_latency_ms": 0.4034,
+            "anomaly_score": 0.2044504064950376
+          },
+          {
+            "window_start_sec": -540,
+            "period": "before",
+            "log_count": 26,
+            "trace_count": 18,
+            "median_latency_ms": 0.2135,
+            "p95_latency_ms": 0.3067499999999999,
+            "anomaly_score": 0.550656823310059
+          },
+          {
+            "window_start_sec": -510,
+            "period": "before",
+            "log_count": 32,
+            "trace_count": 22,
+            "median_latency_ms": 0.207,
+            "p95_latency_ms": 0.32405,
+            "anomaly_score": 0.4902752752225709
+          },
+          {
+            "window_start_sec": -480,
+            "period": "before",
+            "log_count": 20,
+            "trace_count": 16,
+            "median_latency_ms": 0.2205,
+            "p95_latency_ms": 0.3585,
+            "anomaly_score": 0.9005814104250149
+          },
+          {
+            "window_start_sec": -450,
+            "period": "before",
+            "log_count": 38,
+            "trace_count": 25,
+            "median_latency_ms": 0.224,
+            "p95_latency_ms": 0.4691999999999999,
+            "anomaly_score": 0.9550067405904148
+          },
+          {
+            "window_start_sec": -420,
+            "period": "before",
+            "log_count": 32,
+            "trace_count": 22,
+            "median_latency_ms": 0.2325,
+            "p95_latency_ms": 0.5213999999999999,
+            "anomaly_score": 0.6745471938669597
+          },
+          {
+            "window_start_sec": -390,
+            "period": "before",
+            "log_count": 42,
+            "trace_count": 27,
+            "median_latency_ms": 0.231,
+            "p95_latency_ms": 0.2972999999999999,
+            "anomaly_score": 1.444066101397904
+          },
+          {
+            "window_start_sec": -360,
+            "period": "before",
+            "log_count": 34,
+            "trace_count": 23,
+            "median_latency_ms": 0.235,
+            "p95_latency_ms": 0.3884999999999999,
+            "anomaly_score": 0.7027747432254927
+          },
+          {
+            "window_start_sec": -330,
+            "period": "before",
+            "log_count": 36,
+            "trace_count": 25,
+            "median_latency_ms": 0.234,
+            "p95_latency_ms": 0.4373999999999998,
+            "anomaly_score": 0.9874714652191668
+          },
+          {
+            "window_start_sec": -300,
+            "period": "before",
+            "log_count": 28,
+            "trace_count": 20,
+            "median_latency_ms": 0.2125,
+            "p95_latency_ms": 0.3026,
+            "anomaly_score": 0.3223091723339391
+          },
+          {
+            "window_start_sec": -270,
+            "period": "before",
+            "log_count": 34,
+            "trace_count": 22,
+            "median_latency_ms": 0.21,
+            "p95_latency_ms": 0.4263499999999999,
+            "anomaly_score": 0.4570921349841444
+          },
+          {
+            "window_start_sec": -240,
+            "period": "before",
+            "log_count": 30,
+            "trace_count": 21,
+            "median_latency_ms": 0.204,
+            "p95_latency_ms": 0.33,
+            "anomaly_score": 0.3635804553907595
+          },
+          {
+            "window_start_sec": -210,
+            "period": "before",
+            "log_count": 24,
+            "trace_count": 18,
+            "median_latency_ms": 0.2235,
+            "p95_latency_ms": 0.3166999999999997,
+            "anomaly_score": 0.6807836843062799
+          },
+          {
+            "window_start_sec": -180,
+            "period": "before",
+            "log_count": 32,
+            "trace_count": 22,
+            "median_latency_ms": 0.208,
+            "p95_latency_ms": 0.2896999999999999,
+            "anomaly_score": 0.5267873421837446
+          },
+          {
+            "window_start_sec": -150,
+            "period": "before",
+            "log_count": 20,
+            "trace_count": 17,
+            "median_latency_ms": 0.19,
+            "p95_latency_ms": 0.2556,
+            "anomaly_score": 1.344328135342466
+          },
+          {
+            "window_start_sec": -120,
+            "period": "before",
+            "log_count": 32,
+            "trace_count": 21,
+            "median_latency_ms": 0.198,
+            "p95_latency_ms": 0.273,
+            "anomaly_score": 0.6314773982332056
+          },
+          {
+            "window_start_sec": -90,
+            "period": "before",
+            "log_count": 30,
+            "trace_count": 21,
+            "median_latency_ms": 0.193,
+            "p95_latency_ms": 0.324,
+            "anomaly_score": 0.5526511574183426
+          },
+          {
+            "window_start_sec": -60,
+            "period": "before",
+            "log_count": 30,
+            "trace_count": 21,
+            "median_latency_ms": 0.21,
+            "p95_latency_ms": 0.571,
+            "anomaly_score": 0.4310207643695541
+          },
+          {
+            "window_start_sec": -30,
+            "period": "before",
+            "log_count": 20,
+            "trace_count": 16,
+            "median_latency_ms": 0.196,
+            "p95_latency_ms": 0.23875,
+            "anomaly_score": 1.3566632850154696
+          },
+          {
+            "window_start_sec": 0,
+            "period": "after",
+            "log_count": 20,
+            "trace_count": 16,
+            "median_latency_ms": 0.213,
+            "p95_latency_ms": 0.34275,
+            "anomaly_score": 0.9186881300502004
+          },
+          {
+            "window_start_sec": 30,
+            "period": "after",
+            "log_count": 20,
+            "trace_count": 16,
+            "median_latency_ms": 0.189,
+            "p95_latency_ms": 0.25775,
+            "anomaly_score": 1.441866302227281
+          },
+          {
+            "window_start_sec": 60,
+            "period": "after",
+            "log_count": 28,
+            "trace_count": 20,
+            "median_latency_ms": 0.1925,
+            "p95_latency_ms": 0.4376500000000005,
+            "anomaly_score": 0.5674428088622004
+          },
+          {
+            "window_start_sec": 90,
+            "period": "after",
+            "log_count": 24,
+            "trace_count": 18,
+            "median_latency_ms": 0.2205,
+            "p95_latency_ms": 0.3521499999999999,
+            "anomaly_score": 0.5771834354147105
+          },
+          {
+            "window_start_sec": 120,
+            "period": "after",
+            "log_count": 22,
+            "trace_count": 17,
+            "median_latency_ms": 0.191,
+            "p95_latency_ms": 0.2633999999999998,
+            "anomaly_score": 1.23388889796712
+          },
+          {
+            "window_start_sec": 150,
+            "period": "after",
+            "log_count": 16,
+            "trace_count": 14,
+            "median_latency_ms": 0.195,
+            "p95_latency_ms": 0.3493999999999999,
+            "anomaly_score": 1.5359037442431749
+          },
+          {
+            "window_start_sec": 180,
+            "period": "after",
+            "log_count": 30,
+            "trace_count": 21,
+            "median_latency_ms": 0.193,
+            "p95_latency_ms": 1.011,
+            "anomaly_score": 1.3860634075978562
+          },
+          {
+            "window_start_sec": 210,
+            "period": "after",
+            "log_count": 20,
+            "trace_count": 16,
+            "median_latency_ms": 0.196,
+            "p95_latency_ms": 0.33475,
+            "anomaly_score": 1.2089297169403177
+          },
+          {
+            "window_start_sec": 240,
+            "period": "after",
+            "log_count": 14,
+            "trace_count": 13,
+            "median_latency_ms": 0.186,
+            "p95_latency_ms": 0.6005999999999988,
+            "anomaly_score": 2.0905674515703847
+          },
+          {
+            "window_start_sec": 270,
+            "period": "after",
+            "log_count": 26,
+            "trace_count": 21,
+            "median_latency_ms": 0.199,
+            "p95_latency_ms": 0.982,
+            "anomaly_score": 1.3527918361855498
+          },
+          {
+            "window_start_sec": 300,
+            "period": "after",
+            "log_count": 24,
+            "trace_count": 16,
+            "median_latency_ms": 0.1935,
+            "p95_latency_ms": 0.367,
+            "anomaly_score": 1.0359985281223172
+          },
+          {
+            "window_start_sec": 330,
+            "period": "after",
+            "log_count": 12,
+            "trace_count": 12,
+            "median_latency_ms": 0.1465,
+            "p95_latency_ms": 0.2854,
+            "anomaly_score": 2.760481967345823
+          },
+          {
+            "window_start_sec": 360,
+            "period": "after",
+            "log_count": 16,
+            "trace_count": 16,
+            "median_latency_ms": 0.2195,
+            "p95_latency_ms": 0.48225,
+            "anomaly_score": 1.1212218375589411
+          },
+          {
+            "window_start_sec": 390,
+            "period": "after",
+            "log_count": 28,
+            "trace_count": 18,
+            "median_latency_ms": 0.203,
+            "p95_latency_ms": 0.3231499999999996,
+            "anomaly_score": 0.6149948996670589
+          },
+          {
+            "window_start_sec": 420,
+            "period": "after",
+            "log_count": 22,
+            "trace_count": 17,
+            "median_latency_ms": 0.186,
+            "p95_latency_ms": 0.4117999999999996,
+            "anomaly_score": 1.1336848977253693
+          },
+          {
+            "window_start_sec": 450,
+            "period": "after",
+            "log_count": 14,
+            "trace_count": 13,
+            "median_latency_ms": 0.2,
+            "p95_latency_ms": 0.4013999999999998,
+            "anomaly_score": 1.5551363926944082
+          },
+          {
+            "window_start_sec": 480,
+            "period": "after",
+            "log_count": 26,
+            "trace_count": 20,
+            "median_latency_ms": 0.199,
+            "p95_latency_ms": 0.3644,
+            "anomaly_score": 0.5300022024262611
+          },
+          {
+            "window_start_sec": 510,
+            "period": "after",
+            "log_count": 12,
+            "trace_count": 11,
+            "median_latency_ms": 0.089,
+            "p95_latency_ms": 0.3535,
+            "anomaly_score": 3.680240296408684
+          },
+          {
+            "window_start_sec": 540,
+            "period": "after",
+            "log_count": 16,
+            "trace_count": 14,
+            "median_latency_ms": 0.229,
+            "p95_latency_ms": 0.4780999999999999,
+            "anomaly_score": 1.439145382771566
+          },
+          {
+            "window_start_sec": 570,
+            "period": "after",
+            "log_count": 20,
+            "trace_count": 16,
+            "median_latency_ms": 0.2195,
+            "p95_latency_ms": 0.502,
+            "anomaly_score": 0.9874408722006894
+          },
+          {
+            "window_start_sec": 600,
+            "period": "after",
+            "log_count": 20,
+            "trace_count": 16,
+            "median_latency_ms": 0.1935,
+            "p95_latency_ms": 0.50975,
+            "anomaly_score": 1.3283878936501428
+          },
+          {
+            "window_start_sec": 630,
+            "period": "after",
+            "log_count": 10,
+            "trace_count": 11,
+            "median_latency_ms": 0.076,
+            "p95_latency_ms": 0.8195,
+            "anomaly_score": 4.558974239819221
+          },
+          {
+            "window_start_sec": 660,
+            "period": "after",
+            "log_count": 14,
+            "trace_count": 13,
+            "median_latency_ms": 0.186,
+            "p95_latency_ms": 0.3785999999999999,
+            "anomaly_score": 1.804692738069406
+          },
+          {
+            "window_start_sec": 690,
+            "period": "after",
+            "log_count": 22,
+            "trace_count": 17,
+            "median_latency_ms": 0.188,
+            "p95_latency_ms": 0.3949999999999998,
+            "anomaly_score": 1.080417349494583
+          }
+        ]
+      },
+      "evidence_note": "Feature values are descriptive evidence, not proof of causality."
+    },
+    "productcatalogservice": {
+      "service": "productcatalogservice",
+      "observed_in_partial_graph": true,
+      "service_features": {
+        "log_before": 0,
+        "log_after": 0,
+        "trace_before": 52311,
+        "trace_after": 39998,
+        "median_before_ms": 0.012,
+        "median_after_ms": 0.015,
+        "p95_before_ms": 0.025,
+        "p95_after_ms": 0.033,
+        "log_change_pct": 0,
+        "trace_change_pct": -23.538070386725547,
+        "median_change_pct": 24.999999999999993,
+        "p95_change_pct": 32,
+        "in_degree": 3,
+        "out_degree": 0
+      },
+      "temporal_summary": {
+        "window_count": 48,
+        "mean_anomaly_score": 3.3030363788304906,
+        "max_anomaly_score": 7.1195912964041925,
+        "windows": [
+          {
+            "window_start_sec": -720,
+            "period": "before",
+            "log_count": 0,
+            "trace_count": 2175,
+            "median_latency_ms": 0.013,
+            "p95_latency_ms": 0.028,
+            "anomaly_score": 1.205596638851039
+          },
+          {
+            "window_start_sec": -690,
+            "period": "before",
+            "log_count": 0,
+            "trace_count": 2089,
+            "median_latency_ms": 0.013,
+            "p95_latency_ms": 0.024,
+            "anomaly_score": 1.152745948468594
+          },
+          {
+            "window_start_sec": -660,
+            "period": "before",
+            "log_count": 0,
+            "trace_count": 2158,
+            "median_latency_ms": 0.012,
+            "p95_latency_ms": 0.02515,
+            "anomaly_score": 0.2568423247103205
+          },
+          {
+            "window_start_sec": -630,
+            "period": "before",
+            "log_count": 0,
+            "trace_count": 2178,
+            "median_latency_ms": 0.012,
+            "p95_latency_ms": 0.025,
+            "anomaly_score": 0.1868099117752467
+          },
+          {
+            "window_start_sec": -600,
+            "period": "before",
+            "log_count": 0,
+            "trace_count": 2172,
+            "median_latency_ms": 0.013,
+            "p95_latency_ms": 0.028,
+            "anomaly_score": 1.2159833202662569
+          },
+          {
+            "window_start_sec": -570,
+            "period": "before",
+            "log_count": 0,
+            "trace_count": 2282,
+            "median_latency_ms": 0.012,
+            "p95_latency_ms": 0.024,
+            "anomaly_score": 0.7247181360336551
+          },
+          {
+            "window_start_sec": -540,
+            "period": "before",
+            "log_count": 0,
+            "trace_count": 2233,
+            "median_latency_ms": 0.012,
+            "p95_latency_ms": 0.0284,
+            "anomaly_score": 0.981306766562741
+          },
+          {
+            "window_start_sec": -510,
+            "period": "before",
+            "log_count": 0,
+            "trace_count": 2273,
+            "median_latency_ms": 0.012,
+            "p95_latency_ms": 0.024,
+            "anomaly_score": 0.6935580917880019
+          },
+          {
+            "window_start_sec": -480,
+            "period": "before",
+            "log_count": 0,
+            "trace_count": 2074,
+            "median_latency_ms": 0.013,
+            "p95_latency_ms": 0.026,
+            "anomaly_score": 1.177103899702019
+          },
+          {
+            "window_start_sec": -450,
+            "period": "before",
+            "log_count": 0,
+            "trace_count": 2145,
+            "median_latency_ms": 0.012,
+            "p95_latency_ms": 0.0257999999999999,
+            "anomaly_score": 0.424759023551178
+          },
+          {
+            "window_start_sec": -420,
+            "period": "before",
+            "log_count": 0,
+            "trace_count": 2006,
+            "median_latency_ms": 0.012,
+            "p95_latency_ms": 0.025,
+            "anomaly_score": 0.7823129795810683
+          },
+          {
+            "window_start_sec": -390,
+            "period": "before",
+            "log_count": 0,
+            "trace_count": 2307,
+            "median_latency_ms": 0.012,
+            "p95_latency_ms": 0.0236999999999998,
+            "anomaly_score": 0.868000466513041
+          },
+          {
+            "window_start_sec": -360,
+            "period": "before",
+            "log_count": 0,
+            "trace_count": 2167,
+            "median_latency_ms": 0.012,
+            "p95_latency_ms": 0.0236999999999998,
+            "anomaly_score": 0.4707099023809595
+          },
+          {
+            "window_start_sec": -330,
+            "period": "before",
+            "log_count": 0,
+            "trace_count": 2248,
+            "median_latency_ms": 0.012,
+            "p95_latency_ms": 0.023,
+            "anomaly_score": 0.7960912533918633
+          },
+          {
+            "window_start_sec": -300,
+            "period": "before",
+            "log_count": 0,
+            "trace_count": 2052,
+            "median_latency_ms": 0.012,
+            "p95_latency_ms": 0.024,
+            "anomaly_score": 0.8121393712784052
+          },
+          {
+            "window_start_sec": -270,
+            "period": "before",
+            "log_count": 0,
+            "trace_count": 2183,
+            "median_latency_ms": 0.012,
+            "p95_latency_ms": 0.024,
+            "anomaly_score": 0.3819576493314672
+          },
+          {
+            "window_start_sec": -240,
+            "period": "before",
+            "log_count": 0,
+            "trace_count": 2200,
+            "median_latency_ms": 0.012,
+            "p95_latency_ms": 0.023,
+            "anomaly_score": 0.6299043507483783
+          },
+          {
+            "window_start_sec": -210,
+            "period": "before",
+            "log_count": 0,
+            "trace_count": 2163,
+            "median_latency_ms": 0.012,
+            "p95_latency_ms": 0.024,
+            "anomaly_score": 0.4278321589153459
+          },
+          {
+            "window_start_sec": -180,
+            "period": "before",
+            "log_count": 0,
+            "trace_count": 2078,
+            "median_latency_ms": 0.013,
+            "p95_latency_ms": 0.023,
+            "anomaly_score": 1.3799192870550696
+          },
+          {
+            "window_start_sec": -150,
+            "period": "before",
+            "log_count": 0,
+            "trace_count": 2231,
+            "median_latency_ms": 0.012,
+            "p95_latency_ms": 0.026,
+            "anomaly_score": 0.5205690961322879
+          },
+          {
+            "window_start_sec": -120,
+            "period": "before",
+            "log_count": 0,
+            "trace_count": 2405,
+            "median_latency_ms": 0.012,
+            "p95_latency_ms": 0.024,
+            "anomaly_score": 1.1505720740575855
+          },
+          {
+            "window_start_sec": -90,
+            "period": "before",
+            "log_count": 0,
+            "trace_count": 2024,
+            "median_latency_ms": 0.012,
+            "p95_latency_ms": 0.025,
+            "anomaly_score": 0.7199928910897614
+          },
+          {
+            "window_start_sec": -60,
+            "period": "before",
+            "log_count": 0,
+            "trace_count": 2297,
+            "median_latency_ms": 0.012,
+            "p95_latency_ms": 0.026,
+            "anomaly_score": 0.7490760872670799
+          },
+          {
+            "window_start_sec": -30,
+            "period": "before",
+            "log_count": 0,
+            "trace_count": 2171,
+            "median_latency_ms": 0.012,
+            "p95_latency_ms": 0.029,
+            "anomaly_score": 0.939825406157464
+          },
+          {
+            "window_start_sec": 0,
+            "period": "after",
+            "log_count": 0,
+            "trace_count": 1691,
+            "median_latency_ms": 0.015,
+            "p95_latency_ms": 0.031,
+            "anomaly_score": 5.055583315669983
+          },
+          {
+            "window_start_sec": 30,
+            "period": "after",
+            "log_count": 0,
+            "trace_count": 1696,
+            "median_latency_ms": 0.015,
+            "p95_latency_ms": 0.031,
+            "anomaly_score": 5.038272179977953
+          },
+          {
+            "window_start_sec": 60,
+            "period": "after",
+            "log_count": 0,
+            "trace_count": 1717,
+            "median_latency_ms": 0.015,
+            "p95_latency_ms": 0.0331999999999998,
+            "anomaly_score": 5.381560858212215
+          },
+          {
+            "window_start_sec": 90,
+            "period": "after",
+            "log_count": 0,
+            "trace_count": 1873,
+            "median_latency_ms": 0.016,
+            "p95_latency_ms": 0.0303999999999998,
+            "anomaly_score": 5.115505783260891
+          },
+          {
+            "window_start_sec": 120,
+            "period": "after",
+            "log_count": 0,
+            "trace_count": 1620,
+            "median_latency_ms": 0.016,
+            "p95_latency_ms": 0.036,
+            "anomaly_score": 7.050346753636075
+          },
+          {
+            "window_start_sec": 150,
+            "period": "after",
+            "log_count": 0,
+            "trace_count": 1639,
+            "median_latency_ms": 0.015,
+            "p95_latency_ms": 0.0310999999999999,
+            "anomaly_score": 5.254528010873475
+          },
+          {
+            "window_start_sec": 180,
+            "period": "after",
+            "log_count": 0,
+            "trace_count": 1773,
+            "median_latency_ms": 0.015,
+            "p95_latency_ms": 0.0293999999999998,
+            "anomaly_score": 4.469138546218255
+          },
+          {
+            "window_start_sec": 210,
+            "period": "after",
+            "log_count": 0,
+            "trace_count": 1599,
+            "median_latency_ms": 0.015,
+            "p95_latency_ms": 0.0320999999999999,
+            "anomaly_score": 5.582105936473723
+          },
+          {
+            "window_start_sec": 240,
+            "period": "after",
+            "log_count": 0,
+            "trace_count": 1613,
+            "median_latency_ms": 0.015,
+            "p95_latency_ms": 0.032,
+            "anomaly_score": 5.514725872529657
+          },
+          {
+            "window_start_sec": 270,
+            "period": "after",
+            "log_count": 0,
+            "trace_count": 1654,
+            "median_latency_ms": 0.016,
+            "p95_latency_ms": 0.0313499999999999,
+            "anomaly_score": 6.053367924632609
+          },
+          {
+            "window_start_sec": 300,
+            "period": "after",
+            "log_count": 0,
+            "trace_count": 1631,
+            "median_latency_ms": 0.016,
+            "p95_latency_ms": 0.031,
+            "anomaly_score": 6.06681805479356
+          },
+          {
+            "window_start_sec": 330,
+            "period": "after",
+            "log_count": 0,
+            "trace_count": 1673,
+            "median_latency_ms": 0.015,
+            "p95_latency_ms": 0.03,
+            "anomaly_score": 4.92881456409728
+          },
+          {
+            "window_start_sec": 360,
+            "period": "after",
+            "log_count": 0,
+            "trace_count": 1557,
+            "median_latency_ms": 0.015,
+            "p95_latency_ms": 0.0321999999999998,
+            "anomaly_score": 5.746428360293156
+          },
+          {
+            "window_start_sec": 390,
+            "period": "after",
+            "log_count": 0,
+            "trace_count": 1829,
+            "median_latency_ms": 0.015,
+            "p95_latency_ms": 0.035,
+            "anomaly_score": 5.334151330826003
+          },
+          {
+            "window_start_sec": 420,
+            "period": "after",
+            "log_count": 0,
+            "trace_count": 1548,
+            "median_latency_ms": 0.016,
+            "p95_latency_ms": 0.034,
+            "anomaly_score": 6.921449427473283
+          },
+          {
+            "window_start_sec": 450,
+            "period": "after",
+            "log_count": 0,
+            "trace_count": 1706,
+            "median_latency_ms": 0.015,
+            "p95_latency_ms": 0.033,
+            "anomaly_score": 5.381827588721914
+          },
+          {
+            "window_start_sec": 480,
+            "period": "after",
+            "log_count": 0,
+            "trace_count": 1688,
+            "median_latency_ms": 0.016,
+            "p95_latency_ms": 0.034,
+            "anomaly_score": 6.436737628096452
+          },
+          {
+            "window_start_sec": 510,
+            "period": "after",
+            "log_count": 0,
+            "trace_count": 1548,
+            "median_latency_ms": 0.015,
+            "p95_latency_ms": 0.0356499999999998,
+            "anomaly_score": 6.429944902759652
+          },
+          {
+            "window_start_sec": 540,
+            "period": "after",
+            "log_count": 0,
+            "trace_count": 1603,
+            "median_latency_ms": 0.016,
+            "p95_latency_ms": 0.035,
+            "anomaly_score": 6.920115774924966
+          },
+          {
+            "window_start_sec": 570,
+            "period": "after",
+            "log_count": 0,
+            "trace_count": 1821,
+            "median_latency_ms": 0.015,
+            "p95_latency_ms": 0.033,
+            "anomaly_score": 4.983671467805231
+          },
+          {
+            "window_start_sec": 600,
+            "period": "after",
+            "log_count": 0,
+            "trace_count": 1600,
+            "median_latency_ms": 0.016,
+            "p95_latency_ms": 0.036,
+            "anomaly_score": 7.1195912964041925
+          },
+          {
+            "window_start_sec": 630,
+            "period": "after",
+            "log_count": 0,
+            "trace_count": 1670,
+            "median_latency_ms": 0.016,
+            "p95_latency_ms": 0.0355499999999999,
+            "anomaly_score": 6.792145418686965
+          },
+          {
+            "window_start_sec": 660,
+            "period": "after",
+            "log_count": 0,
+            "trace_count": 1583,
+            "median_latency_ms": 0.016,
+            "p95_latency_ms": 0.032,
+            "anomaly_score": 6.422093797501056
+          },
+          {
+            "window_start_sec": 690,
+            "period": "after",
+            "log_count": 0,
+            "trace_count": 1666,
+            "median_latency_ms": 0.015,
+            "p95_latency_ms": 0.035,
+            "anomaly_score": 5.8984943543861705
+          }
+        ]
+      },
+      "evidence_note": "Feature values are descriptive evidence, not proof of causality."
+    },
+    "recommendationservice": {
+      "service": "recommendationservice",
+      "observed_in_partial_graph": true,
+      "service_features": {
+        "log_before": 6792,
+        "log_after": 5218,
+        "trace_before": 13882,
+        "trace_after": 10716,
+        "median_before_ms": 3.464,
+        "median_after_ms": 203.674,
+        "p95_before_ms": 5.143849999999997,
+        "p95_after_ms": 205.08275,
+        "log_change_pct": -23.17432273262662,
+        "trace_change_pct": -22.806512029966864,
+        "median_change_pct": 5779.73441108545,
+        "p95_change_pct": 3886.9504359575053,
+        "in_degree": 1,
+        "out_degree": 1
+      },
+      "temporal_summary": {
+        "window_count": 48,
+        "mean_anomaly_score": 4.103784389007193,
+        "max_anomaly_score": 8.088470810689559,
+        "windows": [
+          {
+            "window_start_sec": -720,
+            "period": "before",
+            "log_count": 276,
+            "trace_count": 568,
+            "median_latency_ms": 3.5095,
+            "p95_latency_ms": 5.394699999999999,
+            "anomaly_score": 0.6157063274965029
+          },
+          {
+            "window_start_sec": -690,
+            "period": "before",
+            "log_count": 266,
+            "trace_count": 546,
+            "median_latency_ms": 3.458,
+            "p95_latency_ms": 4.9965,
+            "anomaly_score": 0.7474280446166237
+          },
+          {
+            "window_start_sec": -660,
+            "period": "before",
+            "log_count": 282,
+            "trace_count": 582,
+            "median_latency_ms": 3.542,
+            "p95_latency_ms": 5.0933499999999965,
+            "anomaly_score": 0.4024469779922409
+          },
+          {
+            "window_start_sec": -630,
+            "period": "before",
+            "log_count": 288,
+            "trace_count": 582,
+            "median_latency_ms": 3.5175,
+            "p95_latency_ms": 5.530399999999999,
+            "anomaly_score": 0.6485077210685821
+          },
+          {
+            "window_start_sec": -600,
+            "period": "before",
+            "log_count": 277,
+            "trace_count": 572,
+            "median_latency_ms": 3.5134999999999996,
+            "p95_latency_ms": 4.941649999999997,
+            "anomaly_score": 0.5004348584814672
+          },
+          {
+            "window_start_sec": -570,
+            "period": "before",
+            "log_count": 288,
+            "trace_count": 592,
+            "median_latency_ms": 3.5025,
+            "p95_latency_ms": 5.010049999999997,
+            "anomaly_score": 0.4493691670479202
+          },
+          {
+            "window_start_sec": -540,
+            "period": "before",
+            "log_count": 291,
+            "trace_count": 590,
+            "median_latency_ms": 3.426,
+            "p95_latency_ms": 4.865849999999999,
+            "anomaly_score": 0.6257387354860273
+          },
+          {
+            "window_start_sec": -510,
+            "period": "before",
+            "log_count": 290,
+            "trace_count": 596,
+            "median_latency_ms": 3.495,
+            "p95_latency_ms": 5.14725,
+            "anomaly_score": 0.4393158069322627
+          },
+          {
+            "window_start_sec": -480,
+            "period": "before",
+            "log_count": 265,
+            "trace_count": 536,
+            "median_latency_ms": 3.551,
+            "p95_latency_ms": 4.752,
+            "anomaly_score": 1.3640959864357316
+          },
+          {
+            "window_start_sec": -450,
+            "period": "before",
+            "log_count": 274,
+            "trace_count": 560,
+            "median_latency_ms": 3.498,
+            "p95_latency_ms": 5.00435,
+            "anomaly_score": 0.5522240054468449
+          },
+          {
+            "window_start_sec": -420,
+            "period": "before",
+            "log_count": 261,
+            "trace_count": 534,
+            "median_latency_ms": 3.498,
+            "p95_latency_ms": 6.27985,
+            "anomaly_score": 1.7906821942003543
+          },
+          {
+            "window_start_sec": -390,
+            "period": "before",
+            "log_count": 302,
+            "trace_count": 618,
+            "median_latency_ms": 3.5469999999999997,
+            "p95_latency_ms": 5.504949999999998,
+            "anomaly_score": 1.3591878685243817
+          },
+          {
+            "window_start_sec": -360,
+            "period": "before",
+            "log_count": 290,
+            "trace_count": 580,
+            "median_latency_ms": 3.472,
+            "p95_latency_ms": 5.253149999999997,
+            "anomaly_score": 0.2617977088634184
+          },
+          {
+            "window_start_sec": -330,
+            "period": "before",
+            "log_count": 289,
+            "trace_count": 600,
+            "median_latency_ms": 3.473,
+            "p95_latency_ms": 5.286599999999997,
+            "anomaly_score": 0.4572835188244151
+          },
+          {
+            "window_start_sec": -300,
+            "period": "before",
+            "log_count": 270,
+            "trace_count": 554,
+            "median_latency_ms": 3.367,
+            "p95_latency_ms": 4.81475,
+            "anomaly_score": 1.1430181191375173
+          },
+          {
+            "window_start_sec": -270,
+            "period": "before",
+            "log_count": 294,
+            "trace_count": 592,
+            "median_latency_ms": 3.3625,
+            "p95_latency_ms": 4.966349999999999,
+            "anomaly_score": 0.9173862905406086
+          },
+          {
+            "window_start_sec": -240,
+            "period": "before",
+            "log_count": 283,
+            "trace_count": 582,
+            "median_latency_ms": 3.467,
+            "p95_latency_ms": 5.46545,
+            "anomaly_score": 0.2901406909015478
+          },
+          {
+            "window_start_sec": -210,
+            "period": "before",
+            "log_count": 282,
+            "trace_count": 574,
+            "median_latency_ms": 3.4139999999999997,
+            "p95_latency_ms": 4.672,
+            "anomaly_score": 0.6222140339844322
+          },
+          {
+            "window_start_sec": -180,
+            "period": "before",
+            "log_count": 274,
+            "trace_count": 556,
+            "median_latency_ms": 3.4185,
+            "p95_latency_ms": 4.631,
+            "anomaly_score": 0.9469149355988812
+          },
+          {
+            "window_start_sec": -150,
+            "period": "before",
+            "log_count": 286,
+            "trace_count": 598,
+            "median_latency_ms": 3.4345,
+            "p95_latency_ms": 4.86945,
+            "anomaly_score": 0.565701571841349
+          },
+          {
+            "window_start_sec": -120,
+            "period": "before",
+            "log_count": 320,
+            "trace_count": 644,
+            "median_latency_ms": 3.4725,
+            "p95_latency_ms": 5.119850000000001,
+            "anomaly_score": 1.3208571648319334
+          },
+          {
+            "window_start_sec": -90,
+            "period": "before",
+            "log_count": 264,
+            "trace_count": 536,
+            "median_latency_ms": 3.421,
+            "p95_latency_ms": 5.06325,
+            "anomaly_score": 0.9981925388941444
+          },
+          {
+            "window_start_sec": -60,
+            "period": "before",
+            "log_count": 296,
+            "trace_count": 608,
+            "median_latency_ms": 3.498,
+            "p95_latency_ms": 5.01725,
+            "anomaly_score": 0.7210525194833299
+          },
+          {
+            "window_start_sec": -30,
+            "period": "before",
+            "log_count": 284,
+            "trace_count": 582,
+            "median_latency_ms": 3.379,
+            "p95_latency_ms": 5.0509,
+            "anomaly_score": 0.5029847271312082
+          },
+          {
+            "window_start_sec": 0,
+            "period": "after",
+            "log_count": 224,
+            "trace_count": 456,
+            "median_latency_ms": 203.659,
+            "p95_latency_ms": 205.244,
+            "anomaly_score": 7.233718993035645
+          },
+          {
+            "window_start_sec": 30,
+            "period": "after",
+            "log_count": 215,
+            "trace_count": 452,
+            "median_latency_ms": 203.6335,
+            "p95_latency_ms": 204.7646,
+            "anomaly_score": 7.438266033638673
+          },
+          {
+            "window_start_sec": 60,
+            "period": "after",
+            "log_count": 224,
+            "trace_count": 448,
+            "median_latency_ms": 203.7345,
+            "p95_latency_ms": 205.48205,
+            "anomaly_score": 7.307968562003521
+          },
+          {
+            "window_start_sec": 90,
+            "period": "after",
+            "log_count": 240,
+            "trace_count": 498,
+            "median_latency_ms": 203.60950000000005,
+            "p95_latency_ms": 204.9471,
+            "anomaly_score": 6.546269189520364
+          },
+          {
+            "window_start_sec": 120,
+            "period": "after",
+            "log_count": 210,
+            "trace_count": 436,
+            "median_latency_ms": 203.829,
+            "p95_latency_ms": 205.12075,
+            "anomaly_score": 7.679777536085028
+          },
+          {
+            "window_start_sec": 150,
+            "period": "after",
+            "log_count": 218,
+            "trace_count": 440,
+            "median_latency_ms": 203.6965,
+            "p95_latency_ms": 205.22445,
+            "anomaly_score": 7.493832968384123
+          },
+          {
+            "window_start_sec": 180,
+            "period": "after",
+            "log_count": 228,
+            "trace_count": 472,
+            "median_latency_ms": 203.687,
+            "p95_latency_ms": 205.3,
+            "anomaly_score": 7.010809963491411
+          },
+          {
+            "window_start_sec": 210,
+            "period": "after",
+            "log_count": 209,
+            "trace_count": 426,
+            "median_latency_ms": 203.6265,
+            "p95_latency_ms": 204.864,
+            "anomaly_score": 7.791191970196992
+          },
+          {
+            "window_start_sec": 240,
+            "period": "after",
+            "log_count": 212,
+            "trace_count": 438,
+            "median_latency_ms": 203.6415,
+            "p95_latency_ms": 204.92575,
+            "anomaly_score": 7.624010198038817
+          },
+          {
+            "window_start_sec": 270,
+            "period": "after",
+            "log_count": 214,
+            "trace_count": 446,
+            "median_latency_ms": 203.648,
+            "p95_latency_ms": 205.2425,
+            "anomaly_score": 7.512555683266699
+          },
+          {
+            "window_start_sec": 300,
+            "period": "after",
+            "log_count": 214,
+            "trace_count": 438,
+            "median_latency_ms": 203.6585,
+            "p95_latency_ms": 204.87125,
+            "anomaly_score": 7.586805252234575
+          },
+          {
+            "window_start_sec": 330,
+            "period": "after",
+            "log_count": 221,
+            "trace_count": 452,
+            "median_latency_ms": 203.6695,
+            "p95_latency_ms": 204.8181,
+            "anomaly_score": 7.326651196225947
+          },
+          {
+            "window_start_sec": 360,
+            "period": "after",
+            "log_count": 201,
+            "trace_count": 416,
+            "median_latency_ms": 203.6465,
+            "p95_latency_ms": 205.00925,
+            "anomaly_score": 8.032823714623804
+          },
+          {
+            "window_start_sec": 390,
+            "period": "after",
+            "log_count": 239,
+            "trace_count": 494,
+            "median_latency_ms": 203.7825,
+            "p95_latency_ms": 205.4235,
+            "anomaly_score": 6.601996446906424
+          },
+          {
+            "window_start_sec": 420,
+            "period": "after",
+            "log_count": 202,
+            "trace_count": 408,
+            "median_latency_ms": 203.769,
+            "p95_latency_ms": 205.4311,
+            "anomaly_score": 8.088470810689559
+          },
+          {
+            "window_start_sec": 450,
+            "period": "after",
+            "log_count": 227,
+            "trace_count": 460,
+            "median_latency_ms": 203.7695,
+            "p95_latency_ms": 204.75745,
+            "anomaly_score": 7.140786789845345
+          },
+          {
+            "window_start_sec": 480,
+            "period": "after",
+            "log_count": 215,
+            "trace_count": 450,
+            "median_latency_ms": 203.77,
+            "p95_latency_ms": 205.25985,
+            "anomaly_score": 7.456828425880641
+          },
+          {
+            "window_start_sec": 510,
+            "period": "after",
+            "log_count": 203,
+            "trace_count": 424,
+            "median_latency_ms": 203.6415,
+            "p95_latency_ms": 204.929,
+            "anomaly_score": 7.921369199851688
+          },
+          {
+            "window_start_sec": 540,
+            "period": "after",
+            "log_count": 210,
+            "trace_count": 422,
+            "median_latency_ms": 203.58,
+            "p95_latency_ms": 204.4969,
+            "anomaly_score": 7.80971428177881
+          },
+          {
+            "window_start_sec": 570,
+            "period": "after",
+            "log_count": 238,
+            "trace_count": 494,
+            "median_latency_ms": 203.6265,
+            "p95_latency_ms": 205.0731,
+            "anomaly_score": 6.620598919808544
+          },
+          {
+            "window_start_sec": 600,
+            "period": "after",
+            "log_count": 209,
+            "trace_count": 432,
+            "median_latency_ms": 203.6215,
+            "p95_latency_ms": 204.5529,
+            "anomaly_score": 7.735504793471086
+          },
+          {
+            "window_start_sec": 630,
+            "period": "after",
+            "log_count": 222,
+            "trace_count": 446,
+            "median_latency_ms": 203.6955,
+            "p95_latency_ms": 204.9655,
+            "anomaly_score": 7.363735900049732
+          },
+          {
+            "window_start_sec": 660,
+            "period": "after",
+            "log_count": 206,
+            "trace_count": 424,
+            "median_latency_ms": 203.6175,
+            "p95_latency_ms": 204.7606,
+            "anomaly_score": 7.865561781145324
+          },
+          {
+            "window_start_sec": 690,
+            "period": "after",
+            "log_count": 213,
+            "trace_count": 444,
+            "median_latency_ms": 203.6365,
+            "p95_latency_ms": 205.1121,
+            "anomaly_score": 7.549720548410789
+          }
+        ]
+      },
+      "evidence_note": "Feature values are descriptive evidence, not proof of causality."
+    },
+    "redis": {
+      "service": "redis",
+      "observed_in_partial_graph": true,
+      "service_features": {
+        "log_before": 15,
+        "log_after": 10,
+        "trace_before": 0,
+        "trace_after": 0,
+        "median_before_ms": 0,
+        "median_after_ms": 0,
+        "p95_before_ms": 0,
+        "p95_after_ms": 0,
+        "log_change_pct": -33.33333333333333,
+        "trace_change_pct": 0,
+        "median_change_pct": 0,
+        "p95_change_pct": 0,
+        "in_degree": 0,
+        "out_degree": 0
+      },
+      "temporal_summary": {
+        "window_count": 5,
+        "mean_anomaly_score": 0.0,
+        "max_anomaly_score": 0,
+        "windows": [
+          {
+            "window_start_sec": -720,
+            "period": "before",
+            "log_count": 5,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 0
+          },
+          {
+            "window_start_sec": -420,
+            "period": "before",
+            "log_count": 5,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 0
+          },
+          {
+            "window_start_sec": -120,
+            "period": "before",
+            "log_count": 5,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 0
+          },
+          {
+            "window_start_sec": 180,
+            "period": "after",
+            "log_count": 5,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 0
+          },
+          {
+            "window_start_sec": 480,
+            "period": "after",
+            "log_count": 5,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 0
+          }
+        ]
+      },
+      "evidence_note": "Feature values are descriptive evidence, not proof of causality."
+    },
+    "shippingservice": {
+      "service": "shippingservice",
+      "observed_in_partial_graph": true,
+      "service_features": {
+        "log_before": 5580,
+        "log_after": 4066,
+        "trace_before": 0,
+        "trace_after": 0,
+        "median_before_ms": 0,
+        "median_after_ms": 0,
+        "p95_before_ms": 0,
+        "p95_after_ms": 0,
+        "log_change_pct": -27.132616487455195,
+        "trace_change_pct": 0,
+        "median_change_pct": 0,
+        "p95_change_pct": 0,
+        "in_degree": 0,
+        "out_degree": 0
+      },
+      "temporal_summary": {
+        "window_count": 48,
+        "mean_anomaly_score": 1.778019334369528,
+        "max_anomaly_score": 4.048742821636636,
+        "windows": [
+          {
+            "window_start_sec": -720,
+            "period": "before",
+            "log_count": 226,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 0.2784849559855887
+          },
+          {
+            "window_start_sec": -690,
+            "period": "before",
+            "log_count": 220,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 0.5355479922799783
+          },
+          {
+            "window_start_sec": -660,
+            "period": "before",
+            "log_count": 202,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 1.306737101163147
+          },
+          {
+            "window_start_sec": -630,
+            "period": "before",
+            "log_count": 244,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 0.49270415289758
+          },
+          {
+            "window_start_sec": -600,
+            "period": "before",
+            "log_count": 214,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 0.7926110285743679
+          },
+          {
+            "window_start_sec": -570,
+            "period": "before",
+            "log_count": 244,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 0.49270415289758
+          },
+          {
+            "window_start_sec": -540,
+            "period": "before",
+            "log_count": 210,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 0.9639863861039608
+          },
+          {
+            "window_start_sec": -510,
+            "period": "before",
+            "log_count": 242,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 0.4070164741327835
+          },
+          {
+            "window_start_sec": -480,
+            "period": "before",
+            "log_count": 216,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 0.7069233498095714
+          },
+          {
+            "window_start_sec": -450,
+            "period": "before",
+            "log_count": 258,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 1.0925179042511557
+          },
+          {
+            "window_start_sec": -420,
+            "period": "before",
+            "log_count": 224,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 0.3641726347503852
+          },
+          {
+            "window_start_sec": -390,
+            "period": "before",
+            "log_count": 282,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 2.1207700494287143
+          },
+          {
+            "window_start_sec": -360,
+            "period": "before",
+            "log_count": 226,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 0.2784849559855887
+          },
+          {
+            "window_start_sec": -330,
+            "period": "before",
+            "log_count": 254,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 0.9211425467215628
+          },
+          {
+            "window_start_sec": -300,
+            "period": "before",
+            "log_count": 208,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 1.0496740648687577
+          },
+          {
+            "window_start_sec": -270,
+            "period": "before",
+            "log_count": 260,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 1.1782055830159524
+          },
+          {
+            "window_start_sec": -240,
+            "period": "before",
+            "log_count": 248,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 0.6640795104271731
+          },
+          {
+            "window_start_sec": -210,
+            "period": "before",
+            "log_count": 220,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 0.5355479922799783
+          },
+          {
+            "window_start_sec": -180,
+            "period": "before",
+            "log_count": 222,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 0.4498603135151818
+          },
+          {
+            "window_start_sec": -150,
+            "period": "before",
+            "log_count": 212,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 0.8782987073391645
+          },
+          {
+            "window_start_sec": -120,
+            "period": "before",
+            "log_count": 264,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 1.3495809405455454
+          },
+          {
+            "window_start_sec": -90,
+            "period": "before",
+            "log_count": 224,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 0.3641726347503852
+          },
+          {
+            "window_start_sec": -60,
+            "period": "before",
+            "log_count": 268,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 1.5209562980751383
+          },
+          {
+            "window_start_sec": -30,
+            "period": "before",
+            "log_count": 192,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 1.7351754949871296
+          },
+          {
+            "window_start_sec": 0,
+            "period": "after",
+            "log_count": 178,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 2.334989246340706
+          },
+          {
+            "window_start_sec": 30,
+            "period": "after",
+            "log_count": 186,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 1.9922385312815192
+          },
+          {
+            "window_start_sec": 60,
+            "period": "after",
+            "log_count": 180,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 2.249301567575909
+          },
+          {
+            "window_start_sec": 90,
+            "period": "after",
+            "log_count": 190,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 1.8208631737519263
+          },
+          {
+            "window_start_sec": 120,
+            "period": "after",
+            "log_count": 162,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 3.0204906764590778
+          },
+          {
+            "window_start_sec": 150,
+            "period": "after",
+            "log_count": 180,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 2.249301567575909
+          },
+          {
+            "window_start_sec": 180,
+            "period": "after",
+            "log_count": 202,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 1.306737101163147
+          },
+          {
+            "window_start_sec": 210,
+            "period": "after",
+            "log_count": 178,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 2.334989246340706
+          },
+          {
+            "window_start_sec": 240,
+            "period": "after",
+            "log_count": 158,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 3.19186603398867
+          },
+          {
+            "window_start_sec": 270,
+            "period": "after",
+            "log_count": 176,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 2.420676925105502
+          },
+          {
+            "window_start_sec": 300,
+            "period": "after",
+            "log_count": 188,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 1.9065508525167227
+          },
+          {
+            "window_start_sec": 330,
+            "period": "after",
+            "log_count": 164,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 2.9348029976942813
+          },
+          {
+            "window_start_sec": 360,
+            "period": "after",
+            "log_count": 158,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 3.19186603398867
+          },
+          {
+            "window_start_sec": 390,
+            "period": "after",
+            "log_count": 188,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 1.9065508525167227
+          },
+          {
+            "window_start_sec": 420,
+            "period": "after",
+            "log_count": 170,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 2.6777399613998916
+          },
+          {
+            "window_start_sec": 450,
+            "period": "after",
+            "log_count": 138,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 4.048742821636636
+          },
+          {
+            "window_start_sec": 480,
+            "period": "after",
+            "log_count": 176,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 2.420676925105502
+          },
+          {
+            "window_start_sec": 510,
+            "period": "after",
+            "log_count": 148,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 3.6203044278126537
+          },
+          {
+            "window_start_sec": 540,
+            "period": "after",
+            "log_count": 152,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 3.4489290702830604
+          },
+          {
+            "window_start_sec": 570,
+            "period": "after",
+            "log_count": 164,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 2.9348029976942813
+          },
+          {
+            "window_start_sec": 600,
+            "period": "after",
+            "log_count": 170,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 2.6777399613998916
+          },
+          {
+            "window_start_sec": 630,
+            "period": "after",
+            "log_count": 148,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 3.6203044278126537
+          },
+          {
+            "window_start_sec": 660,
+            "period": "after",
+            "log_count": 150,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 3.534616749047857
+          },
+          {
+            "window_start_sec": 690,
+            "period": "after",
+            "log_count": 162,
+            "trace_count": 0,
+            "median_latency_ms": 0,
+            "p95_latency_ms": 0,
+            "anomaly_score": 3.0204906764590778
+          }
+        ]
+      },
+      "evidence_note": "Feature values are descriptive evidence, not proof of causality."
+    }
+  },
+  "data_provenance": {
+    "ranking": "saved rca_methods_v3_detailed.csv; V3 was not rerun",
+    "service_features": "incident_service_features.parquet",
+    "temporal_features": "service_temporal_features.csv",
+    "graph": "saved partial graph at 100% observation"
+  },
+  "safety_note": "Ground-truth labels and evaluation metrics are intentionally excluded from this bundle."
+}

@@ -1,0 +1,167 @@
+{
+  "algorithm": "graph_guided_investigation_scaffold_v1",
+  "settings": {
+    "top_k": 3,
+    "threshold": 0.75,
+    "batch_size": 2,
+    "random_seed": 42,
+    "max_investigations": 30,
+    "branch_execution": "sequential prototype; paper algorithm describes parallel branches"
+  },
+  "final_ranking": [
+    {
+      "service": "checkoutservice",
+      "confidence": 0.652,
+      "evidence_confidence": 0.395,
+      "causal_confidence": 0.272,
+      "supporting_facts": [
+        "temporal_anomaly_score=2.7",
+        "error_count=3",
+        "p95_latency_change_pct=68.0"
+      ],
+      "contradicting_facts": [],
+      "conclusion": "Mock investigation for checkoutservice; replace with LLM investigator for real experiments.",
+      "reasoning": "Deterministic smoke-test heuristic only.",
+      "source": "mock"
+    },
+    {
+      "service": "paymentservice",
+      "confidence": 0.399,
+      "evidence_confidence": 0.29000000000000004,
+      "causal_confidence": 0.19899999999999998,
+      "supporting_facts": [
+        "temporal_anomaly_score=1.4",
+        "error_count=1",
+        "p95_latency_change_pct=21.0"
+      ],
+      "contradicting_facts": [],
+      "conclusion": "Mock investigation for paymentservice; replace with LLM investigator for real experiments.",
+      "reasoning": "Deterministic smoke-test heuristic only.",
+      "source": "mock"
+    },
+    {
+      "service": "frontend",
+      "confidence": 0.318,
+      "evidence_confidence": 0.255,
+      "causal_confidence": 0.18,
+      "supporting_facts": [
+        "temporal_anomaly_score=1.1",
+        "error_count=0",
+        "p95_latency_change_pct=8.0"
+      ],
+      "contradicting_facts": [],
+      "conclusion": "Mock investigation for frontend; replace with LLM investigator for real experiments.",
+      "reasoning": "Deterministic smoke-test heuristic only.",
+      "source": "mock"
+    },
+    {
+      "service": "cartservice",
+      "confidence": 0.28800000000000003,
+      "evidence_confidence": 0.24000000000000002,
+      "causal_confidence": 0.16799999999999998,
+      "supporting_facts": [
+        "temporal_anomaly_score=0.8",
+        "error_count=0",
+        "p95_latency_change_pct=2.0"
+      ],
+      "contradicting_facts": [],
+      "conclusion": "Mock investigation for cartservice; replace with LLM investigator for real experiments.",
+      "reasoning": "Deterministic smoke-test heuristic only.",
+      "source": "mock"
+    }
+  ],
+  "global_memory": [
+    {
+      "service": "checkoutservice",
+      "confidence": 0.652,
+      "evidence_confidence": 0.395,
+      "causal_confidence": 0.272,
+      "supporting_facts": [
+        "temporal_anomaly_score=2.7",
+        "error_count=3",
+        "p95_latency_change_pct=68.0"
+      ],
+      "contradicting_facts": [],
+      "conclusion": "Mock investigation for checkoutservice; replace with LLM investigator for real experiments.",
+      "reasoning": "Deterministic smoke-test heuristic only.",
+      "source": "mock"
+    },
+    {
+      "service": "paymentservice",
+      "confidence": 0.399,
+      "evidence_confidence": 0.29000000000000004,
+      "causal_confidence": 0.19899999999999998,
+      "supporting_facts": [
+        "temporal_anomaly_score=1.4",
+        "error_count=1",
+        "p95_latency_change_pct=21.0"
+      ],
+      "contradicting_facts": [],
+      "conclusion": "Mock investigation for paymentservice; replace with LLM investigator for real experiments.",
+      "reasoning": "Deterministic smoke-test heuristic only.",
+      "source": "mock"
+    },
+    {
+      "service": "cartservice",
+      "confidence": 0.28800000000000003,
+      "evidence_confidence": 0.24000000000000002,
+      "causal_confidence": 0.16799999999999998,
+      "supporting_facts": [
+        "temporal_anomaly_score=0.8",
+        "error_count=0",
+        "p95_latency_change_pct=2.0"
+      ],
+      "contradicting_facts": [],
+      "conclusion": "Mock investigation for cartservice; replace with LLM investigator for real experiments.",
+      "reasoning": "Deterministic smoke-test heuristic only.",
+      "source": "mock"
+    },
+    {
+      "service": "frontend",
+      "confidence": 0.318,
+      "evidence_confidence": 0.255,
+      "causal_confidence": 0.18,
+      "supporting_facts": [
+        "temporal_anomaly_score=1.1",
+        "error_count=0",
+        "p95_latency_change_pct=8.0"
+      ],
+      "contradicting_facts": [],
+      "conclusion": "Mock investigation for frontend; replace with LLM investigator for real experiments.",
+      "reasoning": "Deterministic smoke-test heuristic only.",
+      "source": "mock"
+    }
+  ],
+  "branches": [
+    {
+      "initial_candidate": "checkoutservice",
+      "investigated_services": [
+        "checkoutservice",
+        "paymentservice",
+        "cartservice",
+        "frontend"
+      ],
+      "stop_reason": "no remaining uninvestigated neighbors"
+    },
+    {
+      "initial_candidate": "frontend",
+      "investigated_services": [
+        "frontend"
+      ],
+      "stop_reason": "no remaining uninvestigated neighbors"
+    },
+    {
+      "initial_candidate": "paymentservice",
+      "investigated_services": [
+        "paymentservice"
+      ],
+      "stop_reason": "no remaining uninvestigated neighbors"
+    }
+  ],
+  "counts": {
+    "investigated_services": 4,
+    "memory_records": 4
+  },
+  "warning": "LLM-reported confidence is a heuristic, not a calibrated probability or proof of causality.",
+  "case_id": "synthetic_smoke_test_only"
+}

@@ -1,0 +1,277 @@
+{
+  "algorithm": "graph_guided_investigation_scaffold_v1",
+  "settings": {
+    "top_k": 3,
+    "threshold": 0.75,
+    "batch_size": 2,
+    "random_seed": 42,
+    "max_investigations": 10,
+    "branch_execution": "sequential prototype; paper algorithm describes parallel branches"
+  },
+  "final_ranking": [
+    {
+      "service": "checkoutservice",
+      "confidence": 0.75,
+      "evidence_confidence": 0.75,
+      "causal_confidence": 0.75,
+      "supporting_facts": [
+        "The checkoutservice has a significant decrease in log and trace counts in the 'before' windows, indicating reduced activity.",
+        "Median latency in the 'before' windows is higher than in the 'after' windows, suggesting a potential degradation in performance.",
+        "The anomaly score in the 'before' windows is generally higher, indicating more anomalies and potential issues."
+      ],
+      "contradicting_facts": [
+        "The checkoutservice has a slight decrease in anomaly scores in the 'after' windows, which could indicate a stabilization or improvement.",
+        "The checkoutservice's in-degree and out-degree remain stable, suggesting no significant changes in its network interactions.",
+        "The checkoutservice's median latency in the 'after' windows is higher than in the 'before' windows, which is contrary to the initial observation."
+      ],
+      "conclusion": "The checkoutservice shows signs of potential performance degradation, but the evidence is not conclusive. Further investigation is needed to establish causality.",
+      "reasoning": "The checkoutservice exhibits a trend of increased anomalies and higher latency in the 'before' windows, which could be indicative of issues. However, the 'after' windows show a stabilization or improvement, and the in-degree and out-degree remain unchanged. These factors suggest that the checkoutservice may not be the root cause, and more comprehensive analysis is required.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "productcatalogservice",
+      "confidence": 0.75,
+      "evidence_confidence": 0.75,
+      "causal_confidence": 0.75,
+      "supporting_facts": [
+        "The service has a significant reduction in trace count from before to after anomalies, indicating a drop in trace data collection, which could suggest a service outage or failure.",
+        "Median latency remains consistent before and after anomalies, suggesting no immediate impact on service performance.",
+        "The service has a high anomaly score in the 'before' period, indicating a high level of activity or issues that could be affecting the service."
+      ],
+      "contradicting_facts": [
+        "The service's log count is also low in the 'before' period, indicating minimal logging activity.",
+        "The service's out-degree is zero, suggesting no external services are connected to it.",
+        "The service's in-degree is three, indicating it is receiving data from three sources."
+      ],
+      "conclusion": "The candidate service, productcatalogservice, shows signs of potential issues based on the anomaly scores and trace data, but the consistency in median latency suggests no immediate impact on service performance. Further investigation is needed to determine the root cause.",
+      "reasoning": "The high anomaly scores in the 'before' period suggest underlying issues that could be affecting the service. However, the consistent median latency indicates that the service itself is not experiencing immediate performance issues. The reduction in trace count could indicate a service outage or failure, but more investigation is needed to confirm this.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "emailservice",
+      "confidence": 0.75,
+      "evidence_confidence": 0.75,
+      "causal_confidence": 0.75,
+      "supporting_facts": [
+        "The median latency in the 'before' window shows a significant increase from 0.187 ms to 0.391 ms, indicating potential issues.",
+        "The 'after' window shows a decrease in anomaly scores, suggesting a reduction in latency issues.",
+        "The 'before' window has a high anomaly score of 2.826, indicating a high level of latency issues."
+      ],
+      "contradicting_facts": [
+        "The 'after' window has a low anomaly score of 0.335, suggesting a reduction in latency issues.",
+        "The 'before' window has a low anomaly score of 0.507, indicating a moderate level of latency issues.",
+        "The 'before' window has a high anomaly score of 1.429, indicating a high level of latency issues."
+      ],
+      "conclusion": "The candidate service 'emailservice' shows an increase in latency issues in the 'before' windows, which is mitigated in the 'after' windows. However, the evidence is not conclusive as the 'after' anomaly scores are still relatively high.",
+      "reasoning": "The observed increase in latency issues in the 'before' windows is a potential indicator of the candidate service 'emailservice' being the root cause. However, the reduction in anomaly scores in the 'after' windows suggests that the issues may be resolved or mitigated by other factors. The evidence is not strong enough to establish causality, and further investigation is needed to confirm the root cause.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "paymentservice",
+      "confidence": 0.7,
+      "evidence_confidence": 0.7,
+      "causal_confidence": 0.7,
+      "supporting_facts": [
+        "The median latency of the paymentservice has decreased from 0.251 ms before to 0.247 ms after the observed anomaly window.",
+        "The trace count of the paymentservice has dropped significantly from 28 before to 19 after the observed anomaly window.",
+        "The log count of the paymentservice has decreased from 34 before to 26 after the observed anomaly window."
+      ],
+      "contradicting_facts": [
+        "The p95 latency of the paymentservice has increased from 0.7775999999999995 ms before to 0.5702999999999957 ms after the observed anomaly window.",
+        "The in_degree of the paymentservice has remained at 1 before and after the observed anomaly window.",
+        "The out_degree of the paymentservice has remained at 0 before and after the observed anomaly window."
+      ],
+      "conclusion": "The observed changes in the paymentservice's median latency and log count suggest a potential reduction in workload or processing time, which could be indicative of a service improvement. However, the increase in p95 latency and the unchanged in/out degrees indicate that other factors may be influencing the overall performance.",
+      "reasoning": "The decrease in median latency and log count could be a result of optimizations or changes in the service's workload. However, the increase in p95 latency suggests that there are still bottlenecks or issues affecting the upper 95th percentile of the service's performance. The unchanged in/out degrees imply that the service's network or external dependencies are not the root cause of the observed anomalies.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "currencyservice",
+      "confidence": 0.7,
+      "evidence_confidence": 0.7,
+      "causal_confidence": 0.7,
+      "supporting_facts": [
+        "The median latency of the currencyservice has increased from 0.127 ms before to 0.128 ms after, indicating a slight increase in latency.",
+        "The trace count has significantly decreased from 1152 to 1575 before the anomaly window, suggesting a potential drop in trace data collection.",
+        "The log count has decreased from 1199 to 6063 before the anomaly window, which could imply a change in the logging strategy or volume."
+      ],
+      "contradicting_facts": [
+        "The anomaly score for the currencyservice has decreased from 5.754 to 1.023 after the anomaly window, indicating a reduction in anomalies.",
+        "The in-degree and out-degree of the currencyservice have remained unchanged, suggesting no significant change in the number of incoming or outgoing connections.",
+        "The p95 latency has increased from 0.20725 ms to 0.2182999999999999 ms, which is within a reasonable range and does not indicate a severe issue."
+      ],
+      "conclusion": "The currencyservice shows a slight increase in latency and a reduction in trace data collection, which could be due to changes in logging or trace collection strategies. The anomaly score reduction suggests that the service is performing better overall, but the increase in latency is a concern.",
+      "reasoning": "The increase in latency is a concerning trend, but the reduction in anomaly score indicates that the service is generally performing better. The changes in log and trace counts suggest that the service might be adjusting its logging and tracing practices, which could be the root cause of the observed latency increase.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "frontend",
+      "confidence": 0.7,
+      "evidence_confidence": 0.7,
+      "causal_confidence": 0.7,
+      "supporting_facts": [
+        "The median latency and p95 latency of the frontend service have increased from 3.587 ms to 3.745 ms and from 57.305 ms to 61.185 ms respectively, indicating potential performance degradation.",
+        "The trace count has significantly decreased from 4469 to 5561, suggesting a reduction in tracing activity, which could be related to the observed latency changes.",
+        "The anomaly score for the 'before' period is generally higher than that of the 'after' period, indicating more anomalies in the earlier time window."
+      ],
+      "contradicting_facts": [
+        "The log count has remained relatively stable, with no significant change in the number of logs generated.",
+        "The in-degree and out-degree of the frontend service are zero, indicating no incoming or outgoing connections, which is consistent with the observed behavior.",
+        "The trace count has decreased, which could be due to optimization efforts rather than a cause of the observed latency issues."
+      ],
+      "conclusion": "The observed performance degradation in the frontend service is supported by the increase in latency metrics and the reduction in tracing activity. However, the lack of significant changes in log count and the reduction in trace count suggest that the observed issues might not be directly caused by the frontend service itself.",
+      "reasoning": "The increase in latency and the reduction in tracing activity are indicative of potential issues within the frontend service. However, the stability in log count and the reduction in trace count could indicate that these changes are not due to the frontend service, but rather due to other factors or optimizations elsewhere in the system.",
+      "source": "ollama:qwen2.5:3b"
+    }
+  ],
+  "global_memory": [
+    {
+      "service": "paymentservice",
+      "confidence": 0.7,
+      "evidence_confidence": 0.7,
+      "causal_confidence": 0.7,
+      "supporting_facts": [
+        "The median latency of the paymentservice has decreased from 0.251 ms before to 0.247 ms after the observed anomaly window.",
+        "The trace count of the paymentservice has dropped significantly from 28 before to 19 after the observed anomaly window.",
+        "The log count of the paymentservice has decreased from 34 before to 26 after the observed anomaly window."
+      ],
+      "contradicting_facts": [
+        "The p95 latency of the paymentservice has increased from 0.7775999999999995 ms before to 0.5702999999999957 ms after the observed anomaly window.",
+        "The in_degree of the paymentservice has remained at 1 before and after the observed anomaly window.",
+        "The out_degree of the paymentservice has remained at 0 before and after the observed anomaly window."
+      ],
+      "conclusion": "The observed changes in the paymentservice's median latency and log count suggest a potential reduction in workload or processing time, which could be indicative of a service improvement. However, the increase in p95 latency and the unchanged in/out degrees indicate that other factors may be influencing the overall performance.",
+      "reasoning": "The decrease in median latency and log count could be a result of optimizations or changes in the service's workload. However, the increase in p95 latency suggests that there are still bottlenecks or issues affecting the upper 95th percentile of the service's performance. The unchanged in/out degrees imply that the service's network or external dependencies are not the root cause of the observed anomalies.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "checkoutservice",
+      "confidence": 0.75,
+      "evidence_confidence": 0.75,
+      "causal_confidence": 0.75,
+      "supporting_facts": [
+        "The checkoutservice has a significant decrease in log and trace counts in the 'before' windows, indicating reduced activity.",
+        "Median latency in the 'before' windows is higher than in the 'after' windows, suggesting a potential degradation in performance.",
+        "The anomaly score in the 'before' windows is generally higher, indicating more anomalies and potential issues."
+      ],
+      "contradicting_facts": [
+        "The checkoutservice has a slight decrease in anomaly scores in the 'after' windows, which could indicate a stabilization or improvement.",
+        "The checkoutservice's in-degree and out-degree remain stable, suggesting no significant changes in its network interactions.",
+        "The checkoutservice's median latency in the 'after' windows is higher than in the 'before' windows, which is contrary to the initial observation."
+      ],
+      "conclusion": "The checkoutservice shows signs of potential performance degradation, but the evidence is not conclusive. Further investigation is needed to establish causality.",
+      "reasoning": "The checkoutservice exhibits a trend of increased anomalies and higher latency in the 'before' windows, which could be indicative of issues. However, the 'after' windows show a stabilization or improvement, and the in-degree and out-degree remain unchanged. These factors suggest that the checkoutservice may not be the root cause, and more comprehensive analysis is required.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "currencyservice",
+      "confidence": 0.7,
+      "evidence_confidence": 0.7,
+      "causal_confidence": 0.7,
+      "supporting_facts": [
+        "The median latency of the currencyservice has increased from 0.127 ms before to 0.128 ms after, indicating a slight increase in latency.",
+        "The trace count has significantly decreased from 1152 to 1575 before the anomaly window, suggesting a potential drop in trace data collection.",
+        "The log count has decreased from 1199 to 6063 before the anomaly window, which could imply a change in the logging strategy or volume."
+      ],
+      "contradicting_facts": [
+        "The anomaly score for the currencyservice has decreased from 5.754 to 1.023 after the anomaly window, indicating a reduction in anomalies.",
+        "The in-degree and out-degree of the currencyservice have remained unchanged, suggesting no significant change in the number of incoming or outgoing connections.",
+        "The p95 latency has increased from 0.20725 ms to 0.2182999999999999 ms, which is within a reasonable range and does not indicate a severe issue."
+      ],
+      "conclusion": "The currencyservice shows a slight increase in latency and a reduction in trace data collection, which could be due to changes in logging or trace collection strategies. The anomaly score reduction suggests that the service is performing better overall, but the increase in latency is a concern.",
+      "reasoning": "The increase in latency is a concerning trend, but the reduction in anomaly score indicates that the service is generally performing better. The changes in log and trace counts suggest that the service might be adjusting its logging and tracing practices, which could be the root cause of the observed latency increase.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "frontend",
+      "confidence": 0.7,
+      "evidence_confidence": 0.7,
+      "causal_confidence": 0.7,
+      "supporting_facts": [
+        "The median latency and p95 latency of the frontend service have increased from 3.587 ms to 3.745 ms and from 57.305 ms to 61.185 ms respectively, indicating potential performance degradation.",
+        "The trace count has significantly decreased from 4469 to 5561, suggesting a reduction in tracing activity, which could be related to the observed latency changes.",
+        "The anomaly score for the 'before' period is generally higher than that of the 'after' period, indicating more anomalies in the earlier time window."
+      ],
+      "contradicting_facts": [
+        "The log count has remained relatively stable, with no significant change in the number of logs generated.",
+        "The in-degree and out-degree of the frontend service are zero, indicating no incoming or outgoing connections, which is consistent with the observed behavior.",
+        "The trace count has decreased, which could be due to optimization efforts rather than a cause of the observed latency issues."
+      ],
+      "conclusion": "The observed performance degradation in the frontend service is supported by the increase in latency metrics and the reduction in tracing activity. However, the lack of significant changes in log count and the reduction in trace count suggest that the observed issues might not be directly caused by the frontend service itself.",
+      "reasoning": "The increase in latency and the reduction in tracing activity are indicative of potential issues within the frontend service. However, the stability in log count and the reduction in trace count could indicate that these changes are not due to the frontend service, but rather due to other factors or optimizations elsewhere in the system.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "productcatalogservice",
+      "confidence": 0.75,
+      "evidence_confidence": 0.75,
+      "causal_confidence": 0.75,
+      "supporting_facts": [
+        "The service has a significant reduction in trace count from before to after anomalies, indicating a drop in trace data collection, which could suggest a service outage or failure.",
+        "Median latency remains consistent before and after anomalies, suggesting no immediate impact on service performance.",
+        "The service has a high anomaly score in the 'before' period, indicating a high level of activity or issues that could be affecting the service."
+      ],
+      "contradicting_facts": [
+        "The service's log count is also low in the 'before' period, indicating minimal logging activity.",
+        "The service's out-degree is zero, suggesting no external services are connected to it.",
+        "The service's in-degree is three, indicating it is receiving data from three sources."
+      ],
+      "conclusion": "The candidate service, productcatalogservice, shows signs of potential issues based on the anomaly scores and trace data, but the consistency in median latency suggests no immediate impact on service performance. Further investigation is needed to determine the root cause.",
+      "reasoning": "The high anomaly scores in the 'before' period suggest underlying issues that could be affecting the service. However, the consistent median latency indicates that the service itself is not experiencing immediate performance issues. The reduction in trace count could indicate a service outage or failure, but more investigation is needed to confirm this.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "emailservice",
+      "confidence": 0.75,
+      "evidence_confidence": 0.75,
+      "causal_confidence": 0.75,
+      "supporting_facts": [
+        "The median latency in the 'before' window shows a significant increase from 0.187 ms to 0.391 ms, indicating potential issues.",
+        "The 'after' window shows a decrease in anomaly scores, suggesting a reduction in latency issues.",
+        "The 'before' window has a high anomaly score of 2.826, indicating a high level of latency issues."
+      ],
+      "contradicting_facts": [
+        "The 'after' window has a low anomaly score of 0.335, suggesting a reduction in latency issues.",
+        "The 'before' window has a low anomaly score of 0.507, indicating a moderate level of latency issues.",
+        "The 'before' window has a high anomaly score of 1.429, indicating a high level of latency issues."
+      ],
+      "conclusion": "The candidate service 'emailservice' shows an increase in latency issues in the 'before' windows, which is mitigated in the 'after' windows. However, the evidence is not conclusive as the 'after' anomaly scores are still relatively high.",
+      "reasoning": "The observed increase in latency issues in the 'before' windows is a potential indicator of the candidate service 'emailservice' being the root cause. However, the reduction in anomaly scores in the 'after' windows suggests that the issues may be resolved or mitigated by other factors. The evidence is not strong enough to establish causality, and further investigation is needed to confirm the root cause.",
+      "source": "ollama:qwen2.5:3b"
+    }
+  ],
+  "branches": [
+    {
+      "initial_candidate": "paymentservice",
+      "investigated_services": [
+        "paymentservice",
+        "checkoutservice"
+      ],
+      "stop_reason": "neighbor batch met confidence threshold"
+    },
+    {
+      "initial_candidate": "checkoutservice",
+      "investigated_services": [
+        "checkoutservice",
+        "currencyservice",
+        "frontend",
+        "productcatalogservice",
+        "emailservice"
+      ],
+      "stop_reason": "neighbor batch met confidence threshold"
+    },
+    {
+      "initial_candidate": "emailservice",
+      "investigated_services": [
+        "emailservice"
+      ],
+      "stop_reason": "no remaining uninvestigated neighbors"
+    }
+  ],
+  "counts": {
+    "investigated_services": 6,
+    "memory_records": 6
+  },
+  "warning": "LLM-reported confidence is a heuristic, not a calibrated probability or proof of causality.",
+  "case_id": "incident_76cc27b0d1eb"
+}

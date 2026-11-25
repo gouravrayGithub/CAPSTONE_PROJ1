@@ -1,0 +1,294 @@
+{
+  "algorithm": "graph_guided_investigation_scaffold_v1",
+  "settings": {
+    "top_k": 3,
+    "threshold": 0.75,
+    "batch_size": 2,
+    "random_seed": 42,
+    "max_investigations": 10,
+    "branch_execution": "sequential prototype; paper algorithm describes parallel branches"
+  },
+  "final_ranking": [
+    {
+      "service": "recommendationservice",
+      "confidence": 0.9510026512,
+      "evidence_confidence": 0.9510026512,
+      "causal_confidence": 0.9510026512,
+      "supporting_facts": [
+        "The service 'recommendationservice' has the highest score of 0.9510026512, indicating it is the most likely service causing the observed anomalies in the system's performance.",
+        "The service 'checkoutservice' has the second-highest score of 0.7474121242, suggesting it is a significant contributor to the anomalies.",
+        "The remaining services have significantly lower scores, indicating they are less likely to be the primary cause of the observed anomalies."
+      ],
+      "contradicting_facts": [
+        "The service 'redis' has a score of 0.0, indicating it is not a contributing factor to the observed anomalies.",
+        "The service 'cartservice' has a score of 0.1891042503, which is the lowest among the services considered, suggesting it is not a significant contributor to the anomalies."
+      ],
+      "conclusion": "Based on the evidence and scores, the 'recommendationservice' is the most likely service causing the observed anomalies in the system's performance. The 'checkoutservice' is also a significant contributor, while other services have much lower scores and are less likely to be the primary cause.",
+      "reasoning": "The scores were calculated based on the anomaly scores and median latency values provided for each service. The service with the highest score is considered the most likely cause of the anomalies. The scores were normalized to a scale of 0 to 1, with 1 indicating the highest confidence in causality. The 'recommendationservice' has the highest score, followed by 'checkoutservice', and the remaining services have much lower scores, indicating they are less likely to be the primary cause of the anomalies.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "frontend",
+      "confidence": 0.9510026512,
+      "evidence_confidence": 0.9510026512,
+      "causal_confidence": 0.9510026512,
+      "supporting_facts": [
+        "The service 'recommendationservice' has the highest score of 0.9510026512, indicating it is the most likely service causing the observed anomalies in the system's performance.",
+        "The service 'checkoutservice' has the second-highest score of 0.7474121242, suggesting it is a significant contributor to the anomalies.",
+        "The remaining services have significantly lower scores, indicating they are less likely to be the primary cause of the observed anomalies."
+      ],
+      "contradicting_facts": [
+        "The service 'redis' has a score of 0.0, indicating it is not a contributing factor to the observed anomalies.",
+        "The service 'cartservice' has a score of 0.1891042503, which is the lowest among the services considered, suggesting it is not a significant contributor to the anomalies."
+      ],
+      "conclusion": "Based on the analysis, the 'recommendationservice' is the most likely service causing the observed anomalies in the system's performance. The 'checkoutservice' is also a significant contributor, while the other services have much lower scores and are less likely to be the primary cause.",
+      "reasoning": "The scores for each service were calculated based on their feature values, which are considered descriptive evidence rather than proof of causality. The highest score indicates the strongest evidence of a causal relationship, and the scores for the other services provide a ranking of their potential contributions to the anomalies. The service 'redis' was excluded due to its very low score, and the service 'cartservice' was also excluded due to its very low score and its position at the bottom of the ranking.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "checkoutservice",
+      "confidence": 0.9510026512,
+      "evidence_confidence": 0.9510026512,
+      "causal_confidence": 0.9510026512,
+      "supporting_facts": [
+        "The service 'recommendationservice' has the highest score of 0.9510026512, indicating it is the most likely service causing the observed anomalies in the system's performance.",
+        "The evidence provided is descriptive and not proof of causality, as stated in the 'evidence_note' field.",
+        "The initial candidate ranking is based on the scores provided, with 'recommendationservice' being the top candidate."
+      ],
+      "contradicting_facts": [
+        "While 'recommendationservice' has the highest score, other services like 'checkoutservice', 'emailservice', and 'productcatalogservice' also have relatively high scores, suggesting that multiple services could be contributing to the anomalies.",
+        "The 'evidence_note' field indicates that the provided feature values are descriptive evidence and not proof of causality, which means that while 'recommendationservice' is the most likely candidate, there might be other factors at play."
+      ],
+      "conclusion": "Based on the provided scores and evidence, the 'recommendationservice' is the most likely service causing the observed anomalies in the system's performance. However, it's important to consider that other services also have significant scores, and the actual cause might involve a combination of factors or other services not accounted for in the current analysis. Further investigation is recommended to confirm the findings and understand the root causes of the anomalies.",
+      "reasoning": "The confidence in the recommendation is high due to the high score of 'recommendationservice', which is 0.9510026512. This score is significantly higher than the scores of other services, indicating strong evidence supporting the recommendation. However, the 'evidence_note' clarifies that the scores are descriptive and not definitive proof of causality, suggesting that while 'recommendationservice' is the most likely candidate, other services could also be contributing to the anomalies. Therefore, a comprehensive investigation is necessary to fully understand the system's performance issues.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "emailservice",
+      "confidence": 0.9510026512,
+      "evidence_confidence": 0.9510026512,
+      "causal_confidence": 0.9510026512,
+      "supporting_facts": [
+        "The service 'recommendationservice' has the highest score of 0.9510026512, indicating it is the most likely service causing the observed anomalies in the system's performance.",
+        "The evidence provided is descriptive and not proof of causality, as stated in the 'evidence_note' field.",
+        "The initial candidate ranking is based on the scores of the services, with 'recommendationservice' being the top candidate."
+      ],
+      "contradicting_facts": [
+        "The scores of other services like 'checkoutservice', 'emailservice', 'productcatalogservice', 'currencyservice', 'paymentservice', 'frontend', 'shippingservice', 'adservice', and 'cartservice' are significantly lower, suggesting they are less likely to be the cause of the anomalies.",
+        "The 'redis' service has the lowest score of 0.0, indicating it is not a candidate for the anomalies.",
+        "The 'evidence_note' field emphasizes that the feature values are descriptive and not proof of causality, which means the scores should be interpreted with caution."
+      ],
+      "conclusion": "Based on the provided scores and evidence, the 'recommendationservice' is the most likely service causing the observed anomalies in the system's performance. However, it is important to note that the scores are descriptive and not definitive proof of causality, and other services should also be considered for further investigation. The 'redis' service is not a candidate for the anomalies based on the scores provided. The scores of other services are significantly lower, indicating they are less likely to be the cause of the anomalies. The evidence note emphasizes the need for further investigation and the importance of interpreting the scores with caution.",
+      "reasoning": "The reasoning behind this conclusion is based on the scores provided for each service. The 'recommendationservice' has the highest score, which suggests it is the most likely service causing the anomalies. However, the scores of other services are significantly lower, and the 'redis' service has the lowest score, indicating it is not a candidate for the anomalies. The 'evidence_note' field emphasizes the need for further investigation and the importance of interpreting the scores with caution. Therefore, while the 'recommendationservice' is the most likely candidate, it is important to consider other services and to interpret the scores as descriptive evidence rather than definitive proof of causality.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "productcatalogservice",
+      "confidence": 0.9510026512,
+      "evidence_confidence": 0.9510026512,
+      "causal_confidence": 0.0,
+      "supporting_facts": [
+        "The service 'recommendationservice' has the highest score of 0.9510026512, indicating it is the most likely service causing the observed anomalies in the system's performance.",
+        "The service 'checkoutservice' has a score of 0.7474121242, suggesting it is the second most likely service causing the anomalies.",
+        "The service 'emailservice' has a score of 0.6383388027, indicating it is the third most likely service causing the anomalies.",
+        "The service 'productcatalogservice' has a score of 0.6131519849, suggesting it is the fourth most likely service causing the anomalies.",
+        "The service 'currencyservice' has a score of 0.5609447022, indicating it is the fifth most likely service causing the anomalies.",
+        "The service 'paymentservice' has a score of 0.5254732542, suggesting it is the sixth most likely service causing the anomalies.",
+        "The service 'frontend' has a score of 0.4814111866, indicating it is the seventh most likely service causing the anomalies.",
+        "The service 'shippingservice' has a score of 0.1970165349, suggesting it is the eighth most likely service causing the anomalies.",
+        "The service 'adservice' has a score of 0.1948534668, indicating it is the ninth most likely service causing the anomalies.",
+        "The service 'cartservice' has a score of 0.1891042503, suggesting it is the tenth most likely service causing the anomalies.",
+        "The service 'redis' has a score of 0.0, indicating it is not considered a likely service causing the anomalies."
+      ],
+      "contradicting_facts": [
+        "The service 'redis' has a score of 0.0, indicating it is not considered a likely service causing the anomalies."
+      ],
+      "conclusion": "Based on the scores provided, the 'recommendationservice' is the most likely service causing the observed anomalies in the system's performance. The scores for other services are significantly lower, indicating they are less likely to be the cause of the anomalies.",
+      "reasoning": "The scores provided are calculated based on the evidence and are used to rank the services from most likely to least likely to be the cause of the anomalies. The 'recommendationservice' has the highest score, which is indicative of the most likely cause. The scores for other services are much lower, suggesting they are less likely to be the cause of the anomalies. The score for 'redis' is 0.0, which further supports that 'redis' is not considered a likely service causing the anomalies.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "paymentservice",
+      "confidence": 0.9510026512,
+      "evidence_confidence": 0.9510026512,
+      "causal_confidence": 0.0,
+      "supporting_facts": [
+        "The service 'recommendationservice' has the highest score of 0.9510026512, indicating it is the most likely service causing the observed anomalies in the system's performance.",
+        "The service 'checkoutservice' has a score of 0.7474121242, suggesting it is the second most likely service causing the anomalies.",
+        "The service 'emailservice' has a score of 0.6383388027, indicating it is the third most likely service causing the anomalies.",
+        "The service 'productcatalogservice' has a score of 0.6131519849, suggesting it is the fourth most likely service causing the anomalies.",
+        "The service 'currencyservice' has a score of 0.5609447022, indicating it is the fifth most likely service causing the anomalies.",
+        "The service 'paymentservice' has a score of 0.5254732542, suggesting it is the sixth most likely service causing the anomalies.",
+        "The service 'frontend' has a score of 0.4814111866, indicating it is the seventh most likely service causing the anomalies.",
+        "The service 'shippingservice' has a score of 0.1970165349, suggesting it is the eighth most likely service causing the anomalies.",
+        "The service 'adservice' has a score of 0.1948534668, indicating it is the ninth most likely service causing the anomalies.",
+        "The service 'cartservice' has a score of 0.1891042503, suggesting it is the tenth most likely service causing the anomalies.",
+        "The service 'redis' has a score of 0.0, indicating it is not considered a likely service causing the anomalies."
+      ],
+      "contradicting_facts": [
+        "The service 'redis' has a score of 0.0, indicating it is not considered a likely service causing the anomalies."
+      ],
+      "conclusion": "Based on the scores provided, the 'recommendationservice' is the most likely service causing the observed anomalies in the system's performance. The scores for other services are significantly lower, indicating they are less likely to be the cause of the anomalies.",
+      "reasoning": "The scores provided are calculated based on various metrics such as latency, anomaly scores, and log counts. The service with the highest score is considered the most likely cause of the anomalies. The scores for other services are much lower, suggesting they are less likely to be the cause. The service 'redis' has the lowest score and is considered not to be a likely cause of the anomalies.",
+      "source": "ollama:qwen2.5:3b"
+    }
+  ],
+  "global_memory": [
+    {
+      "service": "recommendationservice",
+      "confidence": 0.9510026512,
+      "evidence_confidence": 0.9510026512,
+      "causal_confidence": 0.9510026512,
+      "supporting_facts": [
+        "The service 'recommendationservice' has the highest score of 0.9510026512, indicating it is the most likely service causing the observed anomalies in the system's performance.",
+        "The service 'checkoutservice' has the second-highest score of 0.7474121242, suggesting it is a significant contributor to the anomalies.",
+        "The remaining services have significantly lower scores, indicating they are less likely to be the primary cause of the observed anomalies."
+      ],
+      "contradicting_facts": [
+        "The service 'redis' has a score of 0.0, indicating it is not a contributing factor to the observed anomalies.",
+        "The service 'cartservice' has a score of 0.1891042503, which is the lowest among the services considered, suggesting it is not a significant contributor to the anomalies."
+      ],
+      "conclusion": "Based on the evidence and scores, the 'recommendationservice' is the most likely service causing the observed anomalies in the system's performance. The 'checkoutservice' is also a significant contributor, while other services have much lower scores and are less likely to be the primary cause.",
+      "reasoning": "The scores were calculated based on the anomaly scores and median latency values provided for each service. The service with the highest score is considered the most likely cause of the anomalies. The scores were normalized to a scale of 0 to 1, with 1 indicating the highest confidence in causality. The 'recommendationservice' has the highest score, followed by 'checkoutservice', and the remaining services have much lower scores, indicating they are less likely to be the primary cause of the anomalies.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "frontend",
+      "confidence": 0.9510026512,
+      "evidence_confidence": 0.9510026512,
+      "causal_confidence": 0.9510026512,
+      "supporting_facts": [
+        "The service 'recommendationservice' has the highest score of 0.9510026512, indicating it is the most likely service causing the observed anomalies in the system's performance.",
+        "The service 'checkoutservice' has the second-highest score of 0.7474121242, suggesting it is a significant contributor to the anomalies.",
+        "The remaining services have significantly lower scores, indicating they are less likely to be the primary cause of the observed anomalies."
+      ],
+      "contradicting_facts": [
+        "The service 'redis' has a score of 0.0, indicating it is not a contributing factor to the observed anomalies.",
+        "The service 'cartservice' has a score of 0.1891042503, which is the lowest among the services considered, suggesting it is not a significant contributor to the anomalies."
+      ],
+      "conclusion": "Based on the analysis, the 'recommendationservice' is the most likely service causing the observed anomalies in the system's performance. The 'checkoutservice' is also a significant contributor, while the other services have much lower scores and are less likely to be the primary cause.",
+      "reasoning": "The scores for each service were calculated based on their feature values, which are considered descriptive evidence rather than proof of causality. The highest score indicates the strongest evidence of a causal relationship, and the scores for the other services provide a ranking of their potential contributions to the anomalies. The service 'redis' was excluded due to its very low score, and the service 'cartservice' was also excluded due to its very low score and its position at the bottom of the ranking.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "productcatalogservice",
+      "confidence": 0.9510026512,
+      "evidence_confidence": 0.9510026512,
+      "causal_confidence": 0.0,
+      "supporting_facts": [
+        "The service 'recommendationservice' has the highest score of 0.9510026512, indicating it is the most likely service causing the observed anomalies in the system's performance.",
+        "The service 'checkoutservice' has a score of 0.7474121242, suggesting it is the second most likely service causing the anomalies.",
+        "The service 'emailservice' has a score of 0.6383388027, indicating it is the third most likely service causing the anomalies.",
+        "The service 'productcatalogservice' has a score of 0.6131519849, suggesting it is the fourth most likely service causing the anomalies.",
+        "The service 'currencyservice' has a score of 0.5609447022, indicating it is the fifth most likely service causing the anomalies.",
+        "The service 'paymentservice' has a score of 0.5254732542, suggesting it is the sixth most likely service causing the anomalies.",
+        "The service 'frontend' has a score of 0.4814111866, indicating it is the seventh most likely service causing the anomalies.",
+        "The service 'shippingservice' has a score of 0.1970165349, suggesting it is the eighth most likely service causing the anomalies.",
+        "The service 'adservice' has a score of 0.1948534668, indicating it is the ninth most likely service causing the anomalies.",
+        "The service 'cartservice' has a score of 0.1891042503, suggesting it is the tenth most likely service causing the anomalies.",
+        "The service 'redis' has a score of 0.0, indicating it is not considered a likely service causing the anomalies."
+      ],
+      "contradicting_facts": [
+        "The service 'redis' has a score of 0.0, indicating it is not considered a likely service causing the anomalies."
+      ],
+      "conclusion": "Based on the scores provided, the 'recommendationservice' is the most likely service causing the observed anomalies in the system's performance. The scores for other services are significantly lower, indicating they are less likely to be the cause of the anomalies.",
+      "reasoning": "The scores provided are calculated based on the evidence and are used to rank the services from most likely to least likely to be the cause of the anomalies. The 'recommendationservice' has the highest score, which is indicative of the most likely cause. The scores for other services are much lower, suggesting they are less likely to be the cause of the anomalies. The score for 'redis' is 0.0, which further supports that 'redis' is not considered a likely service causing the anomalies.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "checkoutservice",
+      "confidence": 0.9510026512,
+      "evidence_confidence": 0.9510026512,
+      "causal_confidence": 0.9510026512,
+      "supporting_facts": [
+        "The service 'recommendationservice' has the highest score of 0.9510026512, indicating it is the most likely service causing the observed anomalies in the system's performance.",
+        "The evidence provided is descriptive and not proof of causality, as stated in the 'evidence_note' field.",
+        "The initial candidate ranking is based on the scores provided, with 'recommendationservice' being the top candidate."
+      ],
+      "contradicting_facts": [
+        "While 'recommendationservice' has the highest score, other services like 'checkoutservice', 'emailservice', and 'productcatalogservice' also have relatively high scores, suggesting that multiple services could be contributing to the anomalies.",
+        "The 'evidence_note' field indicates that the provided feature values are descriptive evidence and not proof of causality, which means that while 'recommendationservice' is the most likely candidate, there might be other factors at play."
+      ],
+      "conclusion": "Based on the provided scores and evidence, the 'recommendationservice' is the most likely service causing the observed anomalies in the system's performance. However, it's important to consider that other services also have significant scores, and the actual cause might involve a combination of factors or other services not accounted for in the current analysis. Further investigation is recommended to confirm the findings and understand the root causes of the anomalies.",
+      "reasoning": "The confidence in the recommendation is high due to the high score of 'recommendationservice', which is 0.9510026512. This score is significantly higher than the scores of other services, indicating strong evidence supporting the recommendation. However, the 'evidence_note' clarifies that the scores are descriptive and not definitive proof of causality, suggesting that while 'recommendationservice' is the most likely candidate, other services could also be contributing to the anomalies. Therefore, a comprehensive investigation is necessary to fully understand the system's performance issues.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "paymentservice",
+      "confidence": 0.9510026512,
+      "evidence_confidence": 0.9510026512,
+      "causal_confidence": 0.0,
+      "supporting_facts": [
+        "The service 'recommendationservice' has the highest score of 0.9510026512, indicating it is the most likely service causing the observed anomalies in the system's performance.",
+        "The service 'checkoutservice' has a score of 0.7474121242, suggesting it is the second most likely service causing the anomalies.",
+        "The service 'emailservice' has a score of 0.6383388027, indicating it is the third most likely service causing the anomalies.",
+        "The service 'productcatalogservice' has a score of 0.6131519849, suggesting it is the fourth most likely service causing the anomalies.",
+        "The service 'currencyservice' has a score of 0.5609447022, indicating it is the fifth most likely service causing the anomalies.",
+        "The service 'paymentservice' has a score of 0.5254732542, suggesting it is the sixth most likely service causing the anomalies.",
+        "The service 'frontend' has a score of 0.4814111866, indicating it is the seventh most likely service causing the anomalies.",
+        "The service 'shippingservice' has a score of 0.1970165349, suggesting it is the eighth most likely service causing the anomalies.",
+        "The service 'adservice' has a score of 0.1948534668, indicating it is the ninth most likely service causing the anomalies.",
+        "The service 'cartservice' has a score of 0.1891042503, suggesting it is the tenth most likely service causing the anomalies.",
+        "The service 'redis' has a score of 0.0, indicating it is not considered a likely service causing the anomalies."
+      ],
+      "contradicting_facts": [
+        "The service 'redis' has a score of 0.0, indicating it is not considered a likely service causing the anomalies."
+      ],
+      "conclusion": "Based on the scores provided, the 'recommendationservice' is the most likely service causing the observed anomalies in the system's performance. The scores for other services are significantly lower, indicating they are less likely to be the cause of the anomalies.",
+      "reasoning": "The scores provided are calculated based on various metrics such as latency, anomaly scores, and log counts. The service with the highest score is considered the most likely cause of the anomalies. The scores for other services are much lower, suggesting they are less likely to be the cause. The service 'redis' has the lowest score and is considered not to be a likely cause of the anomalies.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "emailservice",
+      "confidence": 0.9510026512,
+      "evidence_confidence": 0.9510026512,
+      "causal_confidence": 0.9510026512,
+      "supporting_facts": [
+        "The service 'recommendationservice' has the highest score of 0.9510026512, indicating it is the most likely service causing the observed anomalies in the system's performance.",
+        "The evidence provided is descriptive and not proof of causality, as stated in the 'evidence_note' field.",
+        "The initial candidate ranking is based on the scores of the services, with 'recommendationservice' being the top candidate."
+      ],
+      "contradicting_facts": [
+        "The scores of other services like 'checkoutservice', 'emailservice', 'productcatalogservice', 'currencyservice', 'paymentservice', 'frontend', 'shippingservice', 'adservice', and 'cartservice' are significantly lower, suggesting they are less likely to be the cause of the anomalies.",
+        "The 'redis' service has the lowest score of 0.0, indicating it is not a candidate for the anomalies.",
+        "The 'evidence_note' field emphasizes that the feature values are descriptive and not proof of causality, which means the scores should be interpreted with caution."
+      ],
+      "conclusion": "Based on the provided scores and evidence, the 'recommendationservice' is the most likely service causing the observed anomalies in the system's performance. However, it is important to note that the scores are descriptive and not definitive proof of causality, and other services should also be considered for further investigation. The 'redis' service is not a candidate for the anomalies based on the scores provided. The scores of other services are significantly lower, indicating they are less likely to be the cause of the anomalies. The evidence note emphasizes the need for further investigation and the importance of interpreting the scores with caution.",
+      "reasoning": "The reasoning behind this conclusion is based on the scores provided for each service. The 'recommendationservice' has the highest score, which suggests it is the most likely service causing the anomalies. However, the scores of other services are significantly lower, and the 'redis' service has the lowest score, indicating it is not a candidate for the anomalies. The 'evidence_note' field emphasizes the need for further investigation and the importance of interpreting the scores with caution. Therefore, while the 'recommendationservice' is the most likely candidate, it is important to consider other services and to interpret the scores as descriptive evidence rather than definitive proof of causality.",
+      "source": "ollama:qwen2.5:3b"
+    }
+  ],
+  "branches": [
+    {
+      "initial_candidate": "recommendationservice",
+      "investigated_services": [
+        "recommendationservice",
+        "frontend",
+        "productcatalogservice"
+      ],
+      "stop_reason": "neighbor batch met confidence threshold"
+    },
+    {
+      "initial_candidate": "checkoutservice",
+      "investigated_services": [
+        "checkoutservice",
+        "paymentservice",
+        "emailservice"
+      ],
+      "stop_reason": "neighbor batch met confidence threshold"
+    },
+    {
+      "initial_candidate": "emailservice",
+      "investigated_services": [
+        "emailservice"
+      ],
+      "stop_reason": "no remaining uninvestigated neighbors"
+    }
+  ],
+  "counts": {
+    "investigated_services": 6,
+    "memory_records": 6
+  },
+  "warning": "LLM-reported confidence is a heuristic, not a calibrated probability or proof of causality.",
+  "case_id": "incident_a5b824257bc7"
+}

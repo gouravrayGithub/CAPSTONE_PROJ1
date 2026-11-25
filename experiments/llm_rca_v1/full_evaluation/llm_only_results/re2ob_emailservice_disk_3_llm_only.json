@@ -1,0 +1,209 @@
+{
+  "algorithm": "graph_guided_investigation_scaffold_v1",
+  "settings": {
+    "top_k": 3,
+    "threshold": 0.75,
+    "batch_size": 2,
+    "random_seed": 42,
+    "max_investigations": 10,
+    "branch_execution": "sequential prototype; paper algorithm describes parallel branches"
+  },
+  "final_ranking": [
+    {
+      "service": "currencyservice",
+      "confidence": 0.9850703886876306,
+      "evidence_confidence": 0.9850703886876306,
+      "causal_confidence": 0.9850703886876306,
+      "supporting_facts": [
+        "The anomaly score for the window_start_sec of 120 (30 minutes) is the lowest among all the windows, with an anomaly score of 0.9850703886876306. This indicates that the system's performance is the most stable and least anomalous during this period.",
+        "The median latency for this window is 0.145 seconds, which is also the lowest among all the windows, suggesting that the system's performance is consistently fast during this period.",
+        "The p95 latency for this window is 0.2401999999999998 seconds, which is also the lowest among all the windows, indicating that the system's performance is consistently within the top 5% of performance times during this period."
+      ],
+      "contradicting_facts": [
+        "There are no contradicting facts provided in the data. All the metrics (anomaly score, median latency, and p95 latency) indicate a stable and consistent system performance during the 30-minute window."
+      ],
+      "conclusion": "Based on the provided data, the system's performance is the most stable and least anomalous during the 30-minute window (window_start_sec: 0). The system's median latency and p95 latency are both the lowest among all the windows, suggesting that the system's performance is consistently fast and within the top 5% of performance times during this period.",
+      "reasoning": "The anomaly score, median latency, and p95 latency are all the lowest in the 30-minute window. These metrics indicate that the system's performance is the most stable and consistent during this period. The anomaly score of 0.9850703886876306 is very close to 1, which is typically associated with no anomalies, further supporting the conclusion that the system's performance is stable during this period.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "checkoutservice",
+      "confidence": 0.98345234375,
+      "evidence_confidence": 0.98345234375,
+      "causal_confidence": 0.98345234375,
+      "supporting_facts": [
+        "The anomaly score for the period after 0 seconds is 1.4023968424705282, which is the highest anomaly score among all the windows. This suggests that the system's performance was the worst immediately after the window started. ",
+        "The median latency for the period after 0 seconds is 4.0945 ms, which is the lowest among all the windows. This indicates that the system's performance was the best immediately after the window started. ",
+        "The anomaly score for the period after 30 seconds is 0.7494878875267121, which is the second highest anomaly score. This suggests that the system's performance was relatively poor after 30 seconds. ",
+        "The median latency for the period after 30 seconds is 4.1185 ms, which is the second lowest among all the windows. This indicates that the system's performance was relatively good after 30 seconds. ",
+        "The anomaly score for the period after 60 seconds is 1.1310774073568948, which is the third highest anomaly score. This suggests that the system's performance was relatively poor after 60 seconds. ",
+        "The median latency for the period after 60 seconds is 4.204000000000001 ms, which is the third lowest among all the windows. This indicates that the system's performance was relatively good after 60 seconds. ",
+        "The anomaly score for the period after 90 seconds is 0.9255791424124278, which is the fourth highest anomaly score. This suggests that the system's performance was relatively poor after 90 seconds. ",
+        "The median latency for the period after 90 seconds is 4.2345 ms, which is the fourth lowest among all the windows. This indicates that the system's performance was relatively good after 90 seconds. ",
+        "The anomaly score for the period after 120 seconds is 2.1795006238871975, which is the fifth highest anomaly score. This suggests that the system's performance was relatively poor after 120 seconds. ",
+        "The median latency for the period after 120 seconds is 4.4325 ms, which is the fifth lowest among all the windows. This indicates that the system's performance was relatively good after 120 seconds. ",
+        "The anomaly score for the period after 150 seconds is 3.4752587241517765, which is the sixth highest anomaly score. This suggests that the system's performance was relatively poor after 150 seconds. ",
+        "The median latency for the period after 150 seconds is 4.4215 ms, which is the sixth lowest among all the windows. This indicates that the system's performance was relatively good after 150 seconds. ",
+        "The anomaly score for the period after 180 seconds is 1.1939985296279445, which is the seventh highest anomaly score. This suggests that the system's performance was relatively poor after 180 seconds. ",
+        "The median latency for the period after 180 seconds is 4.013 ms, which is the seventh lowest among all the windows. This indicates that the system's performance was relatively good after 180 seconds. ",
+        "The anomaly score for the period after 210 seconds is 1.1088598014268396, which is the eighth highest anomaly score. This suggests that the system's performance was relatively poor after 210 seconds. ",
+        "The median latency for the period after 210 seconds is 4.013 ms, which is the eighth lowest among all the windows. This indicates that the system's performance was relatively good after 210 seconds. ",
+        "The anomaly score for the period after 240 seconds is 1.0193234227960275, which is the ninth highest anomaly score. This suggests that the system's performance was relatively poor after 240 seconds. ",
+        "The median latency for the period after 240 seconds is 87.93185 ms, which is the ninth lowest among all the windows. This indicates that the system's performance was relatively good after 240 seconds. "
+      ],
+      "contradicting_facts": [
+        "The anomaly score for the period after 540 seconds is 0.000000000000000, which is the lowest anomaly score. This suggests that the system's performance was the best after 540 seconds. ",
+        "The median latency for the period after 540 seconds is 4.234999999999999 ms, which is the lowest among all the windows. This indicates that the system's performance was the best after 540 seconds. "
+      ],
+      "conclusion": "The system's performance was the best immediately after the window started (0 seconds), and it continued to improve over time until it reached its peak performance after 540 seconds. After 540 seconds, the system's performance started to degrade again. The system's performance was the worst after 390 seconds, and it continued to decline until it reached its lowest point after 480 seconds. The system's performance was relatively poor after 330, 360, and 420 seconds, and it was relatively good after 180, 210, and 240 seconds. The system's performance was relatively poor after 150, 180, and 270 seconds, and it was relatively good after 120, 150, and 210 seconds. The system's performance was relatively poor after 120, 150, and 210 seconds, and it was relatively good after 180, 210, and 240 seconds. The system's performance was relatively poor after 90, 120, and 150 seconds, and it was relatively good after 90, 120, and 150 seconds. The system's performance was relatively poor after 60, 90, and 120 seconds, and it was relatively good after 60, 90, and 120 seconds. The system's performance was relatively poor after 30, 60, and 90 seconds, and it was relatively good after 30, 60, and 90 seconds. The system's performance was relatively poor after 0, 30, and 60 seconds, and it was relatively good after 0, 30, and 60 seconds. The system's performance was relatively poor after 0, 30, and 60 seconds, and it was relatively good after 0, 30, and 60 seconds. ",
+      "reasoning": "The system's performance was the best immediately after the window started (0 seconds), and it continued to improve over time until it reached its peak performance after 540 seconds. After 540 seconds, the system's performance started to degrade again. The system's performance was the worst after 390 seconds, and it continued to decline until it reached its lowest point after 480 seconds. The system's performance was relatively poor after 330, 360, and 420 seconds, and it was relatively good after 180, 210, and 240 seconds. The system's performance was relatively poor after 150, 180, and 270 seconds, and it was relatively good after 120, 150, and 210 seconds. The system's performance was relatively poor after 120, 150, and 210 seconds, and it was relatively good after 180, 210, and 240 seconds. The system's performance was relatively poor after 90, 120, and 150 seconds, and it was relatively good after 90, 120, and 150 seconds. The system's performance was relatively poor after 60, 90, and 120 seconds, and it was relatively good after 60, 90, and 120 seconds. The system's performance was relatively poor after 30, 60, and 90 seconds, and it was relatively good after 30, 60, and 90 seconds. The system's performance was relatively poor after 0, 30, and 60 seconds, and it was relatively good after 0, 30, and 60 seconds. The system's performance was relatively poor after 0, 30, and 60 seconds, and it was relatively good after 0, 30, and 60 seconds. ",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "emailservice",
+      "confidence": 0.95,
+      "evidence_confidence": 0.95,
+      "causal_confidence": 0.95,
+      "supporting_facts": [
+        "The provided data shows a clear trend in the anomaly scores over different time windows. The anomaly scores are highest (around 3.438) when the window starts at 150 seconds, indicating a significant increase in anomalies. This suggests that the system might be experiencing issues around this time window.",
+        "The median latency also shows a significant increase at the 150-second mark, with a median latency of 85.178 ms, which is notably higher than the other time windows.",
+        "The anomaly score and median latency both indicate a period of increased system instability or performance degradation around the 150-second mark.",
+        "The evidence note mentions that feature values are descriptive evidence, not proof of causality, which means that while the anomaly scores and latency changes are observed, the exact cause of these issues is not definitively established."
+      ],
+      "contradicting_facts": [],
+      "conclusion": "Based on the anomaly scores and median latency, the system appears to be experiencing increased issues or performance degradation around the 150-second mark. However, the exact cause of these issues cannot be definitively determined from the provided data.",
+      "reasoning": "The reasoning is based on the observed anomaly scores and median latency values. The highest anomaly scores and the highest median latency both occur around the 150-second mark, suggesting a period of increased system instability or performance degradation. However, the evidence note clarifies that these are descriptive evidence and not proof of causality, meaning that while these metrics indicate a problem, the specific cause is not definitively established.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "paymentservice",
+      "confidence": 0.95,
+      "evidence_confidence": 0.95,
+      "causal_confidence": 0.95,
+      "supporting_facts": [
+        "The system's performance metrics show a significant improvement in median and p95 latencies after a certain window, indicating a positive trend.",
+        "The anomaly score for the period after the window is consistently lower than before, suggesting fewer anomalies.",
+        "The evidence note emphasizes that these feature values are descriptive and not proof of causality, which aligns with the observed trends."
+      ],
+      "contradicting_facts": [],
+      "conclusion": "Based on the observed trends and the evidence provided, it can be reasonably concluded that the system's performance has improved after the specified window. However, it's important to note that the evidence is descriptive and not proof of causality.",
+      "reasoning": "The analysis is based on the observed trends in median and p95 latencies, which have improved after the specified window. The anomaly scores have also decreased, indicating fewer anomalies. The evidence note emphasizes that these are descriptive evidence and not proof of causality, which aligns with the observed trends. Therefore, the conclusion is that the system's performance has improved after the window, but the causality remains uncertain.",
+      "source": "ollama:qwen2.5:3b"
+    }
+  ],
+  "global_memory": [
+    {
+      "service": "emailservice",
+      "confidence": 0.95,
+      "evidence_confidence": 0.95,
+      "causal_confidence": 0.95,
+      "supporting_facts": [
+        "The provided data shows a clear trend in the anomaly scores over different time windows. The anomaly scores are highest (around 3.438) when the window starts at 150 seconds, indicating a significant increase in anomalies. This suggests that the system might be experiencing issues around this time window.",
+        "The median latency also shows a significant increase at the 150-second mark, with a median latency of 85.178 ms, which is notably higher than the other time windows.",
+        "The anomaly score and median latency both indicate a period of increased system instability or performance degradation around the 150-second mark.",
+        "The evidence note mentions that feature values are descriptive evidence, not proof of causality, which means that while the anomaly scores and latency changes are observed, the exact cause of these issues is not definitively established."
+      ],
+      "contradicting_facts": [],
+      "conclusion": "Based on the anomaly scores and median latency, the system appears to be experiencing increased issues or performance degradation around the 150-second mark. However, the exact cause of these issues cannot be definitively determined from the provided data.",
+      "reasoning": "The reasoning is based on the observed anomaly scores and median latency values. The highest anomaly scores and the highest median latency both occur around the 150-second mark, suggesting a period of increased system instability or performance degradation. However, the evidence note clarifies that these are descriptive evidence and not proof of causality, meaning that while these metrics indicate a problem, the specific cause is not definitively established.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "checkoutservice",
+      "confidence": 0.98345234375,
+      "evidence_confidence": 0.98345234375,
+      "causal_confidence": 0.98345234375,
+      "supporting_facts": [
+        "The anomaly score for the period after 0 seconds is 1.4023968424705282, which is the highest anomaly score among all the windows. This suggests that the system's performance was the worst immediately after the window started. ",
+        "The median latency for the period after 0 seconds is 4.0945 ms, which is the lowest among all the windows. This indicates that the system's performance was the best immediately after the window started. ",
+        "The anomaly score for the period after 30 seconds is 0.7494878875267121, which is the second highest anomaly score. This suggests that the system's performance was relatively poor after 30 seconds. ",
+        "The median latency for the period after 30 seconds is 4.1185 ms, which is the second lowest among all the windows. This indicates that the system's performance was relatively good after 30 seconds. ",
+        "The anomaly score for the period after 60 seconds is 1.1310774073568948, which is the third highest anomaly score. This suggests that the system's performance was relatively poor after 60 seconds. ",
+        "The median latency for the period after 60 seconds is 4.204000000000001 ms, which is the third lowest among all the windows. This indicates that the system's performance was relatively good after 60 seconds. ",
+        "The anomaly score for the period after 90 seconds is 0.9255791424124278, which is the fourth highest anomaly score. This suggests that the system's performance was relatively poor after 90 seconds. ",
+        "The median latency for the period after 90 seconds is 4.2345 ms, which is the fourth lowest among all the windows. This indicates that the system's performance was relatively good after 90 seconds. ",
+        "The anomaly score for the period after 120 seconds is 2.1795006238871975, which is the fifth highest anomaly score. This suggests that the system's performance was relatively poor after 120 seconds. ",
+        "The median latency for the period after 120 seconds is 4.4325 ms, which is the fifth lowest among all the windows. This indicates that the system's performance was relatively good after 120 seconds. ",
+        "The anomaly score for the period after 150 seconds is 3.4752587241517765, which is the sixth highest anomaly score. This suggests that the system's performance was relatively poor after 150 seconds. ",
+        "The median latency for the period after 150 seconds is 4.4215 ms, which is the sixth lowest among all the windows. This indicates that the system's performance was relatively good after 150 seconds. ",
+        "The anomaly score for the period after 180 seconds is 1.1939985296279445, which is the seventh highest anomaly score. This suggests that the system's performance was relatively poor after 180 seconds. ",
+        "The median latency for the period after 180 seconds is 4.013 ms, which is the seventh lowest among all the windows. This indicates that the system's performance was relatively good after 180 seconds. ",
+        "The anomaly score for the period after 210 seconds is 1.1088598014268396, which is the eighth highest anomaly score. This suggests that the system's performance was relatively poor after 210 seconds. ",
+        "The median latency for the period after 210 seconds is 4.013 ms, which is the eighth lowest among all the windows. This indicates that the system's performance was relatively good after 210 seconds. ",
+        "The anomaly score for the period after 240 seconds is 1.0193234227960275, which is the ninth highest anomaly score. This suggests that the system's performance was relatively poor after 240 seconds. ",
+        "The median latency for the period after 240 seconds is 87.93185 ms, which is the ninth lowest among all the windows. This indicates that the system's performance was relatively good after 240 seconds. "
+      ],
+      "contradicting_facts": [
+        "The anomaly score for the period after 540 seconds is 0.000000000000000, which is the lowest anomaly score. This suggests that the system's performance was the best after 540 seconds. ",
+        "The median latency for the period after 540 seconds is 4.234999999999999 ms, which is the lowest among all the windows. This indicates that the system's performance was the best after 540 seconds. "
+      ],
+      "conclusion": "The system's performance was the best immediately after the window started (0 seconds), and it continued to improve over time until it reached its peak performance after 540 seconds. After 540 seconds, the system's performance started to degrade again. The system's performance was the worst after 390 seconds, and it continued to decline until it reached its lowest point after 480 seconds. The system's performance was relatively poor after 330, 360, and 420 seconds, and it was relatively good after 180, 210, and 240 seconds. The system's performance was relatively poor after 150, 180, and 270 seconds, and it was relatively good after 120, 150, and 210 seconds. The system's performance was relatively poor after 120, 150, and 210 seconds, and it was relatively good after 180, 210, and 240 seconds. The system's performance was relatively poor after 90, 120, and 150 seconds, and it was relatively good after 90, 120, and 150 seconds. The system's performance was relatively poor after 60, 90, and 120 seconds, and it was relatively good after 60, 90, and 120 seconds. The system's performance was relatively poor after 30, 60, and 90 seconds, and it was relatively good after 30, 60, and 90 seconds. The system's performance was relatively poor after 0, 30, and 60 seconds, and it was relatively good after 0, 30, and 60 seconds. The system's performance was relatively poor after 0, 30, and 60 seconds, and it was relatively good after 0, 30, and 60 seconds. ",
+      "reasoning": "The system's performance was the best immediately after the window started (0 seconds), and it continued to improve over time until it reached its peak performance after 540 seconds. After 540 seconds, the system's performance started to degrade again. The system's performance was the worst after 390 seconds, and it continued to decline until it reached its lowest point after 480 seconds. The system's performance was relatively poor after 330, 360, and 420 seconds, and it was relatively good after 180, 210, and 240 seconds. The system's performance was relatively poor after 150, 180, and 270 seconds, and it was relatively good after 120, 150, and 210 seconds. The system's performance was relatively poor after 120, 150, and 210 seconds, and it was relatively good after 180, 210, and 240 seconds. The system's performance was relatively poor after 90, 120, and 150 seconds, and it was relatively good after 90, 120, and 150 seconds. The system's performance was relatively poor after 60, 90, and 120 seconds, and it was relatively good after 60, 90, and 120 seconds. The system's performance was relatively poor after 30, 60, and 90 seconds, and it was relatively good after 30, 60, and 90 seconds. The system's performance was relatively poor after 0, 30, and 60 seconds, and it was relatively good after 0, 30, and 60 seconds. The system's performance was relatively poor after 0, 30, and 60 seconds, and it was relatively good after 0, 30, and 60 seconds. ",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "currencyservice",
+      "confidence": 0.9850703886876306,
+      "evidence_confidence": 0.9850703886876306,
+      "causal_confidence": 0.9850703886876306,
+      "supporting_facts": [
+        "The anomaly score for the window_start_sec of 120 (30 minutes) is the lowest among all the windows, with an anomaly score of 0.9850703886876306. This indicates that the system's performance is the most stable and least anomalous during this period.",
+        "The median latency for this window is 0.145 seconds, which is also the lowest among all the windows, suggesting that the system's performance is consistently fast during this period.",
+        "The p95 latency for this window is 0.2401999999999998 seconds, which is also the lowest among all the windows, indicating that the system's performance is consistently within the top 5% of performance times during this period."
+      ],
+      "contradicting_facts": [
+        "There are no contradicting facts provided in the data. All the metrics (anomaly score, median latency, and p95 latency) indicate a stable and consistent system performance during the 30-minute window."
+      ],
+      "conclusion": "Based on the provided data, the system's performance is the most stable and least anomalous during the 30-minute window (window_start_sec: 0). The system's median latency and p95 latency are both the lowest among all the windows, suggesting that the system's performance is consistently fast and within the top 5% of performance times during this period.",
+      "reasoning": "The anomaly score, median latency, and p95 latency are all the lowest in the 30-minute window. These metrics indicate that the system's performance is the most stable and consistent during this period. The anomaly score of 0.9850703886876306 is very close to 1, which is typically associated with no anomalies, further supporting the conclusion that the system's performance is stable during this period.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "paymentservice",
+      "confidence": 0.95,
+      "evidence_confidence": 0.95,
+      "causal_confidence": 0.95,
+      "supporting_facts": [
+        "The system's performance metrics show a significant improvement in median and p95 latencies after a certain window, indicating a positive trend.",
+        "The anomaly score for the period after the window is consistently lower than before, suggesting fewer anomalies.",
+        "The evidence note emphasizes that these feature values are descriptive and not proof of causality, which aligns with the observed trends."
+      ],
+      "contradicting_facts": [],
+      "conclusion": "Based on the observed trends and the evidence provided, it can be reasonably concluded that the system's performance has improved after the specified window. However, it's important to note that the evidence is descriptive and not proof of causality.",
+      "reasoning": "The analysis is based on the observed trends in median and p95 latencies, which have improved after the specified window. The anomaly scores have also decreased, indicating fewer anomalies. The evidence note emphasizes that these are descriptive evidence and not proof of causality, which aligns with the observed trends. Therefore, the conclusion is that the system's performance has improved after the window, but the causality remains uncertain.",
+      "source": "ollama:qwen2.5:3b"
+    }
+  ],
+  "branches": [
+    {
+      "initial_candidate": "emailservice",
+      "investigated_services": [
+        "emailservice",
+        "checkoutservice"
+      ],
+      "stop_reason": "neighbor batch met confidence threshold"
+    },
+    {
+      "initial_candidate": "checkoutservice",
+      "investigated_services": [
+        "checkoutservice",
+        "currencyservice",
+        "paymentservice"
+      ],
+      "stop_reason": "neighbor batch met confidence threshold"
+    },
+    {
+      "initial_candidate": "paymentservice",
+      "investigated_services": [
+        "paymentservice"
+      ],
+      "stop_reason": "no remaining uninvestigated neighbors"
+    }
+  ],
+  "counts": {
+    "investigated_services": 4,
+    "memory_records": 4
+  },
+  "warning": "LLM-reported confidence is a heuristic, not a calibrated probability or proof of causality.",
+  "case_id": "incident_50d618198dca"
+}

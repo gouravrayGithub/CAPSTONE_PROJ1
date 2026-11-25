@@ -1,0 +1,191 @@
+{
+  "algorithm": "graph_guided_investigation_scaffold_v1",
+  "settings": {
+    "top_k": 3,
+    "threshold": 0.75,
+    "batch_size": 2,
+    "random_seed": 42,
+    "max_investigations": 10,
+    "branch_execution": "sequential prototype; paper algorithm describes parallel branches"
+  },
+  "final_ranking": [
+    {
+      "service": "emailservice",
+      "confidence": 0.9999999999999999,
+      "evidence_confidence": 0.9999999999999999,
+      "causal_confidence": 0.9999999999999999,
+      "supporting_facts": [
+        "The anomaly score for the window_start_sec=690 is the highest at 3.4174545124492086, indicating a significant anomaly in this window. ",
+        "The median latency for this window is 86.01879999999998 ms, which is significantly higher than the median latency of other windows, suggesting a potential issue.",
+        "The anomaly score is calculated based on the deviation from the expected behavior, which in this case is quite high, indicating a strong indication of an anomaly.",
+        "The evidence note states that feature values are descriptive evidence, not proof of causality, which means that while the anomaly is detected, the exact cause is not definitively known.",
+        "The evidence note also mentions that feature values are descriptive evidence, not proof of causality, which aligns with the high anomaly score and the significant increase in latency.",
+        "The evidence note further clarifies that the anomaly score is calculated based on the deviation from the expected behavior, which in this case is the highest deviation observed across all windows.",
+        "The evidence note also mentions that feature values are descriptive evidence, not proof of causality, which aligns with the high anomaly score and the significant increase in latency.",
+        "The evidence note further clarifies that the anomaly score is calculated based on the deviation from the expected behavior, which in this case is the highest deviation observed across all windows."
+      ],
+      "contradicting_facts": [],
+      "conclusion": "Based on the high anomaly score and the significant increase in latency, the window_start_sec=690 is identified as a potential anomaly window. The exact cause of the anomaly is not definitively known, but the evidence suggests a significant issue in this window.",
+      "reasoning": "The conclusion is drawn from the highest anomaly score and the significant increase in latency observed in the window_start_sec=690. The evidence note clarifies that the anomaly score is based on the deviation from expected behavior, which in this case is the highest deviation observed across all windows. This indicates a strong indication of an anomaly in this window. The supporting facts further reinforce this conclusion by highlighting the high anomaly score and the significant increase in latency, which are the key indicators of an anomaly. The supporting facts also align with the evidence note, which emphasizes that feature values are descriptive evidence and not proof of causality. Therefore, the window_start_sec=690 is identified as a potential anomaly window, and the exact cause of the anomaly is not definitively known, but the evidence suggests a significant issue in this window.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "checkoutservice",
+      "confidence": 0.9999999999999999,
+      "evidence_confidence": 0.9999999999999999,
+      "causal_confidence": 0.9999999999999999,
+      "supporting_facts": [
+        "The provided data shows a consistent pattern of increasing anomaly scores over time, indicating a potential degradation in system performance or increased anomalies over the observed period. The anomaly scores range from 0.4814958435784957 to 2.1336305256798007, with the highest score occurring at the latest window (690 seconds). This trend suggests that the system's performance may be deteriorating over time.",
+        "The median latency and p95 latency also show a general upward trend, with the highest values occurring at the latest window (690 seconds). This indicates that the system's performance may be slowing down or experiencing increased variability over time.",
+        "The evidence note mentions that feature values are descriptive evidence, not proof of causality, which is important to keep in mind when interpreting the results. It suggests that while the observed trends are concerning, they do not definitively prove that the system is failing or that there is a specific cause for the observed behavior."
+      ],
+      "contradicting_facts": [],
+      "conclusion": "Based on the observed trends in anomaly scores, median latency, and p95 latency, there is a strong indication that the system's performance is deteriorating over time. However, the evidence note emphasizes that this is descriptive evidence and does not prove causality. Further investigation is recommended to identify the root cause of the observed performance issues.",
+      "reasoning": "The analysis is based on the observed trends in the provided data. The increasing anomaly scores and the upward trend in median and p95 latency suggest a potential decline in system performance. However, the evidence note clarifies that these trends are descriptive and do not prove causality. Therefore, the conclusion is that the system's performance is deteriorating, but the exact cause needs to be investigated further.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "currencyservice",
+      "confidence": 0.98,
+      "evidence_confidence": 0.98,
+      "causal_confidence": 0.98,
+      "supporting_facts": [
+        "The provided data shows a consistent pattern of decreasing anomaly scores over time, indicating that the system's performance is improving. The anomaly scores range from 0.3694 to 1.7007, with the highest score occurring at the earliest time window (90 seconds) and the lowest score at the latest time window (690 seconds).",
+        "The median latency and P95 latency also show a decreasing trend, with the median latency ranging from 0.129 to 0.137 and P95 latency ranging from 0.208 to 0.253. This suggests that the system's performance is becoming more stable and efficient over time.",
+        "The feature values (e.g., median latency, P95 latency, anomaly scores) are descriptive evidence, not proof of causality. This means that while these metrics indicate a positive trend, they do not definitively prove that the changes are due to specific interventions or factors.",
+        "The initial candidate ranking is not provided, but the data suggests that the system's performance is improving over time, which could be a result of various factors such as optimizations, updates, or changes in the system's environment."
+      ],
+      "contradicting_facts": [],
+      "conclusion": "Based on the provided data, the system's performance is improving over time, with a decreasing trend in anomaly scores, median latency, and P95 latency. However, the causal relationship cannot be definitively established from the given evidence alone. Further investigation is needed to determine the specific causes of these improvements.",
+      "reasoning": "The data shows a consistent improvement in system performance over time, as evidenced by the decreasing anomaly scores, median latency, and P95 latency. This suggests that the system is becoming more stable and efficient. However, the provided evidence does not establish a causal relationship, as the feature values are descriptive and not proof of causality. Therefore, the conclusion is that the system's performance is improving, but the specific causes of these improvements remain unknown.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "paymentservice",
+      "confidence": 0.98,
+      "evidence_confidence": 0.99,
+      "causal_confidence": 0.95,
+      "supporting_facts": [
+        "The anomaly score for the window_start_sec of 660 is the highest at 1.076117094334685, indicating a significant anomaly in this period.",
+        "The median latency for this window is 0.216 ms, which is within the expected range, suggesting no major issues in this period.",
+        "The anomaly score for the window_start_sec of 690 is the second highest at 1.3515949377701413, indicating another significant anomaly in this period.",
+        "The median latency for this window is 1.545399999999996 ms, which is significantly higher than the expected range, suggesting a major issue in this period."
+      ],
+      "contradicting_facts": [
+        "The anomaly score for the window_start_sec of 60 is the lowest at 0.5940970077861393, indicating no significant anomaly in this period.",
+        "The median latency for this window is 0.219 ms, which is within the expected range, suggesting no major issues in this period.",
+        "The anomaly score for the window_start_sec of 360 is the lowest at 0.473507155638444, indicating no significant anomaly in this period.",
+        "The median latency for this window is 0.2045 ms, which is within the expected range, suggesting no major issues in this period."
+      ],
+      "conclusion": "Based on the highest anomaly scores and the significant increase in median latency, the periods of 660 and 690 are the most concerning for potential issues in the system's performance.",
+      "reasoning": "The periods with the highest anomaly scores (660 and 690) are also associated with the highest median latency values, indicating that these periods are likely experiencing significant performance issues. The other periods have lower anomaly scores and median latencies, suggesting they are within expected ranges and not problematic.",
+      "source": "ollama:qwen2.5:3b"
+    }
+  ],
+  "global_memory": [
+    {
+      "service": "emailservice",
+      "confidence": 0.9999999999999999,
+      "evidence_confidence": 0.9999999999999999,
+      "causal_confidence": 0.9999999999999999,
+      "supporting_facts": [
+        "The anomaly score for the window_start_sec=690 is the highest at 3.4174545124492086, indicating a significant anomaly in this window. ",
+        "The median latency for this window is 86.01879999999998 ms, which is significantly higher than the median latency of other windows, suggesting a potential issue.",
+        "The anomaly score is calculated based on the deviation from the expected behavior, which in this case is quite high, indicating a strong indication of an anomaly.",
+        "The evidence note states that feature values are descriptive evidence, not proof of causality, which means that while the anomaly is detected, the exact cause is not definitively known.",
+        "The evidence note also mentions that feature values are descriptive evidence, not proof of causality, which aligns with the high anomaly score and the significant increase in latency.",
+        "The evidence note further clarifies that the anomaly score is calculated based on the deviation from the expected behavior, which in this case is the highest deviation observed across all windows.",
+        "The evidence note also mentions that feature values are descriptive evidence, not proof of causality, which aligns with the high anomaly score and the significant increase in latency.",
+        "The evidence note further clarifies that the anomaly score is calculated based on the deviation from the expected behavior, which in this case is the highest deviation observed across all windows."
+      ],
+      "contradicting_facts": [],
+      "conclusion": "Based on the high anomaly score and the significant increase in latency, the window_start_sec=690 is identified as a potential anomaly window. The exact cause of the anomaly is not definitively known, but the evidence suggests a significant issue in this window.",
+      "reasoning": "The conclusion is drawn from the highest anomaly score and the significant increase in latency observed in the window_start_sec=690. The evidence note clarifies that the anomaly score is based on the deviation from expected behavior, which in this case is the highest deviation observed across all windows. This indicates a strong indication of an anomaly in this window. The supporting facts further reinforce this conclusion by highlighting the high anomaly score and the significant increase in latency, which are the key indicators of an anomaly. The supporting facts also align with the evidence note, which emphasizes that feature values are descriptive evidence and not proof of causality. Therefore, the window_start_sec=690 is identified as a potential anomaly window, and the exact cause of the anomaly is not definitively known, but the evidence suggests a significant issue in this window.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "checkoutservice",
+      "confidence": 0.9999999999999999,
+      "evidence_confidence": 0.9999999999999999,
+      "causal_confidence": 0.9999999999999999,
+      "supporting_facts": [
+        "The provided data shows a consistent pattern of increasing anomaly scores over time, indicating a potential degradation in system performance or increased anomalies over the observed period. The anomaly scores range from 0.4814958435784957 to 2.1336305256798007, with the highest score occurring at the latest window (690 seconds). This trend suggests that the system's performance may be deteriorating over time.",
+        "The median latency and p95 latency also show a general upward trend, with the highest values occurring at the latest window (690 seconds). This indicates that the system's performance may be slowing down or experiencing increased variability over time.",
+        "The evidence note mentions that feature values are descriptive evidence, not proof of causality, which is important to keep in mind when interpreting the results. It suggests that while the observed trends are concerning, they do not definitively prove that the system is failing or that there is a specific cause for the observed behavior."
+      ],
+      "contradicting_facts": [],
+      "conclusion": "Based on the observed trends in anomaly scores, median latency, and p95 latency, there is a strong indication that the system's performance is deteriorating over time. However, the evidence note emphasizes that this is descriptive evidence and does not prove causality. Further investigation is recommended to identify the root cause of the observed performance issues.",
+      "reasoning": "The analysis is based on the observed trends in the provided data. The increasing anomaly scores and the upward trend in median and p95 latency suggest a potential decline in system performance. However, the evidence note clarifies that these trends are descriptive and do not prove causality. Therefore, the conclusion is that the system's performance is deteriorating, but the exact cause needs to be investigated further.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "currencyservice",
+      "confidence": 0.98,
+      "evidence_confidence": 0.98,
+      "causal_confidence": 0.98,
+      "supporting_facts": [
+        "The provided data shows a consistent pattern of decreasing anomaly scores over time, indicating that the system's performance is improving. The anomaly scores range from 0.3694 to 1.7007, with the highest score occurring at the earliest time window (90 seconds) and the lowest score at the latest time window (690 seconds).",
+        "The median latency and P95 latency also show a decreasing trend, with the median latency ranging from 0.129 to 0.137 and P95 latency ranging from 0.208 to 0.253. This suggests that the system's performance is becoming more stable and efficient over time.",
+        "The feature values (e.g., median latency, P95 latency, anomaly scores) are descriptive evidence, not proof of causality. This means that while these metrics indicate a positive trend, they do not definitively prove that the changes are due to specific interventions or factors.",
+        "The initial candidate ranking is not provided, but the data suggests that the system's performance is improving over time, which could be a result of various factors such as optimizations, updates, or changes in the system's environment."
+      ],
+      "contradicting_facts": [],
+      "conclusion": "Based on the provided data, the system's performance is improving over time, with a decreasing trend in anomaly scores, median latency, and P95 latency. However, the causal relationship cannot be definitively established from the given evidence alone. Further investigation is needed to determine the specific causes of these improvements.",
+      "reasoning": "The data shows a consistent improvement in system performance over time, as evidenced by the decreasing anomaly scores, median latency, and P95 latency. This suggests that the system is becoming more stable and efficient. However, the provided evidence does not establish a causal relationship, as the feature values are descriptive and not proof of causality. Therefore, the conclusion is that the system's performance is improving, but the specific causes of these improvements remain unknown.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "paymentservice",
+      "confidence": 0.98,
+      "evidence_confidence": 0.99,
+      "causal_confidence": 0.95,
+      "supporting_facts": [
+        "The anomaly score for the window_start_sec of 660 is the highest at 1.076117094334685, indicating a significant anomaly in this period.",
+        "The median latency for this window is 0.216 ms, which is within the expected range, suggesting no major issues in this period.",
+        "The anomaly score for the window_start_sec of 690 is the second highest at 1.3515949377701413, indicating another significant anomaly in this period.",
+        "The median latency for this window is 1.545399999999996 ms, which is significantly higher than the expected range, suggesting a major issue in this period."
+      ],
+      "contradicting_facts": [
+        "The anomaly score for the window_start_sec of 60 is the lowest at 0.5940970077861393, indicating no significant anomaly in this period.",
+        "The median latency for this window is 0.219 ms, which is within the expected range, suggesting no major issues in this period.",
+        "The anomaly score for the window_start_sec of 360 is the lowest at 0.473507155638444, indicating no significant anomaly in this period.",
+        "The median latency for this window is 0.2045 ms, which is within the expected range, suggesting no major issues in this period."
+      ],
+      "conclusion": "Based on the highest anomaly scores and the significant increase in median latency, the periods of 660 and 690 are the most concerning for potential issues in the system's performance.",
+      "reasoning": "The periods with the highest anomaly scores (660 and 690) are also associated with the highest median latency values, indicating that these periods are likely experiencing significant performance issues. The other periods have lower anomaly scores and median latencies, suggesting they are within expected ranges and not problematic.",
+      "source": "ollama:qwen2.5:3b"
+    }
+  ],
+  "branches": [
+    {
+      "initial_candidate": "emailservice",
+      "investigated_services": [
+        "emailservice",
+        "checkoutservice"
+      ],
+      "stop_reason": "neighbor batch met confidence threshold"
+    },
+    {
+      "initial_candidate": "checkoutservice",
+      "investigated_services": [
+        "checkoutservice",
+        "currencyservice",
+        "paymentservice"
+      ],
+      "stop_reason": "neighbor batch met confidence threshold"
+    },
+    {
+      "initial_candidate": "paymentservice",
+      "investigated_services": [
+        "paymentservice"
+      ],
+      "stop_reason": "no remaining uninvestigated neighbors"
+    }
+  ],
+  "counts": {
+    "investigated_services": 4,
+    "memory_records": 4
+  },
+  "warning": "LLM-reported confidence is a heuristic, not a calibrated probability or proof of causality.",
+  "case_id": "incident_1d148b3e5153"
+}

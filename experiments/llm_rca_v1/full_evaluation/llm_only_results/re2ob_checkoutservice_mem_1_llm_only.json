@@ -1,0 +1,218 @@
+{
+  "algorithm": "graph_guided_investigation_scaffold_v1",
+  "settings": {
+    "top_k": 3,
+    "threshold": 0.75,
+    "batch_size": 2,
+    "random_seed": 42,
+    "max_investigations": 10,
+    "branch_execution": "sequential prototype; paper algorithm describes parallel branches"
+  },
+  "final_ranking": [
+    {
+      "service": "emailservice",
+      "confidence": 0.9999999999999999,
+      "evidence_confidence": 0.9999999999999999,
+      "causal_confidence": 0.9999999999999999,
+      "supporting_facts": [
+        "The anomaly score for the last window (window_start_sec: 690, period: 'after') is 0.4681753708318211, which is the lowest score among all windows. This suggests that the system's performance was the worst in this period.",
+        "The anomaly score for the first window (window_start_sec: 0, period: 'after') is 1.030512049749734, indicating that the system's performance was the best in this period.",
+        "The anomaly scores for the windows with the highest scores (around 1.0) are relatively stable, suggesting that the system's performance was consistently good in these periods.",
+        "The anomaly scores for the windows with the lowest scores (around 0.4) are relatively consistent, indicating that the system's performance was consistently poor in these periods."
+      ],
+      "contradicting_facts": [
+        "There are no contradicting facts provided in the data. All the anomaly scores are within the expected range and do not contradict each other."
+      ],
+      "conclusion": "Based on the anomaly scores provided, the system's performance was consistently poor in the period starting from window_start_sec: 150 and ending at window_start_sec: 270. The system's performance was the worst in this period, as indicated by the lowest anomaly score of 0.4681753708318211. The system's performance was consistently good in the first and last windows, with the highest anomaly score of 1.030512049749734. The performance in the middle windows (around window_start_sec: 180 to 240) was relatively stable, with anomaly scores around 0.9 to 1.0.",
+      "reasoning": "The anomaly scores provide a clear indication of the system's performance over time. The lowest score (0.4681753708318211) is associated with the period from window_start_sec: 150 to window_start_sec: 270, which is the period with the worst performance. The highest score (1.030512049749734) is associated with the first and last windows, indicating the best performance. The middle windows have scores around 0.9 to 1.0, suggesting a relatively stable performance. The anomaly scores are consistent with the descriptive evidence provided in the data, and there are no contradictions among the scores.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "currencyservice",
+      "confidence": 0.98,
+      "evidence_confidence": 0.98,
+      "causal_confidence": 0.98,
+      "supporting_facts": [
+        "The anomaly score for the highest score (1.1246946407229232) is observed at window_start_sec 690, indicating a significant anomaly in the system's performance at that point in time.",
+        "The median latency at window_start_sec 690 is 0.145 ms, which is within the expected range, but the p95 latency is 0.25675 ms, which is higher than the median latency, suggesting a potential issue.",
+        "The anomaly score at window_start_sec 690 is 1.1246946407229232, which is the highest among all the data points, indicating a strong indication of an anomaly.",
+        "The anomaly score decreases as the window_start_sec increases, suggesting that the system's performance returns to normal after this point."
+      ],
+      "contradicting_facts": [
+        "The anomaly score at window_start_sec 60 (0.888803818700916) is relatively low, indicating that the system's performance is within acceptable limits at this point.",
+        "The anomaly score at window_start_sec 630 (1.147532462475339) is also relatively low, suggesting that the system's performance is within acceptable limits at this point.",
+        "The anomaly score at window_start_sec 660 (0.4125392328770633) is relatively low, indicating that the system's performance is within acceptable limits at this point."
+      ],
+      "conclusion": "Based on the anomaly scores and the trend observed, the system's performance shows a significant anomaly at window_start_sec 690, where the p95 latency is notably higher than the median latency. This suggests that the system's performance may have degraded at this point, and further investigation is recommended to identify the root cause.",
+      "reasoning": "The anomaly scores are used to identify points of concern in the system's performance. The highest anomaly score (1.1246946407229232) is observed at window_start_sec 690, indicating a significant deviation from the expected performance. The trend of decreasing anomaly scores as the window_start_sec increases supports the idea that the system's performance returns to normal after this point. The fact that the anomaly score is relatively low at other points in time (e.g., window_start_sec 60, 630, 660) further supports the conclusion that the anomaly at window_start_sec 690 is a notable issue that requires attention.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "paymentservice",
+      "confidence": 0.98,
+      "evidence_confidence": 0.98,
+      "causal_confidence": 0.98,
+      "supporting_facts": [
+        "The system's median latency has consistently been below 0.25 milliseconds across all windows, indicating a stable and efficient performance.",
+        "The system's p95 latency, which represents the 95th percentile of latency, has also remained below 0.30 milliseconds, suggesting that even the slowest 5% of requests are handled within this timeframe.",
+        "The anomaly score, which measures the deviation from expected behavior, is generally low, with the highest score being 2.81, indicating that the system's performance is mostly within expected bounds.",
+        "The system's anomaly score is particularly high (1.42) only once, at window_start_sec 450, suggesting that this is an outlier and not representative of the system's overall performance."
+      ],
+      "contradicting_facts": [
+        "The system experienced a single instance where the p95 latency was exceptionally high (4.092 milliseconds) at window_start_sec 450, which is significantly higher than the expected performance.",
+        "The anomaly score at this instance (2.81) is also notably high, indicating a significant deviation from the expected behavior."
+      ],
+      "conclusion": "Based on the data provided, the system's performance is generally stable and within expected bounds. However, there is a single instance where the system's performance deviated significantly, which could be a temporary anomaly or a potential issue that needs further investigation.",
+      "reasoning": "The system's performance is characterized by low anomaly scores and consistent median and p95 latencies. The single instance of a high anomaly score and p95 latency suggests that this might be an outlier or a temporary issue. The overall confidence in the system's performance is high, but the need for further investigation is indicated by the single instance of high deviation from expected behavior.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "checkoutservice",
+      "confidence": 0.95,
+      "evidence_confidence": 0.9,
+      "causal_confidence": 0.8,
+      "supporting_facts": [
+        "The provided data shows a consistent increase in anomaly scores over time, indicating potential issues with the system's performance.",
+        "Anomaly scores above a certain threshold (e.g., 5.0) suggest that the system is experiencing significant performance degradation.",
+        "The median latency and p95 latency also show a trend of increasing values over time, which could indicate longer response times or increased variability in system performance.",
+        "The evidence note mentions that feature values are descriptive and not proof of causality, which is important to keep in mind when interpreting the results."
+      ],
+      "contradicting_facts": [],
+      "conclusion": "Based on the increasing anomaly scores and the trend in latency metrics, there is a strong indication that the system's performance is deteriorating over time. Further investigation is recommended to identify the root cause of these issues.",
+      "reasoning": "The analysis is based on the increasing anomaly scores and the trend in latency metrics. These metrics are indicators of system performance, and their upward trend suggests that the system is not functioning as expected. The supporting facts provide context and rationale for interpreting these metrics, while the contra-diicting facts are absent, indicating no contradictory evidence. The evidence note acknowledges that the feature values are descriptive and not proof of causality, which is important for a balanced interpretation of the results.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "productcatalogservice",
+      "confidence": 0.9360807472790844,
+      "evidence_confidence": 0.9360807472790844,
+      "causal_confidence": 0.9360807472790844,
+      "supporting_facts": [
+        "The anomaly score for the window_start_sec of 0 is 0.9360807472790844, indicating that the system's performance is within the expected range at this point in time. This score is derived from the analysis of median and p95 latencies, which are considered key performance indicators (KPIs) for system responsiveness and reliability."
+      ],
+      "contradicting_facts": [],
+      "conclusion": "Based on the anomaly score, the system's performance is within the expected range at the start of the observation period (window_start_sec = 0). There is no evidence of anomalies or significant deviations from the expected performance metrics (median and p95 latencies).",
+      "reasoning": "The anomaly score is a measure that combines the median and p95 latency values to determine if the system's performance is within the expected range. A score of 0.9360807472790844 suggests that the system is performing as expected, with no significant deviations from the expected performance metrics. This score is derived from the analysis of the system's performance data over time, and at the start of the observation period, the system's performance is considered to be within the expected range.",
+      "source": "ollama:qwen2.5:3b"
+    }
+  ],
+  "global_memory": [
+    {
+      "service": "checkoutservice",
+      "confidence": 0.95,
+      "evidence_confidence": 0.9,
+      "causal_confidence": 0.8,
+      "supporting_facts": [
+        "The provided data shows a consistent increase in anomaly scores over time, indicating potential issues with the system's performance.",
+        "Anomaly scores above a certain threshold (e.g., 5.0) suggest that the system is experiencing significant performance degradation.",
+        "The median latency and p95 latency also show a trend of increasing values over time, which could indicate longer response times or increased variability in system performance.",
+        "The evidence note mentions that feature values are descriptive and not proof of causality, which is important to keep in mind when interpreting the results."
+      ],
+      "contradicting_facts": [],
+      "conclusion": "Based on the increasing anomaly scores and the trend in latency metrics, there is a strong indication that the system's performance is deteriorating over time. Further investigation is recommended to identify the root cause of these issues.",
+      "reasoning": "The analysis is based on the increasing anomaly scores and the trend in latency metrics. These metrics are indicators of system performance, and their upward trend suggests that the system is not functioning as expected. The supporting facts provide context and rationale for interpreting these metrics, while the contra-diicting facts are absent, indicating no contradictory evidence. The evidence note acknowledges that the feature values are descriptive and not proof of causality, which is important for a balanced interpretation of the results.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "currencyservice",
+      "confidence": 0.98,
+      "evidence_confidence": 0.98,
+      "causal_confidence": 0.98,
+      "supporting_facts": [
+        "The anomaly score for the highest score (1.1246946407229232) is observed at window_start_sec 690, indicating a significant anomaly in the system's performance at that point in time.",
+        "The median latency at window_start_sec 690 is 0.145 ms, which is within the expected range, but the p95 latency is 0.25675 ms, which is higher than the median latency, suggesting a potential issue.",
+        "The anomaly score at window_start_sec 690 is 1.1246946407229232, which is the highest among all the data points, indicating a strong indication of an anomaly.",
+        "The anomaly score decreases as the window_start_sec increases, suggesting that the system's performance returns to normal after this point."
+      ],
+      "contradicting_facts": [
+        "The anomaly score at window_start_sec 60 (0.888803818700916) is relatively low, indicating that the system's performance is within acceptable limits at this point.",
+        "The anomaly score at window_start_sec 630 (1.147532462475339) is also relatively low, suggesting that the system's performance is within acceptable limits at this point.",
+        "The anomaly score at window_start_sec 660 (0.4125392328770633) is relatively low, indicating that the system's performance is within acceptable limits at this point."
+      ],
+      "conclusion": "Based on the anomaly scores and the trend observed, the system's performance shows a significant anomaly at window_start_sec 690, where the p95 latency is notably higher than the median latency. This suggests that the system's performance may have degraded at this point, and further investigation is recommended to identify the root cause.",
+      "reasoning": "The anomaly scores are used to identify points of concern in the system's performance. The highest anomaly score (1.1246946407229232) is observed at window_start_sec 690, indicating a significant deviation from the expected performance. The trend of decreasing anomaly scores as the window_start_sec increases supports the idea that the system's performance returns to normal after this point. The fact that the anomaly score is relatively low at other points in time (e.g., window_start_sec 60, 630, 660) further supports the conclusion that the anomaly at window_start_sec 690 is a notable issue that requires attention.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "productcatalogservice",
+      "confidence": 0.9360807472790844,
+      "evidence_confidence": 0.9360807472790844,
+      "causal_confidence": 0.9360807472790844,
+      "supporting_facts": [
+        "The anomaly score for the window_start_sec of 0 is 0.9360807472790844, indicating that the system's performance is within the expected range at this point in time. This score is derived from the analysis of median and p95 latencies, which are considered key performance indicators (KPIs) for system responsiveness and reliability."
+      ],
+      "contradicting_facts": [],
+      "conclusion": "Based on the anomaly score, the system's performance is within the expected range at the start of the observation period (window_start_sec = 0). There is no evidence of anomalies or significant deviations from the expected performance metrics (median and p95 latencies).",
+      "reasoning": "The anomaly score is a measure that combines the median and p95 latency values to determine if the system's performance is within the expected range. A score of 0.9360807472790844 suggests that the system is performing as expected, with no significant deviations from the expected performance metrics. This score is derived from the analysis of the system's performance data over time, and at the start of the observation period, the system's performance is considered to be within the expected range.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "emailservice",
+      "confidence": 0.9999999999999999,
+      "evidence_confidence": 0.9999999999999999,
+      "causal_confidence": 0.9999999999999999,
+      "supporting_facts": [
+        "The anomaly score for the last window (window_start_sec: 690, period: 'after') is 0.4681753708318211, which is the lowest score among all windows. This suggests that the system's performance was the worst in this period.",
+        "The anomaly score for the first window (window_start_sec: 0, period: 'after') is 1.030512049749734, indicating that the system's performance was the best in this period.",
+        "The anomaly scores for the windows with the highest scores (around 1.0) are relatively stable, suggesting that the system's performance was consistently good in these periods.",
+        "The anomaly scores for the windows with the lowest scores (around 0.4) are relatively consistent, indicating that the system's performance was consistently poor in these periods."
+      ],
+      "contradicting_facts": [
+        "There are no contradicting facts provided in the data. All the anomaly scores are within the expected range and do not contradict each other."
+      ],
+      "conclusion": "Based on the anomaly scores provided, the system's performance was consistently poor in the period starting from window_start_sec: 150 and ending at window_start_sec: 270. The system's performance was the worst in this period, as indicated by the lowest anomaly score of 0.4681753708318211. The system's performance was consistently good in the first and last windows, with the highest anomaly score of 1.030512049749734. The performance in the middle windows (around window_start_sec: 180 to 240) was relatively stable, with anomaly scores around 0.9 to 1.0.",
+      "reasoning": "The anomaly scores provide a clear indication of the system's performance over time. The lowest score (0.4681753708318211) is associated with the period from window_start_sec: 150 to window_start_sec: 270, which is the period with the worst performance. The highest score (1.030512049749734) is associated with the first and last windows, indicating the best performance. The middle windows have scores around 0.9 to 1.0, suggesting a relatively stable performance. The anomaly scores are consistent with the descriptive evidence provided in the data, and there are no contradictions among the scores.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "paymentservice",
+      "confidence": 0.98,
+      "evidence_confidence": 0.98,
+      "causal_confidence": 0.98,
+      "supporting_facts": [
+        "The system's median latency has consistently been below 0.25 milliseconds across all windows, indicating a stable and efficient performance.",
+        "The system's p95 latency, which represents the 95th percentile of latency, has also remained below 0.30 milliseconds, suggesting that even the slowest 5% of requests are handled within this timeframe.",
+        "The anomaly score, which measures the deviation from expected behavior, is generally low, with the highest score being 2.81, indicating that the system's performance is mostly within expected bounds.",
+        "The system's anomaly score is particularly high (1.42) only once, at window_start_sec 450, suggesting that this is an outlier and not representative of the system's overall performance."
+      ],
+      "contradicting_facts": [
+        "The system experienced a single instance where the p95 latency was exceptionally high (4.092 milliseconds) at window_start_sec 450, which is significantly higher than the expected performance.",
+        "The anomaly score at this instance (2.81) is also notably high, indicating a significant deviation from the expected behavior."
+      ],
+      "conclusion": "Based on the data provided, the system's performance is generally stable and within expected bounds. However, there is a single instance where the system's performance deviated significantly, which could be a temporary anomaly or a potential issue that needs further investigation.",
+      "reasoning": "The system's performance is characterized by low anomaly scores and consistent median and p95 latencies. The single instance of a high anomaly score and p95 latency suggests that this might be an outlier or a temporary issue. The overall confidence in the system's performance is high, but the need for further investigation is indicated by the single instance of high deviation from expected behavior.",
+      "source": "ollama:qwen2.5:3b"
+    }
+  ],
+  "branches": [
+    {
+      "initial_candidate": "checkoutservice",
+      "investigated_services": [
+        "checkoutservice",
+        "currencyservice",
+        "productcatalogservice"
+      ],
+      "stop_reason": "neighbor batch met confidence threshold"
+    },
+    {
+      "initial_candidate": "emailservice",
+      "investigated_services": [
+        "emailservice"
+      ],
+      "stop_reason": "no remaining uninvestigated neighbors"
+    },
+    {
+      "initial_candidate": "paymentservice",
+      "investigated_services": [
+        "paymentservice"
+      ],
+      "stop_reason": "no remaining uninvestigated neighbors"
+    }
+  ],
+  "counts": {
+    "investigated_services": 5,
+    "memory_records": 5
+  },
+  "warning": "LLM-reported confidence is a heuristic, not a calibrated probability or proof of causality.",
+  "case_id": "incident_100af0de2ad9"
+}

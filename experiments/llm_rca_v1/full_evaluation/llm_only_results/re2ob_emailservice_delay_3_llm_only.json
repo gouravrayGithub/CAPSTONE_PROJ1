@@ -1,0 +1,202 @@
+{
+  "algorithm": "graph_guided_investigation_scaffold_v1",
+  "settings": {
+    "top_k": 3,
+    "threshold": 0.75,
+    "batch_size": 2,
+    "random_seed": 42,
+    "max_investigations": 10,
+    "branch_execution": "sequential prototype; paper algorithm describes parallel branches"
+  },
+  "final_ranking": [
+    {
+      "service": "paymentservice",
+      "confidence": 0.9999999999999999,
+      "evidence_confidence": 0.9999999999999999,
+      "causal_confidence": 0.9999999999999999,
+      "supporting_facts": [
+        "The evidence note states that feature values are descriptive evidence, not proof of causality. This suggests that the observed metrics (median and p95 latency) are indicative of the system's performance but do not conclusively prove any causal relationship with the anomalies detected.",
+        "The initial candidate ranking is not provided, indicating that no specific candidate has been identified as the initial suspect for the anomalies detected.",
+        "The confidence values for confidance, evidence_confidence, and causal_confidence are extremely high, suggesting a very strong consensus among the system's analysis that the observed metrics are a strong indicator of the system's performance.",
+        "The evidence note emphasizes the descriptive nature of the feature values, which means that while the metrics are important for understanding the system's performance, they do not provide definitive proof of the cause of the anomalies.",
+        "The system's analysis is based on a comprehensive set of metrics and evidence, which is reflected in the extremely high confidence values for all three metrics (confidance, evidence_confidence, and causal_confidence)."
+      ],
+      "contradicting_facts": [],
+      "conclusion": "Based on the extremely high confidence values and the note emphasizing the descriptive nature of the feature values, the system's analysis strongly indicates that the observed metrics (median and p95 latency) are a strong indicator of the system's performance. However, these metrics do not conclusively prove any causal relationship with the anomalies detected. The system's analysis is robust and comprehensive, but the evidence provided does not provide definitive proof of causality.",
+      "reasoning": "The system's analysis is based on a comprehensive set of metrics and evidence, which are reflected in the extremely high confidence values for all three metrics (confidance, evidence_confidence, and causal_confidence). The note emphasizes the descriptive nature of the feature values, which means that while the metrics are important for understanding the system's performance, they do not provide definitive proof of the cause of the anomalies detected. Therefore, the system's analysis is robust and comprehensive, but the evidence provided does not provide definitive proof of causality.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "currencyservice",
+      "confidence": 0.98,
+      "evidence_confidence": 0.98,
+      "causal_confidence": 0.98,
+      "supporting_facts": [
+        "The provided data shows a consistent pattern of latency metrics over time, with the median and p95 latency values fluctuating around 0.14 to 0.26 milliseconds. The anomaly scores, which indicate the likelihood of an anomaly, are generally low, ranging from 0.205 to 2.622. The lowest anomaly scores are around 0.205, which is relatively low and suggests that the system is performing well with minimal anomalies.",
+        "The anomaly scores are calculated based on the deviation of the current data point from the historical data. A low anomaly score indicates that the current data point is not significantly different from the expected values, suggesting that the system is stable and performing as expected.",
+        "The evidence note mentions that feature values are descriptive evidence, not proof of causality. This implies that while the data shows no significant anomalies, it does not conclusively prove that the system is functioning perfectly without any issues. However, it does suggest that the system is stable and performing within expected parameters."
+      ],
+      "contradicting_facts": [
+        "There are occasional spikes in anomaly scores, particularly around window_start_sec 450 and 690, which could indicate periods of higher variability or potential issues that need further investigation."
+      ],
+      "conclusion": "Based on the provided data, the system appears to be stable with minimal anomalies. However, there are occasional periods where the anomaly scores are higher, suggesting that further investigation may be needed to ensure consistent performance. The system is performing within expected parameters, but the occasional spikes in anomaly scores indicate that there might be transient issues or variability that need to be monitored and addressed if necessary.",
+      "reasoning": "The confidence in the system's stability is high due to the low anomaly scores, but the occasional spikes suggest that there could be transient issues or variability that need to be monitored. The evidence note clarifies that the data is descriptive and not conclusive proof of causality, which is important to keep in mind when interpreting the results.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "productcatalogservice",
+      "confidence": 0.972054175434796,
+      "evidence_confidence": 0.972054175434796,
+      "causal_confidence": 0.972054175434796,
+      "supporting_facts": [
+        "The anomaly score for the window_start_sec of 30 is 0.972054175434796, indicating that the system is operating within expected parameters. This score is consistent across all windows, suggesting a stable system performance over time."
+      ],
+      "contradicting_facts": [],
+      "conclusion": "The system is operating within expected parameters and there is no evidence of anomalies or issues based on the provided data.",
+      "reasoning": "The anomaly score of 0.972054175434796 for all windows indicates that the system is performing within acceptable limits. This high score suggests that the system is stable and there is no significant deviation from expected performance. The absence of contradicting facts and the consistent anomaly score across all windows supports the conclusion that the system is operating as expected.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "checkoutservice",
+      "confidence": 0.95,
+      "evidence_confidence": 0.95,
+      "causal_confidence": 0.95,
+      "supporting_facts": [
+        "The provided data includes a series of metrics and anomaly scores for a system's performance over a period of time. The metrics include log count, trace count, median latency, and p95 latency, which are used to evaluate the system's performance and identify anomalies.",
+        "Anomaly scores are provided for each window of time, indicating how anomalous the system's performance was during that period. Scores closer to 0 are considered normal, while scores closer to 5 indicate higher levels of anomaly.",
+        "The evidence note mentions that feature values are descriptive and not proof of causality, which is important to understand the limitations of the data and the analysis.",
+        "The initial candidate ranking is not provided, which means that the system did not automatically rank the data points or candidates based on the provided metrics and anomaly scores."
+      ],
+      "contradicting_facts": [],
+      "conclusion": "The system's performance has shown varying levels of anomaly over time, with some periods having higher anomaly scores indicating more significant deviations from expected performance. The data supports the need for further investigation into the causes of these anomalies to ensure the system's reliability and efficiency.",
+      "reasoning": "The analysis of the provided data indicates that the system's performance has not been consistently normal. There are several periods where the anomaly scores are relatively high, suggesting that the system may be experiencing issues or anomalies during these times. The evidence note clarifies that these scores are descriptive and not definitive proof of causality, but they do indicate that there are periods where the system's performance deviates from expected norms. Therefore, it is recommended to investigate these anomalies further to understand their causes and implement necessary corrective actions.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "emailservice",
+      "confidence": 0.95,
+      "evidence_confidence": 0.95,
+      "causal_confidence": 0.95,
+      "supporting_facts": [
+        "The system's performance metrics show a significant improvement in median and p95 latencies over time, with anomaly scores decreasing, indicating fewer anomalies detected.",
+        "The number of traces and logs collected also increased, suggesting a more comprehensive dataset for analysis.",
+        "The feature values are descriptive and not proof of causality, aligning with the nature of the evidence provided."
+      ],
+      "contradicting_facts": [],
+      "conclusion": "Based on the provided data, the system's performance has improved over time, with fewer anomalies detected and a more comprehensive dataset. The observed improvements are likely due to the system's ongoing optimization efforts and the increased data collection.",
+      "reasoning": "The analysis is based on the observed trends in median and p95 latencies, which have decreased over time, and the increase in the number of traces and logs. The anomaly scores have also decreased, indicating fewer anomalies. These changes suggest that the system's performance has improved, and the improvements are likely due to ongoing optimization efforts and increased data collection. The feature values are described as descriptive evidence, not proof of causality, which aligns with the interpretation of the data.",
+      "source": "ollama:qwen2.5:3b"
+    }
+  ],
+  "global_memory": [
+    {
+      "service": "checkoutservice",
+      "confidence": 0.95,
+      "evidence_confidence": 0.95,
+      "causal_confidence": 0.95,
+      "supporting_facts": [
+        "The provided data includes a series of metrics and anomaly scores for a system's performance over a period of time. The metrics include log count, trace count, median latency, and p95 latency, which are used to evaluate the system's performance and identify anomalies.",
+        "Anomaly scores are provided for each window of time, indicating how anomalous the system's performance was during that period. Scores closer to 0 are considered normal, while scores closer to 5 indicate higher levels of anomaly.",
+        "The evidence note mentions that feature values are descriptive and not proof of causality, which is important to understand the limitations of the data and the analysis.",
+        "The initial candidate ranking is not provided, which means that the system did not automatically rank the data points or candidates based on the provided metrics and anomaly scores."
+      ],
+      "contradicting_facts": [],
+      "conclusion": "The system's performance has shown varying levels of anomaly over time, with some periods having higher anomaly scores indicating more significant deviations from expected performance. The data supports the need for further investigation into the causes of these anomalies to ensure the system's reliability and efficiency.",
+      "reasoning": "The analysis of the provided data indicates that the system's performance has not been consistently normal. There are several periods where the anomaly scores are relatively high, suggesting that the system may be experiencing issues or anomalies during these times. The evidence note clarifies that these scores are descriptive and not definitive proof of causality, but they do indicate that there are periods where the system's performance deviates from expected norms. Therefore, it is recommended to investigate these anomalies further to understand their causes and implement necessary corrective actions.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "currencyservice",
+      "confidence": 0.98,
+      "evidence_confidence": 0.98,
+      "causal_confidence": 0.98,
+      "supporting_facts": [
+        "The provided data shows a consistent pattern of latency metrics over time, with the median and p95 latency values fluctuating around 0.14 to 0.26 milliseconds. The anomaly scores, which indicate the likelihood of an anomaly, are generally low, ranging from 0.205 to 2.622. The lowest anomaly scores are around 0.205, which is relatively low and suggests that the system is performing well with minimal anomalies.",
+        "The anomaly scores are calculated based on the deviation of the current data point from the historical data. A low anomaly score indicates that the current data point is not significantly different from the expected values, suggesting that the system is stable and performing as expected.",
+        "The evidence note mentions that feature values are descriptive evidence, not proof of causality. This implies that while the data shows no significant anomalies, it does not conclusively prove that the system is functioning perfectly without any issues. However, it does suggest that the system is stable and performing within expected parameters."
+      ],
+      "contradicting_facts": [
+        "There are occasional spikes in anomaly scores, particularly around window_start_sec 450 and 690, which could indicate periods of higher variability or potential issues that need further investigation."
+      ],
+      "conclusion": "Based on the provided data, the system appears to be stable with minimal anomalies. However, there are occasional periods where the anomaly scores are higher, suggesting that further investigation may be needed to ensure consistent performance. The system is performing within expected parameters, but the occasional spikes in anomaly scores indicate that there might be transient issues or variability that need to be monitored and addressed if necessary.",
+      "reasoning": "The confidence in the system's stability is high due to the low anomaly scores, but the occasional spikes suggest that there could be transient issues or variability that need to be monitored. The evidence note clarifies that the data is descriptive and not conclusive proof of causality, which is important to keep in mind when interpreting the results.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "productcatalogservice",
+      "confidence": 0.972054175434796,
+      "evidence_confidence": 0.972054175434796,
+      "causal_confidence": 0.972054175434796,
+      "supporting_facts": [
+        "The anomaly score for the window_start_sec of 30 is 0.972054175434796, indicating that the system is operating within expected parameters. This score is consistent across all windows, suggesting a stable system performance over time."
+      ],
+      "contradicting_facts": [],
+      "conclusion": "The system is operating within expected parameters and there is no evidence of anomalies or issues based on the provided data.",
+      "reasoning": "The anomaly score of 0.972054175434796 for all windows indicates that the system is performing within acceptable limits. This high score suggests that the system is stable and there is no significant deviation from expected performance. The absence of contradicting facts and the consistent anomaly score across all windows supports the conclusion that the system is operating as expected.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "emailservice",
+      "confidence": 0.95,
+      "evidence_confidence": 0.95,
+      "causal_confidence": 0.95,
+      "supporting_facts": [
+        "The system's performance metrics show a significant improvement in median and p95 latencies over time, with anomaly scores decreasing, indicating fewer anomalies detected.",
+        "The number of traces and logs collected also increased, suggesting a more comprehensive dataset for analysis.",
+        "The feature values are descriptive and not proof of causality, aligning with the nature of the evidence provided."
+      ],
+      "contradicting_facts": [],
+      "conclusion": "Based on the provided data, the system's performance has improved over time, with fewer anomalies detected and a more comprehensive dataset. The observed improvements are likely due to the system's ongoing optimization efforts and the increased data collection.",
+      "reasoning": "The analysis is based on the observed trends in median and p95 latencies, which have decreased over time, and the increase in the number of traces and logs. The anomaly scores have also decreased, indicating fewer anomalies. These changes suggest that the system's performance has improved, and the improvements are likely due to ongoing optimization efforts and increased data collection. The feature values are described as descriptive evidence, not proof of causality, which aligns with the interpretation of the data.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "paymentservice",
+      "confidence": 0.9999999999999999,
+      "evidence_confidence": 0.9999999999999999,
+      "causal_confidence": 0.9999999999999999,
+      "supporting_facts": [
+        "The evidence note states that feature values are descriptive evidence, not proof of causality. This suggests that the observed metrics (median and p95 latency) are indicative of the system's performance but do not conclusively prove any causal relationship with the anomalies detected.",
+        "The initial candidate ranking is not provided, indicating that no specific candidate has been identified as the initial suspect for the anomalies detected.",
+        "The confidence values for confidance, evidence_confidence, and causal_confidence are extremely high, suggesting a very strong consensus among the system's analysis that the observed metrics are a strong indicator of the system's performance.",
+        "The evidence note emphasizes the descriptive nature of the feature values, which means that while the metrics are important for understanding the system's performance, they do not provide definitive proof of the cause of the anomalies.",
+        "The system's analysis is based on a comprehensive set of metrics and evidence, which is reflected in the extremely high confidence values for all three metrics (confidance, evidence_confidence, and causal_confidence)."
+      ],
+      "contradicting_facts": [],
+      "conclusion": "Based on the extremely high confidence values and the note emphasizing the descriptive nature of the feature values, the system's analysis strongly indicates that the observed metrics (median and p95 latency) are a strong indicator of the system's performance. However, these metrics do not conclusively prove any causal relationship with the anomalies detected. The system's analysis is robust and comprehensive, but the evidence provided does not provide definitive proof of causality.",
+      "reasoning": "The system's analysis is based on a comprehensive set of metrics and evidence, which are reflected in the extremely high confidence values for all three metrics (confidance, evidence_confidence, and causal_confidence). The note emphasizes the descriptive nature of the feature values, which means that while the metrics are important for understanding the system's performance, they do not provide definitive proof of the cause of the anomalies detected. Therefore, the system's analysis is robust and comprehensive, but the evidence provided does not provide definitive proof of causality.",
+      "source": "ollama:qwen2.5:3b"
+    }
+  ],
+  "branches": [
+    {
+      "initial_candidate": "checkoutservice",
+      "investigated_services": [
+        "checkoutservice",
+        "currencyservice",
+        "productcatalogservice"
+      ],
+      "stop_reason": "neighbor batch met confidence threshold"
+    },
+    {
+      "initial_candidate": "emailservice",
+      "investigated_services": [
+        "emailservice"
+      ],
+      "stop_reason": "no remaining uninvestigated neighbors"
+    },
+    {
+      "initial_candidate": "paymentservice",
+      "investigated_services": [
+        "paymentservice"
+      ],
+      "stop_reason": "no remaining uninvestigated neighbors"
+    }
+  ],
+  "counts": {
+    "investigated_services": 5,
+    "memory_records": 5
+  },
+  "warning": "LLM-reported confidence is a heuristic, not a calibrated probability or proof of causality.",
+  "case_id": "incident_984459cd4f13"
+}

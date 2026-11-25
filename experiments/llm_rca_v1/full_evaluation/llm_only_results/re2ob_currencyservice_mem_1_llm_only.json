@@ -1,0 +1,219 @@
+{
+  "algorithm": "graph_guided_investigation_scaffold_v1",
+  "settings": {
+    "top_k": 3,
+    "threshold": 0.75,
+    "batch_size": 2,
+    "random_seed": 42,
+    "max_investigations": 10,
+    "branch_execution": "sequential prototype; paper algorithm describes parallel branches"
+  },
+  "final_ranking": [
+    {
+      "service": "currencyservice",
+      "confidence": 0.98,
+      "evidence_confidence": 0.99,
+      "causal_confidence": 0.95,
+      "supporting_facts": [
+        "The data shows a consistent trend of decreasing anomaly scores over time, indicating that the system's performance is improving.",
+        "The median latency has also been decreasing, suggesting that the system is becoming more efficient.",
+        "The anomaly score is the primary metric used to determine if the system is operating within expected parameters, and its reduction indicates a positive change.",
+        "The evidence note emphasizes that these feature values are descriptive and not proof of causality, which aligns with the observed improvements in system performance."
+      ],
+      "contradicting_facts": [],
+      "conclusion": "Based on the provided data and evidence, the system's performance is improving over time. The reduction in anomaly scores and the decreasing median latency suggest that the system is becoming more reliable and efficient.",
+      "reasoning": "The reasoning behind this conclusion is based on the observed trends in anomaly scores, median latency, and the supporting evidence provided. The reduction in anomaly scores indicates that the system is operating within expected parameters, and the decreasing median latency suggests improved efficiency. The evidence note acknowledges that these are descriptive metrics and not proof of causality, but the observed trends are consistent with the system's performance improving over time.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "checkoutservice",
+      "confidence": 0.95,
+      "evidence_confidence": 0.95,
+      "causal_confidence": 0.95,
+      "supporting_facts": [
+        "The provided data includes metrics such as median and p95 latencies for different time windows, along with anomaly scores. These metrics are used to identify periods of increased latency or anomalies in the system's performance.",
+        "The anomaly scores are calculated based on the deviation of the observed latency from the expected or baseline latency. A higher anomaly score indicates a more significant deviation from the expected behavior.",
+        "The evidence note specifies that feature values are descriptive evidence, not proof of causality. This means that while the metrics and anomaly scores provide insights into the system's performance, they do not definitively prove the cause of any observed issues.",
+        "The initial candidate ranking is not provided, but the system would likely use the anomaly scores and other metrics to prioritize which time windows or periods to investigate further for potential issues.",
+        "The evidence note also mentions that the feature values are descriptive evidence, which means they are used to describe the current state of the system rather than to establish causality. This is important for understanding the current performance without jumping to conclusions about the causes of observed issues."
+      ],
+      "contradicting_facts": [],
+      "conclusion": "Based on the provided data and metrics, the system's performance has exhibited periods of increased latency, particularly around window_start_sec values of 390, 420, 450, 480, 510, 540, 570, 600, 630, and 660. These periods have higher anomaly scores, indicating significant deviations from the expected behavior. However, the evidence note specifies that these feature values are descriptive evidence and do not prove causality. Therefore, while these periods show signs of potential issues, the exact causes of these issues would need further investigation to determine.",
+      "reasoning": "The reasoning behind this conclusion is based on the analysis of the provided data. The anomaly scores and other metrics indicate periods of increased latency. However, the evidence note clarifies that these feature values are descriptive evidence and do not prove causality. Therefore, while these periods show signs of potential issues, the exact causes of these issues would need further investigation to determine. The system would likely prioritize these periods for further investigation based on the anomaly scores and other metrics provided.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "productcatalogservice",
+      "confidence": 0.95,
+      "evidence_confidence": 0.95,
+      "causal_confidence": 0.95,
+      "supporting_facts": [
+        "The provided data shows a consistent pattern of low anomaly scores (ranging from 1.9885603361575976 to 3.663943560210389) across different time windows (from 0 to 600 seconds). This suggests that the system's performance is generally stable and within expected bounds, with only minor fluctuations indicated by the anomaly scores.",
+        "The median latency is consistently around 0.01 to 0.028 milliseconds, which is within the acceptable range for most systems, indicating that the system is performing efficiently.",
+        "The anomaly scores are relatively low, with the highest score being 3.663943560210389, which is still considered low and does not indicate a significant issue.",
+        "The system's performance does not show any sudden spikes or drops in performance, which is a positive sign for stability and reliability."
+      ],
+      "contradicting_facts": [
+        "There are no significant spikes or drops in the anomaly scores, which might suggest that the system is not experiencing any major anomalies or issues.",
+        "The system's performance is generally stable, but there are some minor fluctuations that could be attributed to normal variations in system load or other transient factors."
+      ],
+      "conclusion": "Based on the provided data, the system's performance appears to be stable and within expected bounds. There are no significant anomalies detected, and the system is likely functioning as intended. However, minor fluctuations in performance are expected and do not necessarily indicate a problem.",
+      "reasoning": "The analysis is based on the anomaly scores, median latency, and the overall pattern of the data. The low anomaly scores and consistent median latency suggest a stable system. The minor fluctuations are considered normal and do not indicate a significant issue. The system's performance is within the acceptable range, and there are no sudden spikes or drops that would suggest a problem. The evidence supports the conclusion that the system is functioning as expected, with only minor variations in performance.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "recommendationservice",
+      "confidence": 0.95,
+      "evidence_confidence": 0.95,
+      "causal_confidence": 0.95,
+      "supporting_facts": [
+        "The provided data includes a series of metrics and anomaly scores for a system's performance over time. Each entry in the data list represents a window of time, with metrics such as log_count, trace_count, median_latency_ms, and p95_latency_ms, along with an anomaly score. The anomaly score indicates how anomalous the system's performance is within that window. A higher anomaly score suggests more significant deviations from expected performance patterns.",
+        "The anomaly scores range from 4.426 to 7.828, with the highest score indicating the most anomalous behavior. The median latency and p95 latency also provide insights into the system's performance variability.",
+        "The evidence note mentions that feature values are descriptive evidence, not proof of causality. This means that while the metrics and anomaly scores can indicate issues, they do not definitively prove that these issues are the cause of any observed problems.",
+        "The initial candidate ranking is not provided, but it would likely be based on the anomaly scores and other metrics, with higher scores potentially indicating more critical issues that warrant further investigation."
+      ],
+      "contradicting_facts": [],
+      "conclusion": "The system's performance has exhibited significant anomalies over the observed time period, with the highest anomaly score indicating the most severe issues. However, the anomaly scores and metrics do not definitively prove that these issues are the cause of any observed problems. Further investigation is needed to determine the root causes of these anomalies.",
+      "reasoning": "The system's performance metrics and anomaly scores indicate that there have been periods of unusually high variability and latency. While these metrics suggest potential issues, they do not provide definitive proof of causality. Therefore, the most appropriate conclusion is that the system's performance has exhibited anomalies, and further investigation is necessary to identify the underlying causes.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "frontend",
+      "confidence": 0.95,
+      "evidence_confidence": 0.95,
+      "causal_confidence": 0.95,
+      "supporting_facts": [
+        "The provided data includes metrics such as trace_count, median_latency_ms, and p95_latency_ms for different time windows. These metrics are used to evaluate the performance and health of a system, particularly in terms of latency and throughput. The anomaly_score is used to identify periods where the system's performance deviates significantly from the norm, which could indicate issues such as increased load, resource contention, or other anomalies. ",
+        "The anomaly_score for each window is calculated based on the deviation of the current metrics from the historical data. A higher anomaly_score indicates a greater deviation from the norm, suggesting that the system's performance is more abnormal at that point in time. ",
+        "The evidence_note indicates that these feature values are descriptive and not proof of causality. This means that while the metrics and anomaly scores provide insights into the system's performance, they do not definitively prove that the observed anomalies are the cause of any observed issues. ",
+        "The initial_candidate_ranking is not provided, which means that no specific candidate has been identified as the root cause of the anomalies based on the current data. ",
+        "The evidence_note also mentions that the feature values are descriptive, which means they can be used to identify trends and anomalies but not to establish causality. ",
+        "The system's performance metrics and anomaly scores are used to identify periods where the system's behavior deviates from expected patterns, which can be used to diagnose and potentially address issues. "
+      ],
+      "contradicting_facts": [],
+      "conclusion": "The system's performance metrics and anomaly scores indicate periods where the system's behavior deviates from expected patterns. These deviations are used to identify potential issues, but the evidence does not definitively prove that these deviations are the cause of any observed issues. Further investigation is needed to establish causality.",
+      "reasoning": "The provided data includes metrics such as trace_count, median_latency_ms, and p95_latency_ms for different time windows. These metrics are used to evaluate the performance and health of a system, particularly in terms of latency and throughput. The anomaly_score is used to identify periods where the system's performance deviates significantly from the norm, suggesting that the system's performance is more abnormal at those points in time. The evidence_note indicates that these feature values are descriptive and not proof of causality. The initial_candidate_ranking is not provided, which means that no specific candidate has been identified as the root cause of the anomalies based on the current data. The system's performance metrics and anomaly scores are used to identify periods where the system's behavior deviates from expected patterns, which can be used to diagnose and potentially address issues. However, the evidence does not definitively prove that these deviations are the cause of any observed issues. Further investigation is needed to establish causality.",
+      "source": "ollama:qwen2.5:3b"
+    }
+  ],
+  "global_memory": [
+    {
+      "service": "checkoutservice",
+      "confidence": 0.95,
+      "evidence_confidence": 0.95,
+      "causal_confidence": 0.95,
+      "supporting_facts": [
+        "The provided data includes metrics such as median and p95 latencies for different time windows, along with anomaly scores. These metrics are used to identify periods of increased latency or anomalies in the system's performance.",
+        "The anomaly scores are calculated based on the deviation of the observed latency from the expected or baseline latency. A higher anomaly score indicates a more significant deviation from the expected behavior.",
+        "The evidence note specifies that feature values are descriptive evidence, not proof of causality. This means that while the metrics and anomaly scores provide insights into the system's performance, they do not definitively prove the cause of any observed issues.",
+        "The initial candidate ranking is not provided, but the system would likely use the anomaly scores and other metrics to prioritize which time windows or periods to investigate further for potential issues.",
+        "The evidence note also mentions that the feature values are descriptive evidence, which means they are used to describe the current state of the system rather than to establish causality. This is important for understanding the current performance without jumping to conclusions about the causes of observed issues."
+      ],
+      "contradicting_facts": [],
+      "conclusion": "Based on the provided data and metrics, the system's performance has exhibited periods of increased latency, particularly around window_start_sec values of 390, 420, 450, 480, 510, 540, 570, 600, 630, and 660. These periods have higher anomaly scores, indicating significant deviations from the expected behavior. However, the evidence note specifies that these feature values are descriptive evidence and do not prove causality. Therefore, while these periods show signs of potential issues, the exact causes of these issues would need further investigation to determine.",
+      "reasoning": "The reasoning behind this conclusion is based on the analysis of the provided data. The anomaly scores and other metrics indicate periods of increased latency. However, the evidence note clarifies that these feature values are descriptive evidence and do not prove causality. Therefore, while these periods show signs of potential issues, the exact causes of these issues would need further investigation to determine. The system would likely prioritize these periods for further investigation based on the anomaly scores and other metrics provided.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "currencyservice",
+      "confidence": 0.98,
+      "evidence_confidence": 0.99,
+      "causal_confidence": 0.95,
+      "supporting_facts": [
+        "The data shows a consistent trend of decreasing anomaly scores over time, indicating that the system's performance is improving.",
+        "The median latency has also been decreasing, suggesting that the system is becoming more efficient.",
+        "The anomaly score is the primary metric used to determine if the system is operating within expected parameters, and its reduction indicates a positive change.",
+        "The evidence note emphasizes that these feature values are descriptive and not proof of causality, which aligns with the observed improvements in system performance."
+      ],
+      "contradicting_facts": [],
+      "conclusion": "Based on the provided data and evidence, the system's performance is improving over time. The reduction in anomaly scores and the decreasing median latency suggest that the system is becoming more reliable and efficient.",
+      "reasoning": "The reasoning behind this conclusion is based on the observed trends in anomaly scores, median latency, and the supporting evidence provided. The reduction in anomaly scores indicates that the system is operating within expected parameters, and the decreasing median latency suggests improved efficiency. The evidence note acknowledges that these are descriptive metrics and not proof of causality, but the observed trends are consistent with the system's performance improving over time.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "productcatalogservice",
+      "confidence": 0.95,
+      "evidence_confidence": 0.95,
+      "causal_confidence": 0.95,
+      "supporting_facts": [
+        "The provided data shows a consistent pattern of low anomaly scores (ranging from 1.9885603361575976 to 3.663943560210389) across different time windows (from 0 to 600 seconds). This suggests that the system's performance is generally stable and within expected bounds, with only minor fluctuations indicated by the anomaly scores.",
+        "The median latency is consistently around 0.01 to 0.028 milliseconds, which is within the acceptable range for most systems, indicating that the system is performing efficiently.",
+        "The anomaly scores are relatively low, with the highest score being 3.663943560210389, which is still considered low and does not indicate a significant issue.",
+        "The system's performance does not show any sudden spikes or drops in performance, which is a positive sign for stability and reliability."
+      ],
+      "contradicting_facts": [
+        "There are no significant spikes or drops in the anomaly scores, which might suggest that the system is not experiencing any major anomalies or issues.",
+        "The system's performance is generally stable, but there are some minor fluctuations that could be attributed to normal variations in system load or other transient factors."
+      ],
+      "conclusion": "Based on the provided data, the system's performance appears to be stable and within expected bounds. There are no significant anomalies detected, and the system is likely functioning as intended. However, minor fluctuations in performance are expected and do not necessarily indicate a problem.",
+      "reasoning": "The analysis is based on the anomaly scores, median latency, and the overall pattern of the data. The low anomaly scores and consistent median latency suggest a stable system. The minor fluctuations are considered normal and do not indicate a significant issue. The system's performance is within the acceptable range, and there are no sudden spikes or drops that would suggest a problem. The evidence supports the conclusion that the system is functioning as expected, with only minor variations in performance.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "recommendationservice",
+      "confidence": 0.95,
+      "evidence_confidence": 0.95,
+      "causal_confidence": 0.95,
+      "supporting_facts": [
+        "The provided data includes a series of metrics and anomaly scores for a system's performance over time. Each entry in the data list represents a window of time, with metrics such as log_count, trace_count, median_latency_ms, and p95_latency_ms, along with an anomaly score. The anomaly score indicates how anomalous the system's performance is within that window. A higher anomaly score suggests more significant deviations from expected performance patterns.",
+        "The anomaly scores range from 4.426 to 7.828, with the highest score indicating the most anomalous behavior. The median latency and p95 latency also provide insights into the system's performance variability.",
+        "The evidence note mentions that feature values are descriptive evidence, not proof of causality. This means that while the metrics and anomaly scores can indicate issues, they do not definitively prove that these issues are the cause of any observed problems.",
+        "The initial candidate ranking is not provided, but it would likely be based on the anomaly scores and other metrics, with higher scores potentially indicating more critical issues that warrant further investigation."
+      ],
+      "contradicting_facts": [],
+      "conclusion": "The system's performance has exhibited significant anomalies over the observed time period, with the highest anomaly score indicating the most severe issues. However, the anomaly scores and metrics do not definitively prove that these issues are the cause of any observed problems. Further investigation is needed to determine the root causes of these anomalies.",
+      "reasoning": "The system's performance metrics and anomaly scores indicate that there have been periods of unusually high variability and latency. While these metrics suggest potential issues, they do not provide definitive proof of causality. Therefore, the most appropriate conclusion is that the system's performance has exhibited anomalies, and further investigation is necessary to identify the underlying causes.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "frontend",
+      "confidence": 0.95,
+      "evidence_confidence": 0.95,
+      "causal_confidence": 0.95,
+      "supporting_facts": [
+        "The provided data includes metrics such as trace_count, median_latency_ms, and p95_latency_ms for different time windows. These metrics are used to evaluate the performance and health of a system, particularly in terms of latency and throughput. The anomaly_score is used to identify periods where the system's performance deviates significantly from the norm, which could indicate issues such as increased load, resource contention, or other anomalies. ",
+        "The anomaly_score for each window is calculated based on the deviation of the current metrics from the historical data. A higher anomaly_score indicates a greater deviation from the norm, suggesting that the system's performance is more abnormal at that point in time. ",
+        "The evidence_note indicates that these feature values are descriptive and not proof of causality. This means that while the metrics and anomaly scores provide insights into the system's performance, they do not definitively prove that the observed anomalies are the cause of any observed issues. ",
+        "The initial_candidate_ranking is not provided, which means that no specific candidate has been identified as the root cause of the anomalies based on the current data. ",
+        "The evidence_note also mentions that the feature values are descriptive, which means they can be used to identify trends and anomalies but not to establish causality. ",
+        "The system's performance metrics and anomaly scores are used to identify periods where the system's behavior deviates from expected patterns, which can be used to diagnose and potentially address issues. "
+      ],
+      "contradicting_facts": [],
+      "conclusion": "The system's performance metrics and anomaly scores indicate periods where the system's behavior deviates from expected patterns. These deviations are used to identify potential issues, but the evidence does not definitively prove that these deviations are the cause of any observed issues. Further investigation is needed to establish causality.",
+      "reasoning": "The provided data includes metrics such as trace_count, median_latency_ms, and p95_latency_ms for different time windows. These metrics are used to evaluate the performance and health of a system, particularly in terms of latency and throughput. The anomaly_score is used to identify periods where the system's performance deviates significantly from the norm, suggesting that the system's performance is more abnormal at those points in time. The evidence_note indicates that these feature values are descriptive and not proof of causality. The initial_candidate_ranking is not provided, which means that no specific candidate has been identified as the root cause of the anomalies based on the current data. The system's performance metrics and anomaly scores are used to identify periods where the system's behavior deviates from expected patterns, which can be used to diagnose and potentially address issues. However, the evidence does not definitively prove that these deviations are the cause of any observed issues. Further investigation is needed to establish causality.",
+      "source": "ollama:qwen2.5:3b"
+    }
+  ],
+  "branches": [
+    {
+      "initial_candidate": "checkoutservice",
+      "investigated_services": [
+        "checkoutservice",
+        "currencyservice",
+        "productcatalogservice"
+      ],
+      "stop_reason": "neighbor batch met confidence threshold"
+    },
+    {
+      "initial_candidate": "recommendationservice",
+      "investigated_services": [
+        "recommendationservice",
+        "frontend"
+      ],
+      "stop_reason": "neighbor batch met confidence threshold"
+    },
+    {
+      "initial_candidate": "currencyservice",
+      "investigated_services": [
+        "currencyservice"
+      ],
+      "stop_reason": "no remaining uninvestigated neighbors"
+    }
+  ],
+  "counts": {
+    "investigated_services": 5,
+    "memory_records": 5
+  },
+  "warning": "LLM-reported confidence is a heuristic, not a calibrated probability or proof of causality.",
+  "case_id": "incident_afdaae968c80"
+}

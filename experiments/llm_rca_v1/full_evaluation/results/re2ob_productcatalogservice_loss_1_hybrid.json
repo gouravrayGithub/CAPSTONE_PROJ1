@@ -1,0 +1,235 @@
+{
+  "algorithm": "graph_guided_investigation_scaffold_v1",
+  "settings": {
+    "top_k": 3,
+    "threshold": 0.75,
+    "batch_size": 2,
+    "random_seed": 42,
+    "max_investigations": 10,
+    "branch_execution": "sequential prototype; paper algorithm describes parallel branches"
+  },
+  "final_ranking": [
+    {
+      "service": "productcatalogservice",
+      "confidence": 0.973904785,
+      "evidence_confidence": 0.973904785,
+      "causal_confidence": 0.0,
+      "supporting_facts": [
+        "The service 'recommendationservice' has the highest score of 0.973904785, indicating it is the most likely service causing the high anomaly score in the latency data.",
+        "The supporting evidence for this conclusion comes from the descriptive evidence provided in the data, which is not proof of causality but rather a description of the observed data.",
+        "Other services like 'productcatalogservice', 'paymentservice', and 'checkoutservice' also have significant scores, but 'recommendationservice' has the highest score, suggesting it is the primary suspect."
+      ],
+      "contradicting_facts": [
+        "The service 'redis' has a score of 0.0, indicating it is not a likely candidate for the high anomaly score.",
+        "The anomaly score for 'redis' is 0.0, which is the lowest among all services, suggesting it is not the cause of the high anomaly score."
+      ],
+      "conclusion": "Based on the evidence provided, the service 'recommendationservice' is the most likely candidate causing the high anomaly score in the latency data. However, it's important to note that this is descriptive evidence and not proof of causality. Further investigation is recommended to confirm this conclusion.",
+      "reasoning": "The high anomaly score and the highest score among all services point towards 'recommendationservice' as the most likely cause. The scores for other services are also significant, but 'recommendationservice' stands out with the highest score. The score for 'redis' is notably low, further supporting the conclusion that 'recommendationservice' is the primary suspect.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "recommendationservice",
+      "confidence": 0.95,
+      "evidence_confidence": 0.9,
+      "causal_confidence": 0.8,
+      "supporting_facts": [
+        "The anomaly detection system identified a significant increase in anomaly scores for the 'recommendationservice' over the observed period, with scores ranging from 10 to 9.85316476606712. This suggests that the 'recommendationservice' might be experiencing higher levels of variability or performance issues compared to other services.",
+        "The 'productcatalogservice', 'paymentservice', 'checkoutservice', 'emailservice', 'currencyservice', 'frontend', 'adservice', 'cartservice', and 'shippingservice' all have anomaly scores below 10, indicating that these services are performing within expected ranges.",
+        "The 'redis' service has an anomaly score of 0, suggesting that it is performing within expected ranges and is not contributing to the observed anomalies."
+      ],
+      "contradicting_facts": [
+        "There are no contradicting facts provided in the given data. All services are either within expected ranges or have anomaly scores indicating potential issues, but no service contradicts the findings of the anomaly detection system."
+      ],
+      "conclusion": "Based on the anomaly detection results, the 'recommendationservice' appears to be the most affected service, with a significant increase in anomaly scores. Other services are either within expected ranges or have lower anomaly scores, indicating they are performing within acceptable limits. The 'redis' service is not contributing to the observed anomalies.",
+      "reasoning": "The anomaly detection system's scores indicate that the 'recommendationservice' is experiencing higher variability or performance issues compared to other services. The scores for other services are either within expected ranges or have lower anomaly scores, suggesting they are performing within acceptable limits. The 'redis' service, which is a critical service for caching and data management, has an anomaly score of 0, indicating it is not contributing to the observed anomalies.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "frontend",
+      "confidence": 0.95,
+      "evidence_confidence": 0.9,
+      "causal_confidence": 0.8,
+      "supporting_facts": [
+        "The anomaly detection system identified a significant increase in latency for the 'recommendationservice' starting from window_start_sec 360, with a p95 latency of 4663.687349999983 ms and a median latency of 85.457 ms. This is the highest score among all services, indicating the most significant anomaly.",
+        "The 'recommendationservice' also had the highest anomaly score (10) across all windows, suggesting a consistent issue over the entire observation period.",
+        "The 'recommendationservice' had the highest log and trace counts, indicating that it is a critical service with a high volume of interactions."
+      ],
+      "contradicting_facts": [
+        "The 'recommendationservice' had the lowest anomaly score (9.82071732075102) in the window starting at window_start_sec 270, suggesting a temporary issue that resolved itself.",
+        "The 'recommendationservice' had the highest anomaly score (10) in the window starting at window_start_sec 480, indicating a persistent issue that continued to affect performance.",
+        "The 'recommendationservice' had the highest anomaly score (10) in the window starting at window_start_sec 690, suggesting a potential issue that might be related to a specific event or configuration change.",
+        "The 'recommendationservice' had the highest anomaly score (10) in the window starting at window_start_sec 570, indicating a persistent issue that continued to affect performance.",
+        "The 'recommendationservice' had the highest anomaly score (10) in the window starting at window_start_sec 600, suggesting a potential issue that might be related to a specific event or configuration change."
+      ],
+      "conclusion": "The 'recommendationservice' is the most likely service experiencing a performance issue based on the anomaly detection results. The service consistently had the highest anomaly scores across different windows, indicating a persistent issue that affects performance. The issue is not temporary and is present in multiple windows, suggesting a deeper underlying problem.",
+      "reasoning": "The 'recommendationservice' had the highest anomaly scores and the highest log and trace counts, indicating a critical service with a high volume of interactions. The persistent and consistent nature of the anomalies across different windows further supports the conclusion that the 'recommendationservice' is the root cause of the performance issue.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "checkoutservice",
+      "confidence": 0.95,
+      "evidence_confidence": 0.9,
+      "causal_confidence": 0.8,
+      "supporting_facts": [
+        "The anomaly detection system identified a significant increase in anomaly scores for the 'recommendationservice' and 'productcatalogservice' over the observed time period.",
+        "The 'recommendationservice' and 'productcatalogservice' have the highest scores among all services, indicating they are the most affected by the anomalies.",
+        "The anomaly scores for these services are consistently higher than those of other services, suggesting a strong correlation between these services and the anomalies.",
+        "The evidence note mentions that feature values are descriptive evidence, not proof of causality, which is important to acknowledge when interpreting the results."
+      ],
+      "contradicting_facts": [
+        "There is no direct evidence provided that links the anomalies to specific actions or events. The anomaly detection system is purely based on observed data patterns.",
+        "The anomaly scores could be influenced by various factors not directly related to the services themselves, such as changes in the data collection process or external factors affecting the system."
+      ],
+      "conclusion": "Based on the anomaly detection results, the 'recommendationservice' and 'productcatalogservice' are the most affected services, but the causal relationship cannot be definitively established without further investigation. The anomaly scores suggest a strong correlation, but they do not prove causality.",
+      "reasoning": "The anomaly detection system has identified a significant increase in anomaly scores for the 'recommendationservice' and 'productcatalogservice'. These services have the highest scores among all services, indicating they are the most affected by the anomalies. However, the evidence note mentions that feature values are descriptive evidence, not proof of causality. Therefore, while the anomaly scores suggest a strong correlation, the causal relationship cannot be definitively established without further investigation.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "paymentservice",
+      "confidence": 0.95,
+      "evidence_confidence": 0.9,
+      "causal_confidence": 0.8,
+      "supporting_facts": [
+        "The median latency for the 'recommendationservice' is consistently low at 0.084 ms, indicating it performs well.",
+        "The 'recommendationservice' has the highest score in the initial candidate ranking with a score of 106.97.",
+        "The 'recommendationservice' has the lowest anomaly score of 0.0, suggesting it is not showing any anomalies.",
+        "The 'recommendationservice' has the highest number of traces (24) in the last window (window_start_sec: 600), indicating a stable and reliable service."
+      ],
+      "contradicting_facts": [
+        "The 'recommendationservice' has the lowest anomaly score of 0.0, which could be misleading if there are no anomalies.",
+        "The 'recommendationservice' has the highest score in the initial candidate ranking, but this does not guarantee causality."
+      ],
+      "conclusion": "Based on the provided data, the 'recommendationservice' appears to be the most reliable and performant service. However, further investigation is recommended to confirm causality and ensure there are no underlying issues that could affect its performance in the future. The evidence note emphasizes that feature values are descriptive evidence, not proof of causality, so additional analysis and possibly more data points are needed to establish causality.",
+      "reasoning": "The service with the lowest anomaly score and the highest median latency suggests it is performing well. However, the absence of anomalies does not necessarily mean causality, and the service's ranking in the initial candidate list is based on descriptive evidence rather than proof of causality. Therefore, the recommendation service is considered the most reliable based on the available data, but more investigation is needed to confirm its causality.",
+      "source": "ollama:qwen2.5:3b"
+    }
+  ],
+  "global_memory": [
+    {
+      "service": "recommendationservice",
+      "confidence": 0.95,
+      "evidence_confidence": 0.9,
+      "causal_confidence": 0.8,
+      "supporting_facts": [
+        "The anomaly detection system identified a significant increase in anomaly scores for the 'recommendationservice' over the observed period, with scores ranging from 10 to 9.85316476606712. This suggests that the 'recommendationservice' might be experiencing higher levels of variability or performance issues compared to other services.",
+        "The 'productcatalogservice', 'paymentservice', 'checkoutservice', 'emailservice', 'currencyservice', 'frontend', 'adservice', 'cartservice', and 'shippingservice' all have anomaly scores below 10, indicating that these services are performing within expected ranges.",
+        "The 'redis' service has an anomaly score of 0, suggesting that it is performing within expected ranges and is not contributing to the observed anomalies."
+      ],
+      "contradicting_facts": [
+        "There are no contradicting facts provided in the given data. All services are either within expected ranges or have anomaly scores indicating potential issues, but no service contradicts the findings of the anomaly detection system."
+      ],
+      "conclusion": "Based on the anomaly detection results, the 'recommendationservice' appears to be the most affected service, with a significant increase in anomaly scores. Other services are either within expected ranges or have lower anomaly scores, indicating they are performing within acceptable limits. The 'redis' service is not contributing to the observed anomalies.",
+      "reasoning": "The anomaly detection system's scores indicate that the 'recommendationservice' is experiencing higher variability or performance issues compared to other services. The scores for other services are either within expected ranges or have lower anomaly scores, suggesting they are performing within acceptable limits. The 'redis' service, which is a critical service for caching and data management, has an anomaly score of 0, indicating it is not contributing to the observed anomalies.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "frontend",
+      "confidence": 0.95,
+      "evidence_confidence": 0.9,
+      "causal_confidence": 0.8,
+      "supporting_facts": [
+        "The anomaly detection system identified a significant increase in latency for the 'recommendationservice' starting from window_start_sec 360, with a p95 latency of 4663.687349999983 ms and a median latency of 85.457 ms. This is the highest score among all services, indicating the most significant anomaly.",
+        "The 'recommendationservice' also had the highest anomaly score (10) across all windows, suggesting a consistent issue over the entire observation period.",
+        "The 'recommendationservice' had the highest log and trace counts, indicating that it is a critical service with a high volume of interactions."
+      ],
+      "contradicting_facts": [
+        "The 'recommendationservice' had the lowest anomaly score (9.82071732075102) in the window starting at window_start_sec 270, suggesting a temporary issue that resolved itself.",
+        "The 'recommendationservice' had the highest anomaly score (10) in the window starting at window_start_sec 480, indicating a persistent issue that continued to affect performance.",
+        "The 'recommendationservice' had the highest anomaly score (10) in the window starting at window_start_sec 690, suggesting a potential issue that might be related to a specific event or configuration change.",
+        "The 'recommendationservice' had the highest anomaly score (10) in the window starting at window_start_sec 570, indicating a persistent issue that continued to affect performance.",
+        "The 'recommendationservice' had the highest anomaly score (10) in the window starting at window_start_sec 600, suggesting a potential issue that might be related to a specific event or configuration change."
+      ],
+      "conclusion": "The 'recommendationservice' is the most likely service experiencing a performance issue based on the anomaly detection results. The service consistently had the highest anomaly scores across different windows, indicating a persistent issue that affects performance. The issue is not temporary and is present in multiple windows, suggesting a deeper underlying problem.",
+      "reasoning": "The 'recommendationservice' had the highest anomaly scores and the highest log and trace counts, indicating a critical service with a high volume of interactions. The persistent and consistent nature of the anomalies across different windows further supports the conclusion that the 'recommendationservice' is the root cause of the performance issue.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "productcatalogservice",
+      "confidence": 0.973904785,
+      "evidence_confidence": 0.973904785,
+      "causal_confidence": 0.0,
+      "supporting_facts": [
+        "The service 'recommendationservice' has the highest score of 0.973904785, indicating it is the most likely service causing the high anomaly score in the latency data.",
+        "The supporting evidence for this conclusion comes from the descriptive evidence provided in the data, which is not proof of causality but rather a description of the observed data.",
+        "Other services like 'productcatalogservice', 'paymentservice', and 'checkoutservice' also have significant scores, but 'recommendationservice' has the highest score, suggesting it is the primary suspect."
+      ],
+      "contradicting_facts": [
+        "The service 'redis' has a score of 0.0, indicating it is not a likely candidate for the high anomaly score.",
+        "The anomaly score for 'redis' is 0.0, which is the lowest among all services, suggesting it is not the cause of the high anomaly score."
+      ],
+      "conclusion": "Based on the evidence provided, the service 'recommendationservice' is the most likely candidate causing the high anomaly score in the latency data. However, it's important to note that this is descriptive evidence and not proof of causality. Further investigation is recommended to confirm this conclusion.",
+      "reasoning": "The high anomaly score and the highest score among all services point towards 'recommendationservice' as the most likely cause. The scores for other services are also significant, but 'recommendationservice' stands out with the highest score. The score for 'redis' is notably low, further supporting the conclusion that 'recommendationservice' is the primary suspect.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "checkoutservice",
+      "confidence": 0.95,
+      "evidence_confidence": 0.9,
+      "causal_confidence": 0.8,
+      "supporting_facts": [
+        "The anomaly detection system identified a significant increase in anomaly scores for the 'recommendationservice' and 'productcatalogservice' over the observed time period.",
+        "The 'recommendationservice' and 'productcatalogservice' have the highest scores among all services, indicating they are the most affected by the anomalies.",
+        "The anomaly scores for these services are consistently higher than those of other services, suggesting a strong correlation between these services and the anomalies.",
+        "The evidence note mentions that feature values are descriptive evidence, not proof of causality, which is important to acknowledge when interpreting the results."
+      ],
+      "contradicting_facts": [
+        "There is no direct evidence provided that links the anomalies to specific actions or events. The anomaly detection system is purely based on observed data patterns.",
+        "The anomaly scores could be influenced by various factors not directly related to the services themselves, such as changes in the data collection process or external factors affecting the system."
+      ],
+      "conclusion": "Based on the anomaly detection results, the 'recommendationservice' and 'productcatalogservice' are the most affected services, but the causal relationship cannot be definitively established without further investigation. The anomaly scores suggest a strong correlation, but they do not prove causality.",
+      "reasoning": "The anomaly detection system has identified a significant increase in anomaly scores for the 'recommendationservice' and 'productcatalogservice'. These services have the highest scores among all services, indicating they are the most affected by the anomalies. However, the evidence note mentions that feature values are descriptive evidence, not proof of causality. Therefore, while the anomaly scores suggest a strong correlation, the causal relationship cannot be definitively established without further investigation.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "paymentservice",
+      "confidence": 0.95,
+      "evidence_confidence": 0.9,
+      "causal_confidence": 0.8,
+      "supporting_facts": [
+        "The median latency for the 'recommendationservice' is consistently low at 0.084 ms, indicating it performs well.",
+        "The 'recommendationservice' has the highest score in the initial candidate ranking with a score of 106.97.",
+        "The 'recommendationservice' has the lowest anomaly score of 0.0, suggesting it is not showing any anomalies.",
+        "The 'recommendationservice' has the highest number of traces (24) in the last window (window_start_sec: 600), indicating a stable and reliable service."
+      ],
+      "contradicting_facts": [
+        "The 'recommendationservice' has the lowest anomaly score of 0.0, which could be misleading if there are no anomalies.",
+        "The 'recommendationservice' has the highest score in the initial candidate ranking, but this does not guarantee causality."
+      ],
+      "conclusion": "Based on the provided data, the 'recommendationservice' appears to be the most reliable and performant service. However, further investigation is recommended to confirm causality and ensure there are no underlying issues that could affect its performance in the future. The evidence note emphasizes that feature values are descriptive evidence, not proof of causality, so additional analysis and possibly more data points are needed to establish causality.",
+      "reasoning": "The service with the lowest anomaly score and the highest median latency suggests it is performing well. However, the absence of anomalies does not necessarily mean causality, and the service's ranking in the initial candidate list is based on descriptive evidence rather than proof of causality. Therefore, the recommendation service is considered the most reliable based on the available data, but more investigation is needed to confirm its causality.",
+      "source": "ollama:qwen2.5:3b"
+    }
+  ],
+  "branches": [
+    {
+      "initial_candidate": "recommendationservice",
+      "investigated_services": [
+        "recommendationservice",
+        "frontend",
+        "productcatalogservice"
+      ],
+      "stop_reason": "neighbor batch met confidence threshold"
+    },
+    {
+      "initial_candidate": "productcatalogservice",
+      "investigated_services": [
+        "productcatalogservice",
+        "checkoutservice"
+      ],
+      "stop_reason": "neighbor batch met confidence threshold"
+    },
+    {
+      "initial_candidate": "paymentservice",
+      "investigated_services": [
+        "paymentservice"
+      ],
+      "stop_reason": "no remaining uninvestigated neighbors"
+    }
+  ],
+  "counts": {
+    "investigated_services": 5,
+    "memory_records": 5
+  },
+  "warning": "LLM-reported confidence is a heuristic, not a calibrated probability or proof of causality.",
+  "case_id": "incident_8427added893"
+}

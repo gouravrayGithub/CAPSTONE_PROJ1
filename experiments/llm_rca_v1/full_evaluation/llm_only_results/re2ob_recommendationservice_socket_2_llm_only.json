@@ -1,0 +1,207 @@
+{
+  "algorithm": "graph_guided_investigation_scaffold_v1",
+  "settings": {
+    "top_k": 3,
+    "threshold": 0.75,
+    "batch_size": 2,
+    "random_seed": 42,
+    "max_investigations": 10,
+    "branch_execution": "sequential prototype; paper algorithm describes parallel branches"
+  },
+  "final_ranking": [
+    {
+      "service": "frontend",
+      "confidence": 0.9999999999999999,
+      "evidence_confidence": 0.9999999999999999,
+      "causal_confidence": 0.9999999999999999,
+      "supporting_facts": [
+        "The anomaly score for the last window (window_start_sec: 690, period: "
+      ],
+      "contradicting_facts": [],
+      "conclusion": "Based on the provided data, the system is highly confident (99.99999999999999% confidence) that the system's performance is anomalous in the last window (window_start_sec: 690, period: ",
+      "reasoning": "The highest anomaly score is observed in the last window, with an anomaly score of 0.6223307903189748. This score is significantly high, indicating that the system's performance is anomalous compared to the previous windows. The confidence level is extremely high, suggesting that the system's performance in this window is likely to be a significant deviation from the expected behavior.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "productcatalogservice",
+      "confidence": 0.9999999999999999,
+      "evidence_confidence": 0.9999999999999999,
+      "causal_confidence": 0.9999999999999999,
+      "supporting_facts": [
+        "The system's performance metrics show a consistent trend of decreasing anomaly scores over time, indicating improved system health and reduced anomalies.",
+        "The median latency and p95 latency have also shown a slight improvement, suggesting that the system is becoming more efficient over time.",
+        "There are no significant changes in log or trace counts, which is expected as the system is expected to be stable over the observed time period."
+      ],
+      "contradicting_facts": [
+        "There are no significant contra dicting facts provided in the data."
+      ],
+      "conclusion": "Based on the observed data, the system's performance is improving, with a high confidence level in the results. The system is becoming more efficient and stable over time.",
+      "reasoning": "The system's anomaly scores have been consistently decreasing, indicating a reduction in anomalies. The median latency and p95 latency have also shown a slight improvement, suggesting better performance. There are no significant changes in log or trace counts, which is expected as the system is expected to be stable over the observed time period. These observations support the conclusion that the system is improving and becoming more efficient and stable over time.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "checkoutservice",
+      "confidence": 0.9999999999999999,
+      "evidence_confidence": 0.9999999999999999,
+      "causal_confidence": 0.9999999999999999,
+      "supporting_facts": [
+        "The anomaly score for the last window (window_start_sec: 690, period: 'after') is the highest at 0.9722399981503786, indicating the most significant anomaly detected in the data.",
+        "The median latency for this window is 4.1315 ms, which is within the expected range, but the high anomaly score suggests there might be a significant deviation from the norm.",
+        "The anomaly score for the previous window (window_start_sec: 660, period: 'after') is 1.5334256899966614, indicating a more severe anomaly compared to the current one.",
+        "The anomaly scores for the earlier windows (window_start_sec: 630, period: 'after') and (window_start_sec: 600, period: 'after') are 1.0223579769703373 and 1.178633227561686 respectively, suggesting a gradual increase in anomaly severity over time."
+      ],
+      "contradicting_facts": [
+        "The anomaly score for the first window (window_start_sec: 0, period: 'after') is 0.2068546208906264, indicating the lowest anomaly score and suggesting the least significant anomaly.",
+        "The anomaly scores for the windows with lower log counts (e.g., window_start_sec: 120, period: 'after') are also relatively low, suggesting these windows are not as anomalous as the last window."
+      ],
+      "conclusion": "Based on the highest anomaly score and the trend of increasing anomaly severity over time, the most recent window (window_start_sec: 690, period: 'after') is the most anomalous. However, it's important to consider the context and other supporting facts to make a comprehensive judgment.",
+      "reasoning": "The highest anomaly score (0.9722399981503786) in the last window (window_start_sec: 690, period: 'after') indicates the most significant anomaly. This score is significantly higher than the scores of earlier windows, suggesting a notable deviation from the norm. The trend of increasing anomaly scores over time further supports this conclusion. However, it's important to consider the context and other supporting facts to ensure a comprehensive understanding of the anomaly. The supporting facts include the relatively low anomaly scores for earlier windows and the increasing trend, which together provide a strong indication of the most recent window being the most anomalous.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "paymentservice",
+      "confidence": 0.9854774545454545,
+      "evidence_confidence": 0.9854774545454545,
+      "causal_confidence": 0.9854774545454545,
+      "supporting_facts": [
+        "The evidence note states that feature values are descriptive evidence, not proof of causality. This indicates that the observed metrics (median and p95 latency) are descriptive of the system's performance but do not prove a causal relationship with the features being analyzed. The confidence values are derived from the metrics and their associated anomalies, suggesting a high level of confidence in the observed trends and anomalies.",
+        "The initial candidate ranking is not provided, but the confidence and supporting facts suggest that the system's performance metrics are well-documented and analyzed, indicating a strong foundation for further investigation or action based on the observed data."
+      ],
+      "contradicting_facts": [],
+      "conclusion": "Based on the provided metrics and their associated anomalies, the system's performance is well-documented and analyzed. The confidence in the observed trends and anomalies is high, suggesting a strong foundation for further investigation or action based on the observed data. However, the metrics do not prove a causal relationship with the features being analyzed, so further investigation into the cause of the observed anomalies is recommended.",
+      "reasoning": "The confidence values are derived from the metrics and their associated anomalies, indicating a high level of confidence in the observed trends and anomalies. The evidence note clarifies that these metrics are descriptive evidence and not proof of causality. Therefore, while the system's performance is well-documented, further investigation is recommended to understand the underlying causes of the observed anomalies.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "recommendationservice",
+      "confidence": 0.95,
+      "evidence_confidence": 0.95,
+      "causal_confidence": 0.95,
+      "supporting_facts": [
+        "The provided data shows a consistent decrease in median latency over time, indicating that the system's performance is improving.",
+        "The anomaly score, which measures the deviation from expected behavior, is generally lower as time progresses, suggesting that the system is becoming more stable.",
+        "The number of traces and logs collected is also increasing, which is a positive sign for the system's health.",
+        "The feature values are descriptive evidence of the system's performance, but they do not prove causality.",
+        "The evidence note specifies that feature values are descriptive evidence, not proof of causality."
+      ],
+      "contradicting_facts": [],
+      "conclusion": "Based on the provided data and evidence, the system's performance is improving over time, with a stable and consistent behavior. The system is becoming more stable and efficient as more data is collected.",
+      "reasoning": "The reasoning behind this conclusion is based on the observed trend in the median latency, the decreasing anomaly scores, and the increasing number of traces and logs. These metrics collectively indicate a positive development in the system's performance. The feature values are presented as descriptive evidence, which supports the overall positive trend but does not establish causality.",
+      "source": "ollama:qwen2.5:3b"
+    }
+  ],
+  "global_memory": [
+    {
+      "service": "recommendationservice",
+      "confidence": 0.95,
+      "evidence_confidence": 0.95,
+      "causal_confidence": 0.95,
+      "supporting_facts": [
+        "The provided data shows a consistent decrease in median latency over time, indicating that the system's performance is improving.",
+        "The anomaly score, which measures the deviation from expected behavior, is generally lower as time progresses, suggesting that the system is becoming more stable.",
+        "The number of traces and logs collected is also increasing, which is a positive sign for the system's health.",
+        "The feature values are descriptive evidence of the system's performance, but they do not prove causality.",
+        "The evidence note specifies that feature values are descriptive evidence, not proof of causality."
+      ],
+      "contradicting_facts": [],
+      "conclusion": "Based on the provided data and evidence, the system's performance is improving over time, with a stable and consistent behavior. The system is becoming more stable and efficient as more data is collected.",
+      "reasoning": "The reasoning behind this conclusion is based on the observed trend in the median latency, the decreasing anomaly scores, and the increasing number of traces and logs. These metrics collectively indicate a positive development in the system's performance. The feature values are presented as descriptive evidence, which supports the overall positive trend but does not establish causality.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "frontend",
+      "confidence": 0.9999999999999999,
+      "evidence_confidence": 0.9999999999999999,
+      "causal_confidence": 0.9999999999999999,
+      "supporting_facts": [
+        "The anomaly score for the last window (window_start_sec: 690, period: "
+      ],
+      "contradicting_facts": [],
+      "conclusion": "Based on the provided data, the system is highly confident (99.99999999999999% confidence) that the system's performance is anomalous in the last window (window_start_sec: 690, period: ",
+      "reasoning": "The highest anomaly score is observed in the last window, with an anomaly score of 0.6223307903189748. This score is significantly high, indicating that the system's performance is anomalous compared to the previous windows. The confidence level is extremely high, suggesting that the system's performance in this window is likely to be a significant deviation from the expected behavior.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "productcatalogservice",
+      "confidence": 0.9999999999999999,
+      "evidence_confidence": 0.9999999999999999,
+      "causal_confidence": 0.9999999999999999,
+      "supporting_facts": [
+        "The system's performance metrics show a consistent trend of decreasing anomaly scores over time, indicating improved system health and reduced anomalies.",
+        "The median latency and p95 latency have also shown a slight improvement, suggesting that the system is becoming more efficient over time.",
+        "There are no significant changes in log or trace counts, which is expected as the system is expected to be stable over the observed time period."
+      ],
+      "contradicting_facts": [
+        "There are no significant contra dicting facts provided in the data."
+      ],
+      "conclusion": "Based on the observed data, the system's performance is improving, with a high confidence level in the results. The system is becoming more efficient and stable over time.",
+      "reasoning": "The system's anomaly scores have been consistently decreasing, indicating a reduction in anomalies. The median latency and p95 latency have also shown a slight improvement, suggesting better performance. There are no significant changes in log or trace counts, which is expected as the system is expected to be stable over the observed time period. These observations support the conclusion that the system is improving and becoming more efficient and stable over time.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "checkoutservice",
+      "confidence": 0.9999999999999999,
+      "evidence_confidence": 0.9999999999999999,
+      "causal_confidence": 0.9999999999999999,
+      "supporting_facts": [
+        "The anomaly score for the last window (window_start_sec: 690, period: 'after') is the highest at 0.9722399981503786, indicating the most significant anomaly detected in the data.",
+        "The median latency for this window is 4.1315 ms, which is within the expected range, but the high anomaly score suggests there might be a significant deviation from the norm.",
+        "The anomaly score for the previous window (window_start_sec: 660, period: 'after') is 1.5334256899966614, indicating a more severe anomaly compared to the current one.",
+        "The anomaly scores for the earlier windows (window_start_sec: 630, period: 'after') and (window_start_sec: 600, period: 'after') are 1.0223579769703373 and 1.178633227561686 respectively, suggesting a gradual increase in anomaly severity over time."
+      ],
+      "contradicting_facts": [
+        "The anomaly score for the first window (window_start_sec: 0, period: 'after') is 0.2068546208906264, indicating the lowest anomaly score and suggesting the least significant anomaly.",
+        "The anomaly scores for the windows with lower log counts (e.g., window_start_sec: 120, period: 'after') are also relatively low, suggesting these windows are not as anomalous as the last window."
+      ],
+      "conclusion": "Based on the highest anomaly score and the trend of increasing anomaly severity over time, the most recent window (window_start_sec: 690, period: 'after') is the most anomalous. However, it's important to consider the context and other supporting facts to make a comprehensive judgment.",
+      "reasoning": "The highest anomaly score (0.9722399981503786) in the last window (window_start_sec: 690, period: 'after') indicates the most significant anomaly. This score is significantly higher than the scores of earlier windows, suggesting a notable deviation from the norm. The trend of increasing anomaly scores over time further supports this conclusion. However, it's important to consider the context and other supporting facts to ensure a comprehensive understanding of the anomaly. The supporting facts include the relatively low anomaly scores for earlier windows and the increasing trend, which together provide a strong indication of the most recent window being the most anomalous.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "paymentservice",
+      "confidence": 0.9854774545454545,
+      "evidence_confidence": 0.9854774545454545,
+      "causal_confidence": 0.9854774545454545,
+      "supporting_facts": [
+        "The evidence note states that feature values are descriptive evidence, not proof of causality. This indicates that the observed metrics (median and p95 latency) are descriptive of the system's performance but do not prove a causal relationship with the features being analyzed. The confidence values are derived from the metrics and their associated anomalies, suggesting a high level of confidence in the observed trends and anomalies.",
+        "The initial candidate ranking is not provided, but the confidence and supporting facts suggest that the system's performance metrics are well-documented and analyzed, indicating a strong foundation for further investigation or action based on the observed data."
+      ],
+      "contradicting_facts": [],
+      "conclusion": "Based on the provided metrics and their associated anomalies, the system's performance is well-documented and analyzed. The confidence in the observed trends and anomalies is high, suggesting a strong foundation for further investigation or action based on the observed data. However, the metrics do not prove a causal relationship with the features being analyzed, so further investigation into the cause of the observed anomalies is recommended.",
+      "reasoning": "The confidence values are derived from the metrics and their associated anomalies, indicating a high level of confidence in the observed trends and anomalies. The evidence note clarifies that these metrics are descriptive evidence and not proof of causality. Therefore, while the system's performance is well-documented, further investigation is recommended to understand the underlying causes of the observed anomalies.",
+      "source": "ollama:qwen2.5:3b"
+    }
+  ],
+  "branches": [
+    {
+      "initial_candidate": "recommendationservice",
+      "investigated_services": [
+        "recommendationservice",
+        "frontend",
+        "productcatalogservice"
+      ],
+      "stop_reason": "neighbor batch met confidence threshold"
+    },
+    {
+      "initial_candidate": "productcatalogservice",
+      "investigated_services": [
+        "productcatalogservice",
+        "checkoutservice"
+      ],
+      "stop_reason": "neighbor batch met confidence threshold"
+    },
+    {
+      "initial_candidate": "paymentservice",
+      "investigated_services": [
+        "paymentservice"
+      ],
+      "stop_reason": "no remaining uninvestigated neighbors"
+    }
+  ],
+  "counts": {
+    "investigated_services": 5,
+    "memory_records": 5
+  },
+  "warning": "LLM-reported confidence is a heuristic, not a calibrated probability or proof of causality.",
+  "case_id": "incident_c89c396eee9f"
+}

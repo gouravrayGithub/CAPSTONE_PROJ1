@@ -1,0 +1,255 @@
+{
+  "algorithm": "graph_guided_investigation_scaffold_v1",
+  "settings": {
+    "top_k": 3,
+    "threshold": 0.75,
+    "batch_size": 2,
+    "random_seed": 42,
+    "max_investigations": 10,
+    "branch_execution": "sequential prototype; paper algorithm describes parallel branches"
+  },
+  "final_ranking": [
+    {
+      "service": "frontend",
+      "confidence": 0.98,
+      "evidence_confidence": 0.99,
+      "causal_confidence": 0.95,
+      "supporting_facts": [
+        "The anomaly detection system identified a significant increase in anomaly scores for the 'paymentservice' over the observed time period, indicating that this service might be experiencing higher levels of variability or errors compared to other services.",
+        "The 'paymentservice' has the highest score among all services, suggesting it is the most likely service affected by the anomaly.",
+        "The anomaly scores for other services like 'emailservice', 'checkoutservice', 'currencyservice', 'productcatalogservice', and 'recommendationservice' are also relatively high, but not as high as 'paymentservice'.",
+        "The 'redis' service has the lowest anomaly score, indicating it is performing well and is not the cause of the anomaly.",
+        "The 'frontend', 'cartservice', and 'shippingservice' services have the lowest anomaly scores, suggesting they are performing well and are not the cause of the anomaly.",
+        "The anomaly scores for 'adservice' and 'emailservice' are also relatively high, but not as high as 'paymentservice'.",
+        "The evidence note states that feature values are descriptive evidence, not proof of causality, which means that while the anomaly scores suggest a problem, they do not definitively prove that the service is the cause of the issue."
+      ],
+      "contradicting_facts": [
+        "The anomaly scores for some services like 'redis', 'frontend', 'cartservice', and 'shippingservice' are relatively low, indicating they are performing well and are not the cause of the anomaly.",
+        "The anomaly scores for 'adservice' and 'emailservice' are also relatively high, but not as high as 'paymentservice'.",
+        "The anomaly scores for 'redis' and 'frontend' are the lowest, suggesting they are performing well and are not the cause of the anomaly.",
+        "The anomaly scores for 'cartservice' and 'shippingservice' are also relatively low, indicating they are performing well and are not the cause of the anomaly."
+      ],
+      "conclusion": "Based on the anomaly scores and the evidence provided, the 'paymentservice' is the most likely service affected by the anomaly. However, the anomaly scores do not definitively prove causality, and further investigation is recommended to confirm the issue and determine the root cause.",
+      "reasoning": "The anomaly detection system has identified the 'paymentservice' with the highest anomaly score, indicating it is the most affected service. The scores for other services are also relatively high, but not as high as 'paymentservice'. The evidence note clarifies that the anomaly scores are descriptive and not proof of causality, suggesting that while the 'paymentservice' is the most likely cause, it may not be the only cause or the full cause of the anomaly. Therefore, the 'paymentservice' is the initial candidate, but further investigation is needed to confirm the issue and determine the root cause.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "paymentservice",
+      "confidence": 0.95,
+      "evidence_confidence": 0.9,
+      "causal_confidence": 0.8,
+      "supporting_facts": [
+        "The anomaly detection system identified a significant increase in anomaly scores for the 'paymentservice' over a specific time window, indicating potential issues with this service.",
+        "The 'paymentservice' has the highest score among all services, suggesting it is the most affected service based on the anomaly detection results.",
+        "The anomaly scores for other services like 'emailservice', 'checkoutservice', and 'currencyservice' are also above the threshold, indicating they are also experiencing anomalies."
+      ],
+      "contradicting_facts": [
+        "The anomaly detection system has a confidence of 95% in its findings, which is quite high, but it's important to verify these findings with additional data and manual checks.",
+        "The anomaly scores for some services like 'redis', 'frontend', and 'cartservice' are relatively low, suggesting they are not experiencing significant anomalies."
+      ],
+      "conclusion": "Based on the anomaly detection results, the 'paymentservice' is the most affected service, with the highest anomaly score. However, it's important to verify these findings with additional data and manual checks to ensure the accuracy of the results.",
+      "reasoning": "The anomaly detection system has provided a clear ranking of services based on their anomaly scores. The 'paymentservice' has the highest score, indicating the most significant anomalies. However, the system's confidence is moderate (95%), and it's important to cross-verify these findings with other data sources and manual checks to ensure reliability.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "checkoutservice",
+      "confidence": 0.95,
+      "evidence_confidence": 0.9,
+      "causal_confidence": 0.8,
+      "supporting_facts": [
+        "The anomaly detection system identified a significant increase in latency for the 'paymentservice' over a period of 600 seconds, with a median latency of 3.801 ms and a p95 latency of 102.24284999999996 ms. This is accompanied by an anomaly score of 1.5075196912123243, indicating a high level of concern.",
+        "The 'paymentservice' also has the highest score in the initial candidate ranking with a score of 46.94172448, suggesting it is the most likely service affected by the anomaly.",
+        "Other services like 'emailservice', 'checkoutservice', 'currencyservice', 'productcatalogservice', and 'recommendationservice' also show some level of concern, but not as high as 'paymentservice'.",
+        "The 'redis' service, which is a database service, has the lowest score and is considered the least likely to be the cause of the anomaly.",
+        "The 'frontend' and 'cartservice' services have the lowest scores, indicating they are not the primary suspects based on the current analysis."
+      ],
+      "contradicting_facts": [
+        "The anomaly detection system also flagged the 'adservice' and 'shippingservice' as having low scores, suggesting they are not the primary suspects.",
+        "The 'frontend' service, which is a client-side service, has a very low score, indicating it is not the primary suspect.",
+        "The 'cartservice' service, which is a client-side service, also has a very low score, indicating it is not the primary suspect."
+      ],
+      "conclusion": "Based on the anomaly detection results and the initial candidate ranking, the 'paymentservice' is the most likely service affected by the anomaly. Other services like 'emailservice', 'checkoutservice', 'currencyservice', 'productcatalogservice', and 'recommendationservice' also show some level of concern, but not as high as 'paymentservice'. The 'redis' service is considered the least likely to be the cause of the anomaly. The 'frontend' and 'cartservice' services are not considered as primary suspects due to their very low scores.",
+      "reasoning": "The anomaly detection system provided a clear indication of the 'paymentservice' as the most likely service affected by the anomaly based on its high anomaly score and the highest score in the initial candidate ranking. The other services, while showing some level of concern, do not match the severity of the anomaly as strongly as the 'paymentservice'. The 'redis' service, being a database service, is considered the least likely to be the cause of the anomaly. The 'frontend' and 'cartservice' services, being client-side services, are not considered as primary suspects due to their very low scores.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "emailservice",
+      "confidence": 0.95,
+      "evidence_confidence": 0.9,
+      "causal_confidence": 0.8,
+      "supporting_facts": [
+        "The anomaly detection system identified a period where the median latency for the 'paymentservice' was consistently above the threshold, indicating potential issues.",
+        "The 'paymentservice' had the highest score among all services, suggesting it is the most likely service causing the anomalies.",
+        "The anomaly score for 'paymentservice' was 46.94, which is significantly higher than the next highest score of 'emailservice' at 44.76.",
+        "The anomaly detection system also noted that the 'paymentservice' had the highest number of trace counts (31) and log counts (10) during the period of interest, indicating a higher volume of activity and potential issues.",
+        "The evidence note mentions that feature values are descriptive evidence, not proof of causality, which aligns with the current analysis."
+      ],
+      "contradicting_facts": [
+        "There were no anomalies detected in the 'redis' service, which could be a point of contradiction if 'redis' were the root cause of the anomalies.",
+        "The 'frontend' service had the lowest score, indicating it is the least likely service causing the anomalies.",
+        "The 'adservice' and 'cartservice' had very low scores, suggesting they are not likely to be the root causes of the anomalies."
+      ],
+      "conclusion": "Based on the analysis of anomaly detection results and supporting evidence, the 'paymentservice' is the most likely service causing the anomalies. The high score, high trace and log counts, and consistent high latency for the 'paymentservice' are strong indicators of potential issues.",
+      "reasoning": "The reasoning behind this conclusion is the combination of high anomaly scores, high trace and log counts, and consistent high latency for the 'paymentservice'. These factors, combined with the absence of anomalies in other services and the supporting evidence, lead to the conclusion that the 'paymentservice' is the most likely root cause of the anomalies.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "currencyservice",
+      "confidence": 0.95,
+      "evidence_confidence": 0.9,
+      "causal_confidence": 0.8,
+      "supporting_facts": [
+        "The anomaly detection system identified a significant increase in anomaly scores for the 'paymentservice' over a period of 600 seconds, with scores ranging from 0.3878014126771331 to 1.6981116993917051. This indicates that the 'paymentservice' might be experiencing higher anomalies during this period.",
+        "The 'paymentservice' had the highest score among all services, suggesting it is the most affected service based on the anomaly detection results.",
+        "The anomaly scores for other services like 'emailservice', 'checkoutservice', 'currencyservice', 'productcatalogservice', and 'recommendationservice' were lower, indicating they are less affected by anomalies during the same period.",
+        "The 'redis' service had the lowest anomaly score, suggesting it is the least affected service during this period.",
+        "The 'frontend', 'cartservice', and 'shippingservice' services had the lowest scores, indicating they are the least affected services overall."
+      ],
+      "contradicting_facts": [
+        "The 'adservice' service had a very low anomaly score, suggesting it is not affected by anomalies during this period.",
+        "The 'frontend' service had a very low anomaly score, indicating it is not affected by anomalies during this period."
+      ],
+      "conclusion": "Based on the anomaly detection results, the 'paymentservice' appears to be the most affected service during the 600-second window. The 'redis' service is the least affected. Other services like 'emailservice', 'checkoutservice', 'currencyservice', 'productcatalogservice', and 'recommendationservice' show lower anomaly scores, suggesting they are less affected by anomalies during this period. The 'frontend', 'cartservice', and 'shippingservice' services have the lowest anomaly scores, indicating they are the least affected overall.",
+      "reasoning": "The anomaly scores provided by the detection system are used to rank services based on their anomaly levels. The highest scores indicate the most anomalies, and the lowest scores indicate the least anomalies. The ranking of services based on their scores is used to draw conclusions about their impact during the specified time window.",
+      "source": "ollama:qwen2.5:3b"
+    }
+  ],
+  "global_memory": [
+    {
+      "service": "paymentservice",
+      "confidence": 0.95,
+      "evidence_confidence": 0.9,
+      "causal_confidence": 0.8,
+      "supporting_facts": [
+        "The anomaly detection system identified a significant increase in anomaly scores for the 'paymentservice' over a specific time window, indicating potential issues with this service.",
+        "The 'paymentservice' has the highest score among all services, suggesting it is the most affected service based on the anomaly detection results.",
+        "The anomaly scores for other services like 'emailservice', 'checkoutservice', and 'currencyservice' are also above the threshold, indicating they are also experiencing anomalies."
+      ],
+      "contradicting_facts": [
+        "The anomaly detection system has a confidence of 95% in its findings, which is quite high, but it's important to verify these findings with additional data and manual checks.",
+        "The anomaly scores for some services like 'redis', 'frontend', and 'cartservice' are relatively low, suggesting they are not experiencing significant anomalies."
+      ],
+      "conclusion": "Based on the anomaly detection results, the 'paymentservice' is the most affected service, with the highest anomaly score. However, it's important to verify these findings with additional data and manual checks to ensure the accuracy of the results.",
+      "reasoning": "The anomaly detection system has provided a clear ranking of services based on their anomaly scores. The 'paymentservice' has the highest score, indicating the most significant anomalies. However, the system's confidence is moderate (95%), and it's important to cross-verify these findings with other data sources and manual checks to ensure reliability.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "checkoutservice",
+      "confidence": 0.95,
+      "evidence_confidence": 0.9,
+      "causal_confidence": 0.8,
+      "supporting_facts": [
+        "The anomaly detection system identified a significant increase in latency for the 'paymentservice' over a period of 600 seconds, with a median latency of 3.801 ms and a p95 latency of 102.24284999999996 ms. This is accompanied by an anomaly score of 1.5075196912123243, indicating a high level of concern.",
+        "The 'paymentservice' also has the highest score in the initial candidate ranking with a score of 46.94172448, suggesting it is the most likely service affected by the anomaly.",
+        "Other services like 'emailservice', 'checkoutservice', 'currencyservice', 'productcatalogservice', and 'recommendationservice' also show some level of concern, but not as high as 'paymentservice'.",
+        "The 'redis' service, which is a database service, has the lowest score and is considered the least likely to be the cause of the anomaly.",
+        "The 'frontend' and 'cartservice' services have the lowest scores, indicating they are not the primary suspects based on the current analysis."
+      ],
+      "contradicting_facts": [
+        "The anomaly detection system also flagged the 'adservice' and 'shippingservice' as having low scores, suggesting they are not the primary suspects.",
+        "The 'frontend' service, which is a client-side service, has a very low score, indicating it is not the primary suspect.",
+        "The 'cartservice' service, which is a client-side service, also has a very low score, indicating it is not the primary suspect."
+      ],
+      "conclusion": "Based on the anomaly detection results and the initial candidate ranking, the 'paymentservice' is the most likely service affected by the anomaly. Other services like 'emailservice', 'checkoutservice', 'currencyservice', 'productcatalogservice', and 'recommendationservice' also show some level of concern, but not as high as 'paymentservice'. The 'redis' service is considered the least likely to be the cause of the anomaly. The 'frontend' and 'cartservice' services are not considered as primary suspects due to their very low scores.",
+      "reasoning": "The anomaly detection system provided a clear indication of the 'paymentservice' as the most likely service affected by the anomaly based on its high anomaly score and the highest score in the initial candidate ranking. The other services, while showing some level of concern, do not match the severity of the anomaly as strongly as the 'paymentservice'. The 'redis' service, being a database service, is considered the least likely to be the cause of the anomaly. The 'frontend' and 'cartservice' services, being client-side services, are not considered as primary suspects due to their very low scores.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "emailservice",
+      "confidence": 0.95,
+      "evidence_confidence": 0.9,
+      "causal_confidence": 0.8,
+      "supporting_facts": [
+        "The anomaly detection system identified a period where the median latency for the 'paymentservice' was consistently above the threshold, indicating potential issues.",
+        "The 'paymentservice' had the highest score among all services, suggesting it is the most likely service causing the anomalies.",
+        "The anomaly score for 'paymentservice' was 46.94, which is significantly higher than the next highest score of 'emailservice' at 44.76.",
+        "The anomaly detection system also noted that the 'paymentservice' had the highest number of trace counts (31) and log counts (10) during the period of interest, indicating a higher volume of activity and potential issues.",
+        "The evidence note mentions that feature values are descriptive evidence, not proof of causality, which aligns with the current analysis."
+      ],
+      "contradicting_facts": [
+        "There were no anomalies detected in the 'redis' service, which could be a point of contradiction if 'redis' were the root cause of the anomalies.",
+        "The 'frontend' service had the lowest score, indicating it is the least likely service causing the anomalies.",
+        "The 'adservice' and 'cartservice' had very low scores, suggesting they are not likely to be the root causes of the anomalies."
+      ],
+      "conclusion": "Based on the analysis of anomaly detection results and supporting evidence, the 'paymentservice' is the most likely service causing the anomalies. The high score, high trace and log counts, and consistent high latency for the 'paymentservice' are strong indicators of potential issues.",
+      "reasoning": "The reasoning behind this conclusion is the combination of high anomaly scores, high trace and log counts, and consistent high latency for the 'paymentservice'. These factors, combined with the absence of anomalies in other services and the supporting evidence, lead to the conclusion that the 'paymentservice' is the most likely root cause of the anomalies.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "currencyservice",
+      "confidence": 0.95,
+      "evidence_confidence": 0.9,
+      "causal_confidence": 0.8,
+      "supporting_facts": [
+        "The anomaly detection system identified a significant increase in anomaly scores for the 'paymentservice' over a period of 600 seconds, with scores ranging from 0.3878014126771331 to 1.6981116993917051. This indicates that the 'paymentservice' might be experiencing higher anomalies during this period.",
+        "The 'paymentservice' had the highest score among all services, suggesting it is the most affected service based on the anomaly detection results.",
+        "The anomaly scores for other services like 'emailservice', 'checkoutservice', 'currencyservice', 'productcatalogservice', and 'recommendationservice' were lower, indicating they are less affected by anomalies during the same period.",
+        "The 'redis' service had the lowest anomaly score, suggesting it is the least affected service during this period.",
+        "The 'frontend', 'cartservice', and 'shippingservice' services had the lowest scores, indicating they are the least affected services overall."
+      ],
+      "contradicting_facts": [
+        "The 'adservice' service had a very low anomaly score, suggesting it is not affected by anomalies during this period.",
+        "The 'frontend' service had a very low anomaly score, indicating it is not affected by anomalies during this period."
+      ],
+      "conclusion": "Based on the anomaly detection results, the 'paymentservice' appears to be the most affected service during the 600-second window. The 'redis' service is the least affected. Other services like 'emailservice', 'checkoutservice', 'currencyservice', 'productcatalogservice', and 'recommendationservice' show lower anomaly scores, suggesting they are less affected by anomalies during this period. The 'frontend', 'cartservice', and 'shippingservice' services have the lowest anomaly scores, indicating they are the least affected overall.",
+      "reasoning": "The anomaly scores provided by the detection system are used to rank services based on their anomaly levels. The highest scores indicate the most anomalies, and the lowest scores indicate the least anomalies. The ranking of services based on their scores is used to draw conclusions about their impact during the specified time window.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "frontend",
+      "confidence": 0.98,
+      "evidence_confidence": 0.99,
+      "causal_confidence": 0.95,
+      "supporting_facts": [
+        "The anomaly detection system identified a significant increase in anomaly scores for the 'paymentservice' over the observed time period, indicating that this service might be experiencing higher levels of variability or errors compared to other services.",
+        "The 'paymentservice' has the highest score among all services, suggesting it is the most likely service affected by the anomaly.",
+        "The anomaly scores for other services like 'emailservice', 'checkoutservice', 'currencyservice', 'productcatalogservice', and 'recommendationservice' are also relatively high, but not as high as 'paymentservice'.",
+        "The 'redis' service has the lowest anomaly score, indicating it is performing well and is not the cause of the anomaly.",
+        "The 'frontend', 'cartservice', and 'shippingservice' services have the lowest anomaly scores, suggesting they are performing well and are not the cause of the anomaly.",
+        "The anomaly scores for 'adservice' and 'emailservice' are also relatively high, but not as high as 'paymentservice'.",
+        "The evidence note states that feature values are descriptive evidence, not proof of causality, which means that while the anomaly scores suggest a problem, they do not definitively prove that the service is the cause of the issue."
+      ],
+      "contradicting_facts": [
+        "The anomaly scores for some services like 'redis', 'frontend', 'cartservice', and 'shippingservice' are relatively low, indicating they are performing well and are not the cause of the anomaly.",
+        "The anomaly scores for 'adservice' and 'emailservice' are also relatively high, but not as high as 'paymentservice'.",
+        "The anomaly scores for 'redis' and 'frontend' are the lowest, suggesting they are performing well and are not the cause of the anomaly.",
+        "The anomaly scores for 'cartservice' and 'shippingservice' are also relatively low, indicating they are performing well and are not the cause of the anomaly."
+      ],
+      "conclusion": "Based on the anomaly scores and the evidence provided, the 'paymentservice' is the most likely service affected by the anomaly. However, the anomaly scores do not definitively prove causality, and further investigation is recommended to confirm the issue and determine the root cause.",
+      "reasoning": "The anomaly detection system has identified the 'paymentservice' with the highest anomaly score, indicating it is the most affected service. The scores for other services are also relatively high, but not as high as 'paymentservice'. The evidence note clarifies that the anomaly scores are descriptive and not proof of causality, suggesting that while the 'paymentservice' is the most likely cause, it may not be the only cause or the full cause of the anomaly. Therefore, the 'paymentservice' is the initial candidate, but further investigation is needed to confirm the issue and determine the root cause.",
+      "source": "ollama:qwen2.5:3b"
+    }
+  ],
+  "branches": [
+    {
+      "initial_candidate": "paymentservice",
+      "investigated_services": [
+        "paymentservice",
+        "checkoutservice"
+      ],
+      "stop_reason": "neighbor batch met confidence threshold"
+    },
+    {
+      "initial_candidate": "emailservice",
+      "investigated_services": [
+        "emailservice"
+      ],
+      "stop_reason": "no remaining uninvestigated neighbors"
+    },
+    {
+      "initial_candidate": "checkoutservice",
+      "investigated_services": [
+        "checkoutservice",
+        "currencyservice",
+        "frontend"
+      ],
+      "stop_reason": "neighbor batch met confidence threshold"
+    }
+  ],
+  "counts": {
+    "investigated_services": 5,
+    "memory_records": 5
+  },
+  "warning": "LLM-reported confidence is a heuristic, not a calibrated probability or proof of causality.",
+  "case_id": "incident_a1be3075d135"
+}

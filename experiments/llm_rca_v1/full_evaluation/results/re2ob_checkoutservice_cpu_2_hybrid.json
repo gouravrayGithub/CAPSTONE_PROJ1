@@ -1,0 +1,237 @@
+{
+  "algorithm": "graph_guided_investigation_scaffold_v1",
+  "settings": {
+    "top_k": 3,
+    "threshold": 0.75,
+    "batch_size": 2,
+    "random_seed": 42,
+    "max_investigations": 10,
+    "branch_execution": "sequential prototype; paper algorithm describes parallel branches"
+  },
+  "final_ranking": [
+    {
+      "service": "frontend",
+      "confidence": 0.85,
+      "evidence_confidence": 0.85,
+      "causal_confidence": 0.15,
+      "supporting_facts": [
+        "The frontend service has a significant drop in trace count and an increase in anomaly score from before to after the window, indicating potential issues.",
+        "Median latency and P95 latency have increased from before to after the window, suggesting performance degradation.",
+        "The frontend service has a high anomaly score (0.993) across all windows, indicating a consistent issue.",
+        "The frontend service has no logs or traces, which is unusual and could indicate a service outage or misconfiguration."
+      ],
+      "contradicting_facts": [
+        "The frontend service has a low score in the initial candidate ranking, suggesting it is not the root cause.",
+        "The frontend service has no direct connections (in_degree and out_degree are 0), which is not indicative of a root cause.",
+        "The frontend service has a low number of logs and traces, which is not necessarily an anomaly and could be due to a configuration or system-wide issue."
+      ],
+      "conclusion": "The frontend service shows significant anomalies in its trace and anomaly scores, indicating potential issues. However, the lack of logs and traces and its low initial candidate ranking suggest that the frontend service is not the root cause of the observed issues. Further investigation is needed to determine the root cause from other services or system-wide issues that might affect the frontend service.",
+      "reasoning": "The frontend service's high anomaly scores and increased latency suggest it is experiencing issues. However, the absence of logs and traces, combined with its low initial candidate ranking, indicates that the frontend service is not the root cause. The root cause is likely elsewhere in the system or a configuration issue affecting the frontend service.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "checkoutservice",
+      "confidence": 0.75,
+      "evidence_confidence": 0.75,
+      "causal_confidence": 0.75,
+      "supporting_facts": [
+        "The checkoutservice has a significant increase in anomaly scores (mean anomaly score of 0.998) across all windows, indicating potential issues in its performance.",
+        "The checkoutservice shows a notable drop in log and trace counts, which could suggest a reduction in activity or issues with logging and tracing.",
+        "The checkoutservice's median latency and p95 latency have increased, which is a concerning trend for the service.",
+        "The checkoutservice's in-degree and out-degree metrics are relatively low, suggesting it may be a single point of failure or a service with limited dependencies."
+      ],
+      "contradicting_facts": [
+        "The checkoutservice's log and trace counts are not zero, indicating some level of activity.",
+        "The checkoutservice's anomaly scores are not uniformly high, suggesting that the issues might be sporadic or localized.",
+        "The checkoutservice's in-degree and out-degree metrics are not unusually low, indicating it may still be a critical service."
+      ],
+      "conclusion": "The checkoutservice exhibits anomalous behavior as indicated by the increase in anomaly scores and changes in latency metrics. However, the evidence is not sufficient to conclusively attribute these issues to the checkoutservice alone. Other services may also be involved, or the issues could be due to external factors not captured in the provided data. Further investigation is recommended to identify the root cause of these anomalies.",
+      "reasoning": "The checkoutservice's anomaly scores are consistently high across all windows, suggesting a persistent issue. However, the drop in log and trace counts could indicate a reduction in activity or issues with logging and tracing, which are not directly attributable to the checkoutservice. The increase in latency metrics is a concerning trend, but the in-degree and out-degree metrics are not unusually low, indicating that the checkoutservice may still be a critical service. The evidence is insufficient to establish causality, and other services or external factors may also be contributing to these anomalies.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "emailservice",
+      "confidence": 0.75,
+      "evidence_confidence": 0.75,
+      "causal_confidence": 0.75,
+      "supporting_facts": [
+        "The emailservice shows a significant increase in anomaly scores (max anomaly score of 2.826) and a decrease in log and trace counts, which could indicate a degradation in service performance.",
+        "The emailservice has a high log_before (383) and trace_before (622) count, suggesting that it is a critical service with a high number of interactions.",
+        "The emailservice's median latency after the anomaly window (0.1845 ms) is slightly lower than before (0.187 ms), which could be a positive change, but the overall trend is concerning.",
+        "The emailservice's p95 latency after the anomaly window (0.5574499999999993 ms) is higher than before (0.391 ms), indicating a potential increase in the upper 95th percentile latency, which is a critical metric for service performance."
+      ],
+      "contradicting_facts": [
+        "The emailservice's log and trace counts are relatively stable, which could suggest that the issue is not related to the number of interactions with the service.",
+        "The emailservice's anomaly scores are not uniformly high, with some windows showing low anomaly scores, indicating that the issue might not be consistent across all time windows."
+      ],
+      "conclusion": "The emailservice shows signs of performance degradation, particularly in the upper 95th percentile latency, which could be a root cause. However, the evidence is not conclusive, and other services may also be involved. Further investigation is recommended to confirm the root cause and to identify potential contributing factors or interactions with other services.",
+      "reasoning": "The emailservice's anomaly scores indicate a significant increase, which could be a root cause. However, the evidence is not sufficient to establish causality. The emailservice's performance metrics show a mixed trend, with some improvements and some degradation. The issue might be related to the emailservice itself or to interactions with other services. More detailed analysis and investigation are needed to determine the root cause.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "currencyservice",
+      "confidence": 0.75,
+      "evidence_confidence": 0.75,
+      "causal_confidence": 0.5,
+      "supporting_facts": [
+        "The candidate service, currencyservice, has a significant decrease in log and trace counts over time, indicating a possible drop in activity or issues with the service.",
+        "The candidate service shows a decrease in median latency from 0.125 ms to 0.128 ms, which is a very small change and does not indicate a significant issue.",
+        "The candidate service has a significant drop in trace counts, which is not directly linked to any other service's metrics, suggesting a possible issue with the candidate service itself."
+      ],
+      "contradicting_facts": [
+        "The candidate service shows a decrease in anomaly scores, which could indicate a reduction in issues or anomalies, rather than a root cause.",
+        "The candidate service has a very small change in median latency, which is not indicative of a root cause.",
+        "The candidate service has a significant drop in trace counts, which could be due to a variety of reasons unrelated to the candidate service."
+      ],
+      "conclusion": "The evidence is insufficient to establish causality. The candidate service, currencyservice, shows a drop in log and trace counts, which could indicate an issue, but the small change in median latency and the drop in trace counts do not provide strong causal evidence. The confidence in the evidence is moderate, and the causal confidence is low due to the lack of clear causation between the candidate service and other services' metrics or trends.",
+      "reasoning": "The evidence suggests that the candidate service, currencyservice, may be experiencing issues, but the changes in metrics are not strong enough to definitively attribute the issues to this service. The drop in trace counts could be due to various reasons, and the small change in median latency does not indicate a significant issue. The lack of clear causation between the candidate service and other services' metrics or trends means that the evidence is insufficient to establish causality.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "paymentservice",
+      "confidence": 0.7,
+      "evidence_confidence": 0.7,
+      "causal_confidence": 0.3,
+      "supporting_facts": [
+        "The paymentservice shows a significant decrease in log and trace counts, as well as a decrease in median and p95 latency, indicating potential issues.",
+        "The paymentservice has a high anomaly score in the temporal summary, suggesting that it is performing poorly in the current window.",
+        "The paymentservice has a high number of anomalies in the temporal summary, which is a key indicator of potential issues."
+      ],
+      "contradicting_facts": [
+        "The paymentservice has a low number of anomalies in previous windows, which suggests that it may not be the root cause of the issue."
+      ],
+      "conclusion": "The paymentservice shows signs of potential issues based on the provided evidence, but the evidence is not sufficient to establish causality. Further investigation is recommended to determine if the paymentservice is the root cause of the observed anomalies.",
+      "reasoning": "The evidence indicates that the paymentservice is experiencing anomalies, which could be due to various factors such as increased load, configuration changes, or other services impacting it. However, the evidence does not provide enough information to conclusively determine the root cause. The temporal summary shows a significant decrease in log and trace counts, and a high anomaly score, which are indicative of potential issues. However, the lack of a clear trend over time and the presence of anomalies in previous windows suggest that the paymentservice may not be the root cause of the observed anomalies. Further investigation, including examining the logs, traces, and interactions with other services, is recommended to determine the root cause.",
+      "source": "ollama:qwen2.5:3b"
+    }
+  ],
+  "global_memory": [
+    {
+      "service": "paymentservice",
+      "confidence": 0.7,
+      "evidence_confidence": 0.7,
+      "causal_confidence": 0.3,
+      "supporting_facts": [
+        "The paymentservice shows a significant decrease in log and trace counts, as well as a decrease in median and p95 latency, indicating potential issues.",
+        "The paymentservice has a high anomaly score in the temporal summary, suggesting that it is performing poorly in the current window.",
+        "The paymentservice has a high number of anomalies in the temporal summary, which is a key indicator of potential issues."
+      ],
+      "contradicting_facts": [
+        "The paymentservice has a low number of anomalies in previous windows, which suggests that it may not be the root cause of the issue."
+      ],
+      "conclusion": "The paymentservice shows signs of potential issues based on the provided evidence, but the evidence is not sufficient to establish causality. Further investigation is recommended to determine if the paymentservice is the root cause of the observed anomalies.",
+      "reasoning": "The evidence indicates that the paymentservice is experiencing anomalies, which could be due to various factors such as increased load, configuration changes, or other services impacting it. However, the evidence does not provide enough information to conclusively determine the root cause. The temporal summary shows a significant decrease in log and trace counts, and a high anomaly score, which are indicative of potential issues. However, the lack of a clear trend over time and the presence of anomalies in previous windows suggest that the paymentservice may not be the root cause of the observed anomalies. Further investigation, including examining the logs, traces, and interactions with other services, is recommended to determine the root cause.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "checkoutservice",
+      "confidence": 0.75,
+      "evidence_confidence": 0.75,
+      "causal_confidence": 0.75,
+      "supporting_facts": [
+        "The checkoutservice has a significant increase in anomaly scores (mean anomaly score of 0.998) across all windows, indicating potential issues in its performance.",
+        "The checkoutservice shows a notable drop in log and trace counts, which could suggest a reduction in activity or issues with logging and tracing.",
+        "The checkoutservice's median latency and p95 latency have increased, which is a concerning trend for the service.",
+        "The checkoutservice's in-degree and out-degree metrics are relatively low, suggesting it may be a single point of failure or a service with limited dependencies."
+      ],
+      "contradicting_facts": [
+        "The checkoutservice's log and trace counts are not zero, indicating some level of activity.",
+        "The checkoutservice's anomaly scores are not uniformly high, suggesting that the issues might be sporadic or localized.",
+        "The checkoutservice's in-degree and out-degree metrics are not unusually low, indicating it may still be a critical service."
+      ],
+      "conclusion": "The checkoutservice exhibits anomalous behavior as indicated by the increase in anomaly scores and changes in latency metrics. However, the evidence is not sufficient to conclusively attribute these issues to the checkoutservice alone. Other services may also be involved, or the issues could be due to external factors not captured in the provided data. Further investigation is recommended to identify the root cause of these anomalies.",
+      "reasoning": "The checkoutservice's anomaly scores are consistently high across all windows, suggesting a persistent issue. However, the drop in log and trace counts could indicate a reduction in activity or issues with logging and tracing, which are not directly attributable to the checkoutservice. The increase in latency metrics is a concerning trend, but the in-degree and out-degree metrics are not unusually low, indicating that the checkoutservice may still be a critical service. The evidence is insufficient to establish causality, and other services or external factors may also be contributing to these anomalies.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "currencyservice",
+      "confidence": 0.75,
+      "evidence_confidence": 0.75,
+      "causal_confidence": 0.5,
+      "supporting_facts": [
+        "The candidate service, currencyservice, has a significant decrease in log and trace counts over time, indicating a possible drop in activity or issues with the service.",
+        "The candidate service shows a decrease in median latency from 0.125 ms to 0.128 ms, which is a very small change and does not indicate a significant issue.",
+        "The candidate service has a significant drop in trace counts, which is not directly linked to any other service's metrics, suggesting a possible issue with the candidate service itself."
+      ],
+      "contradicting_facts": [
+        "The candidate service shows a decrease in anomaly scores, which could indicate a reduction in issues or anomalies, rather than a root cause.",
+        "The candidate service has a very small change in median latency, which is not indicative of a root cause.",
+        "The candidate service has a significant drop in trace counts, which could be due to a variety of reasons unrelated to the candidate service."
+      ],
+      "conclusion": "The evidence is insufficient to establish causality. The candidate service, currencyservice, shows a drop in log and trace counts, which could indicate an issue, but the small change in median latency and the drop in trace counts do not provide strong causal evidence. The confidence in the evidence is moderate, and the causal confidence is low due to the lack of clear causation between the candidate service and other services' metrics or trends.",
+      "reasoning": "The evidence suggests that the candidate service, currencyservice, may be experiencing issues, but the changes in metrics are not strong enough to definitively attribute the issues to this service. The drop in trace counts could be due to various reasons, and the small change in median latency does not indicate a significant issue. The lack of clear causation between the candidate service and other services' metrics or trends means that the evidence is insufficient to establish causality.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "frontend",
+      "confidence": 0.85,
+      "evidence_confidence": 0.85,
+      "causal_confidence": 0.15,
+      "supporting_facts": [
+        "The frontend service has a significant drop in trace count and an increase in anomaly score from before to after the window, indicating potential issues.",
+        "Median latency and P95 latency have increased from before to after the window, suggesting performance degradation.",
+        "The frontend service has a high anomaly score (0.993) across all windows, indicating a consistent issue.",
+        "The frontend service has no logs or traces, which is unusual and could indicate a service outage or misconfiguration."
+      ],
+      "contradicting_facts": [
+        "The frontend service has a low score in the initial candidate ranking, suggesting it is not the root cause.",
+        "The frontend service has no direct connections (in_degree and out_degree are 0), which is not indicative of a root cause.",
+        "The frontend service has a low number of logs and traces, which is not necessarily an anomaly and could be due to a configuration or system-wide issue."
+      ],
+      "conclusion": "The frontend service shows significant anomalies in its trace and anomaly scores, indicating potential issues. However, the lack of logs and traces and its low initial candidate ranking suggest that the frontend service is not the root cause of the observed issues. Further investigation is needed to determine the root cause from other services or system-wide issues that might affect the frontend service.",
+      "reasoning": "The frontend service's high anomaly scores and increased latency suggest it is experiencing issues. However, the absence of logs and traces, combined with its low initial candidate ranking, indicates that the frontend service is not the root cause. The root cause is likely elsewhere in the system or a configuration issue affecting the frontend service.",
+      "source": "ollama:qwen2.5:3b"
+    },
+    {
+      "service": "emailservice",
+      "confidence": 0.75,
+      "evidence_confidence": 0.75,
+      "causal_confidence": 0.75,
+      "supporting_facts": [
+        "The emailservice shows a significant increase in anomaly scores (max anomaly score of 2.826) and a decrease in log and trace counts, which could indicate a degradation in service performance.",
+        "The emailservice has a high log_before (383) and trace_before (622) count, suggesting that it is a critical service with a high number of interactions.",
+        "The emailservice's median latency after the anomaly window (0.1845 ms) is slightly lower than before (0.187 ms), which could be a positive change, but the overall trend is concerning.",
+        "The emailservice's p95 latency after the anomaly window (0.5574499999999993 ms) is higher than before (0.391 ms), indicating a potential increase in the upper 95th percentile latency, which is a critical metric for service performance."
+      ],
+      "contradicting_facts": [
+        "The emailservice's log and trace counts are relatively stable, which could suggest that the issue is not related to the number of interactions with the service.",
+        "The emailservice's anomaly scores are not uniformly high, with some windows showing low anomaly scores, indicating that the issue might not be consistent across all time windows."
+      ],
+      "conclusion": "The emailservice shows signs of performance degradation, particularly in the upper 95th percentile latency, which could be a root cause. However, the evidence is not conclusive, and other services may also be involved. Further investigation is recommended to confirm the root cause and to identify potential contributing factors or interactions with other services.",
+      "reasoning": "The emailservice's anomaly scores indicate a significant increase, which could be a root cause. However, the evidence is not sufficient to establish causality. The emailservice's performance metrics show a mixed trend, with some improvements and some degradation. The issue might be related to the emailservice itself or to interactions with other services. More detailed analysis and investigation are needed to determine the root cause.",
+      "source": "ollama:qwen2.5:3b"
+    }
+  ],
+  "branches": [
+    {
+      "initial_candidate": "paymentservice",
+      "investigated_services": [
+        "paymentservice",
+        "checkoutservice"
+      ],
+      "stop_reason": "neighbor batch met confidence threshold"
+    },
+    {
+      "initial_candidate": "checkoutservice",
+      "investigated_services": [
+        "checkoutservice",
+        "currencyservice",
+        "frontend"
+      ],
+      "stop_reason": "neighbor batch met confidence threshold"
+    },
+    {
+      "initial_candidate": "emailservice",
+      "investigated_services": [
+        "emailservice"
+      ],
+      "stop_reason": "no remaining uninvestigated neighbors"
+    }
+  ],
+  "counts": {
+    "investigated_services": 5,
+    "memory_records": 5
+  },
+  "warning": "LLM-reported confidence is a heuristic, not a calibrated probability or proof of causality.",
+  "case_id": "incident_76cc27b0d1eb"
+}

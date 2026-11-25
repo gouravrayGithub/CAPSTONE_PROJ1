@@ -1,0 +1,78 @@
+
+from pathlib import Path
+
+import pandas as pd
+
+
+PROJECT_ROOT = Path(__file__).resolve().parents[3]
+
+INPUT_FILE = (
+    PROJECT_ROOT
+    / "experiments" / "successor_v2" / "results"
+    / "temporal_features" / "service_temporal_features.csv"
+)
+
+OUTPUT_FILE = (
+    PROJECT_ROOT
+    / "experiments" / "successor_v2" / "results"
+    / "temporal_features" / "temporal_anomaly_ranking.csv"
+)
+
+
+def main():
+    df = pd.read_csv(INPUT_FILE)
+
+    # Focus on post-injection windows.
+    post = df[df["period"] == "after"].copy()
+
+    # Parse the known root service from case names for evaluation only.
+    post["true_root"] = post["case"].str.extract(
+        r"^re2ob_(.+)_(?:cpu|delay|disk|loss|mem|socket)_\d+$"
+    )
+
+    # Summarize each service's post-injection anomaly evidence.
+    ranking = (
+        post.groupby(["case", "true_root", "service"], as_index=False)
+        .agg(
+            mean_anomaly=("anomaly_score", "mean"),
+            max_anomaly=("anomaly_score", "max"),
+            window_count=("anomaly_score", "size"),
+        )
+    )
+
+    # Rank services independently within each case.
+    ranking["rank_mean"] = (
+        ranking.groupby("case")["mean_anomaly"]
+        .rank(method="min", ascending=False)
+    )
+
+    ranking["rank_max"] = (
+        ranking.groupby("case")["max_anomaly"]
+        .rank(method="min", ascending=False)
+    )
+
+    ranking["is_root"] = ranking["service"] == ranking["true_root"]
+
+    results = []
+
+    for rank_column in ["rank_mean", "rank_max"]:
+        for cutoff in [1, 3, 5]:
+            results.append({
+                "ranking_method": rank_column,
+                "metric": f"Top{cutoff}",
+                "accuracy": (
+                    ranking[rank_column].le(cutoff)
+                    & ranking["is_root"]
+                ).groupby(ranking["case"]).any().mean(),
+            })
+
+    OUTPUT_FILE.parent.mkdir(parents=True, exist_ok=True)
+    ranking.to_csv(OUTPUT_FILE, index=False)
+
+    print("\n===== TEMPORAL ANOMALY RANKING =====")
+    print(pd.DataFrame(results).to_string(index=False))
+    print("\nDetailed ranking saved to:", OUTPUT_FILE)
+
+
+if __name__ == "__main__":
+    main()

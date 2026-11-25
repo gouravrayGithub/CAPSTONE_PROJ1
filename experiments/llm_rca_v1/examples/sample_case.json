@@ -1,0 +1,24 @@
+{
+  "case_id": "synthetic_smoke_test_only",
+  "initial_ranking": [
+    {"service": "checkoutservice", "score": 0.91},
+    {"service": "frontend", "score": 0.78},
+    {"service": "paymentservice", "score": 0.72}
+  ],
+  "graph": {
+    "nodes": ["frontend", "checkoutservice", "paymentservice", "cartservice", "redis"],
+    "edges": [
+      ["frontend", "checkoutservice"],
+      ["checkoutservice", "paymentservice"],
+      ["checkoutservice", "cartservice"],
+      ["cartservice", "redis"]
+    ]
+  },
+  "diagnostic_bundles": {
+    "frontend": {"temporal_anomaly_score": 1.1, "error_count": 0, "p95_latency_change_pct": 8.0, "evidence_notes": ["synthetic example only"]},
+    "checkoutservice": {"temporal_anomaly_score": 2.7, "error_count": 3, "p95_latency_change_pct": 68.0, "evidence_notes": ["synthetic example only"]},
+    "paymentservice": {"temporal_anomaly_score": 1.4, "error_count": 1, "p95_latency_change_pct": 21.0, "evidence_notes": ["synthetic example only"]},
+    "cartservice": {"temporal_anomaly_score": 0.8, "error_count": 0, "p95_latency_change_pct": 2.0, "evidence_notes": ["synthetic example only"]},
+    "redis": {"temporal_anomaly_score": 0.3, "error_count": 0, "p95_latency_change_pct": 0.0, "evidence_notes": ["synthetic example only"]}
+  }
+}

@@ -1,0 +1,279 @@
+"""Investigator implementations: mock, local Ollama, and optional OpenAI."""
+
+from __future__ import annotations
+
+import json
+import os
+from typing import Any
+from urllib.error import HTTPError, URLError
+from urllib.request import Request, urlopen
+
+
+class MockInvestigator:
+    """Deterministic smoke test; not for scientific evaluation."""
+
+    def __call__(self, service: str, bundle: dict[str, Any],
+                 ranking: list[dict[str, Any]]) -> dict[str, Any]:
+        temporal = bundle.get("temporal_summary", {}) or {}
+        features = bundle.get("service_features", {}) or {}
+        anomaly = float(bundle.get(
+            "temporal_anomaly_score",
+            temporal.get("max_anomaly_score", 0.0),
+        ) or 0.0)
+        latency_delta = float(bundle.get(
+            "p95_latency_change_pct",
+            features.get("p95_change_pct", 0.0),
+        ) or 0.0)
+        errors_raw = bundle.get("error_count")
+        errors = int(errors_raw) if errors_raw is not None else None
+        error_bonus = 0.03 * errors if errors is not None else 0.0
+        signal = min(1.0, max(
+            0.0, 0.25 + 0.04 * anomaly
+            + 0.003 * max(0.0, latency_delta) + error_bonus,
+        ))
+        return {
+            "confidence": signal,
+            "evidence_confidence": min(
+                1.0, 0.20 + 0.05 * anomaly
+                + (0.02 * errors if errors is not None else 0.0),
+            ),
+            "causal_confidence": min(
+                1.0, 0.15 + 0.02 * anomaly
+                + 0.001 * max(0.0, latency_delta),
+            ),
+            "supporting_facts": [
+                f"max_temporal_anomaly_score={anomaly:.4f}",
+                f"p95_latency_change_pct={latency_delta:.4f}",
+                f"error_count={errors}" if errors is not None
+                else "error_count=unknown (not provided)",
+            ],
+            "contradicting_facts": [],
+            "conclusion": f"Mock investigation for {service}; not a real LLM result.",
+            "reasoning": "Deterministic smoke-test heuristic only.",
+            "source": "mock",
+        }
+
+
+class LocalOllamaInvestigator:
+    """Local Ollama investigator. No API key or paid endpoint required."""
+
+    RESPONSE_SCHEMA = {
+        "type": "object",
+        "properties": {
+            "confidence": {"type": "number"},
+            "evidence_confidence": {"type": "number"},
+            "causal_confidence": {"type": "number"},
+            "supporting_facts": {
+                "type": "array", "items": {"type": "string"}
+            },
+            "contradicting_facts": {
+                "type": "array", "items": {"type": "string"}
+            },
+            "conclusion": {"type": "string"},
+            "reasoning": {"type": "string"},
+        },
+        "required": [
+            "confidence", "evidence_confidence", "causal_confidence",
+            "supporting_facts", "contradicting_facts", "conclusion", "reasoning",
+        ],
+        "additionalProperties": False,
+    }
+
+    def __init__(self, model: str | None = None, base_url: str | None = None,
+                 timeout: int = 240):
+        self.model = model or os.getenv("OLLAMA_MODEL", "qwen2.5:3b")
+        self.base_url = (
+            base_url or os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
+        ).rstrip("/")
+        self.timeout = timeout
+
+    def _request(self, messages: list[dict[str, str]]) -> str:
+        body = {
+            "model": self.model,
+            "stream": False,
+            "format": self.RESPONSE_SCHEMA,
+            "messages": messages,
+            "options": {
+                "temperature": 0,
+                "num_predict": 700,
+            },
+        }
+        request = Request(
+            f"{self.base_url}/api/chat",
+            data=json.dumps(body).encode("utf-8"),
+            headers={"Content-Type": "application/json"},
+            method="POST",
+        )
+        try:
+            with urlopen(request, timeout=self.timeout) as response:
+                data = json.loads(response.read().decode("utf-8"))
+        except HTTPError as exc:
+            detail = exc.read().decode("utf-8", errors="replace")
+            raise RuntimeError(f"Ollama HTTP error {exc.code}: {detail}") from exc
+        except URLError as exc:
+            raise RuntimeError(
+                f"Cannot reach Ollama at {self.base_url}. Ensure Ollama is running "
+                f"and `{self.model}` is installed. Details: {exc}"
+            ) from exc
+        return data.get("message", {}).get("content", "").strip()
+
+    @staticmethod
+    def _parse_and_validate(text: str) -> dict[str, Any]:
+        result = json.loads(text)
+        if not isinstance(result, dict):
+            raise ValueError("LLM response must be a JSON object")
+        required = (
+            "confidence", "evidence_confidence", "causal_confidence",
+            "supporting_facts", "contradicting_facts", "conclusion", "reasoning",
+        )
+        missing = [key for key in required if key not in result]
+        if missing:
+            raise ValueError(f"LLM JSON is missing required keys: {missing}; got {result}")
+        for key in ("confidence", "evidence_confidence", "causal_confidence"):
+            value = float(result[key])
+            if not 0.0 <= value <= 1.0:
+                raise ValueError(f"LLM returned {key} outside [0, 1]: {value}")
+            result[key] = value
+        for key in ("supporting_facts", "contradicting_facts"):
+            if not isinstance(result[key], list) or not all(
+                isinstance(item, str) for item in result[key]
+            ):
+                raise ValueError(f"LLM field {key!r} must be an array of strings")
+        for key in ("conclusion", "reasoning"):
+            if not isinstance(result[key], str):
+                raise ValueError(f"LLM field {key!r} must be a string")
+        return result
+
+    def __call__(self, service: str, bundle: dict[str, Any],
+                 ranking: list[dict[str, Any]]) -> dict[str, Any]:
+        payload = {
+            "candidate_service": service,
+            "diagnostic_bundle": bundle,
+            "initial_candidate_ranking": ranking,
+        }
+        system_prompt = """
+You are a cautious microservice root-cause investigator.
+
+Evaluate ONLY the candidate service named in the input.
+Use only the supplied diagnostic_bundle for that candidate.
+
+Rules:
+1. Do not invent metric values, anomaly scores, trends, logs, or traces.
+2. Supporting facts must be directly verifiable in the supplied evidence.
+3. Do not attribute another service's metrics to the candidate.
+4. Do not make system-wide claims from one service's data.
+5. An anomalous service is not automatically the root cause.
+6. Distinguish anomaly evidence from causal evidence.
+7. Use graph relationships only if they are explicitly present in the
+   supplied evidence.
+8. Missing evidence means unknown, not zero.
+9. If the evidence is insufficient to establish causality, state that clearly.
+10. Confidence values are subjective estimates, not calibrated probabilities.
+11. Never refer to an initial candidate ranking unless that field is present.
+
+Return the required JSON schema. Keep supporting and contradicting facts
+specific to the candidate. If evidence is insufficient, use appropriately
+low confidence and explain why.
+"""
+        user_prompt = "Investigate this candidate from the provided evidence:\n" + json.dumps(
+            payload, ensure_ascii=False
+        )
+        messages = [
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": user_prompt},
+        ]
+
+        # Retry once, giving the model the exact validation error.
+        last_error: Exception | None = None
+        for attempt in range(2):
+            text = self._request(messages)
+            try:
+                result = self._parse_and_validate(text)
+                result["source"] = f"ollama:{self.model}"
+                return result
+            except (json.JSONDecodeError, ValueError, TypeError) as exc:
+                last_error = exc
+                if attempt == 0:
+                    messages.append({
+                        "role": "assistant",
+                        "content": text or "(empty response)",
+                    })
+                    messages.append({
+                        "role": "user",
+                        "content": (
+                            f"Your previous response failed validation: {exc}. "
+                            "Return corrected JSON only, following the required schema. "
+                            "The fields confidence, evidence_confidence, and "
+                            "causal_confidence must each be JSON numbers from 0.0 "
+                            "through 1.0 inclusive. Never use percentages or values "
+                            "outside that range. Both fact fields must be arrays of "
+                            "strings; conclusion and reasoning must be strings. "
+                            "Do not return an empty object. Check every field before "
+                            "responding."
+                        ),
+                    })
+
+        raise ValueError(
+            f"Ollama model {self.model!r} returned invalid structured output after "
+            f"two attempts. Last validation error: {last_error}"
+        )
+
+
+class OpenAIInvestigator:
+    """Optional OpenAI Responses API investigator."""
+
+    def __init__(self, model: str | None = None):
+        try:
+            from openai import OpenAI
+        except ImportError as exc:
+            raise RuntimeError(
+                "Install the optional dependency with: "
+                "pip install -r requirements-llm.txt"
+            ) from exc
+        if not os.getenv("OPENAI_API_KEY"):
+            raise RuntimeError("OPENAI_API_KEY is not set.")
+        self.client = OpenAI()
+        self.model = model or os.getenv("OPENAI_MODEL", "gpt-4.1-mini")
+
+    def __call__(self, service: str, bundle: dict[str, Any],
+                 ranking: list[dict[str, Any]]) -> dict[str, Any]:
+        payload = {
+            "candidate_service": service,
+            "diagnostic_bundle": bundle,
+            "initial_candidate_ranking": ranking,
+        }
+        instructions = """
+You are a cautious microservice incident investigator. Use only supplied evidence.
+Do not assume correlation proves causation. Do not invent logs, traces, error counts,
+or dependencies. Treat missing values as unknown, not zero. Return only a JSON object
+with confidence, evidence_confidence, causal_confidence (each 0..1),
+supporting_facts (array), contradicting_facts (array), conclusion (string),
+and reasoning (string). Confidence values are subjective estimates, not calibrated
+probabilities. If evidence is insufficient, use low confidence.
+"""
+        response = self.client.responses.create(
+            model=self.model,
+            instructions=instructions,
+            input=json.dumps(payload, ensure_ascii=False),
+        )
+        text = response.output_text.strip()
+        if text.startswith("```json"):
+            text = text[7:]
+        elif text.startswith("```"):
+            text = text[3:]
+        if text.endswith("```"):
+            text = text[:-3]
+        result = json.loads(text.strip())
+        for key in ("confidence", "evidence_confidence", "causal_confidence"):
+            value = float(result[key])
+            if not 0.0 <= value <= 1.0:
+                raise ValueError(f"OpenAI returned invalid {key}: {value}")
+            result[key] = value
+        for key in ("supporting_facts", "contradicting_facts"):
+            if not isinstance(result.get(key), list):
+                raise ValueError(f"OpenAI returned invalid {key}: expected a list")
+        for key in ("conclusion", "reasoning"):
+            if not isinstance(result.get(key), str):
+                raise ValueError(f"OpenAI returned invalid {key}: expected a string")
+        result["source"] = f"openai:{self.model}"
+        return result
